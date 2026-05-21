@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bjsdyso2d4w8s"]
+
+[ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="1_yu8jd"]
+[ext_resource type="Texture2D" uid="uid://d3ox00w1cb4mj" path="res://entities/bombs/image2.png" id="2_6wbnt"]
+
+[node name="Bomb" unique_id=966582241 instance=ExtResource("1_yu8jd")]
+color = 1
+
+[node name="Sprite2D" parent="." index="1" unique_id=1452204312]
+scale = Vector2(1, 1)
+texture = ExtResource("2_6wbnt")

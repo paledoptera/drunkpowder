@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dcc133y5yv5ya"]
+
+[ext_resource type="Script" uid="uid://llc3ruxvh2jq" path="res://systems/entities/bomb.gd" id="1_i4dkq"]
+[ext_resource type="Texture2D" uid="uid://cmm4410m2cfyv" path="res://icon.svg" id="2_s2r61"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2r61"]
+radius = 8.0
+
+[node name="Bomb" type="CharacterBody2D" unique_id=966582241 node_paths=PackedStringArray("area", "sprite")]
+collision_layer = 0
+script = ExtResource("1_i4dkq")
+area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501459446]
+shape = SubResource("CircleShape2D_s2r61")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1452204312]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_s2r61")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1128813882]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=228665053]
+shape = SubResource("CircleShape2D_s2r61")
+
+[node name="Control" type="Control" parent="." unique_id=1487166693]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=429030492]
+
+[connection signal="gui_input" from="Control" to="." method="_on_gui_input"]

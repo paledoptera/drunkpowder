@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bck58lo320iqk"]
+
+[ext_resource type="PackedScene" uid="uid://1hmcpx3q23bf" path="res://systems/entities/zone.tscn" id="1_xcrse"]
+[ext_resource type="Texture2D" uid="uid://ud35e1slrr1w" path="res://entities/zones/zone3.png" id="2_q2pk4"]
+
+[node name="Blue" unique_id=241756046 instance=ExtResource("1_xcrse")]
+
+[node name="TextureRect" parent="." index="1" unique_id=105049977]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("2_q2pk4")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cnf8yv3gav21v"]
+
+[ext_resource type="Script" uid="uid://db3g5omy48fod" path="res://entities/effects/cursor_effect/cursor.gd" id="1_3tgkk"]
+[ext_resource type="Texture2D" uid="uid://coqveypva8l3o" path="res://entities/effects/cursor_effect/_res/claw-sheet.png" id="2_3tgkk"]
+
+[node name="Cursor" type="Node2D" unique_id=1688053411]
+script = ExtResource("1_3tgkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1955291693]
+texture = ExtResource("2_3tgkk")
+offset = Vector2(3, 0)
+hframes = 2

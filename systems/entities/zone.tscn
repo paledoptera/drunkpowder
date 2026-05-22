@@ -23,3 +23,7 @@ offset_top = -30.0
 offset_right = 30.0
 offset_bottom = 30.0
 texture = ExtResource("2_nqng1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2033168375]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1889376373]

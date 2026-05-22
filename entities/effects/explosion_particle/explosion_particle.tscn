@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://ypu58akmjecd"]
+
+[ext_resource type="Texture2D" uid="uid://5nn14smarhq6" path="res://entities/effects/smoke_particle/Sprite-0002.png" id="1_kjohe"]
+
+[sub_resource type="Gradient" id="Gradient_4yp8n"]
+offsets = PackedFloat32Array(0, 0.123188406, 0.45169082, 1)
+colors = PackedColorArray(1.9790094, 1.9790094, 1.9790094, 1, 1.6519369, 1.3427255, 0.233251, 1, 0.44672376, 0, 0.463739, 0.17600001, 0.21058112, 1.0047294e-06, 0.13365847, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7fciy"]
+gradient = SubResource("Gradient_4yp8n")
+
+[sub_resource type="Curve" id="Curve_umq38"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_368uk"]
+curve = SubResource("Curve_umq38")
+
+[sub_resource type="Curve" id="Curve_iahtk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gcqeu"]
+curve = SubResource("Curve_iahtk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a77dk"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 20.84
+gravity = Vector3(0, 30, 0)
+damping_min = 0.1
+damping_max = 1.0
+damping_curve = SubResource("CurveTexture_368uk")
+scale_min = 0.099999994
+scale_curve = SubResource("CurveTexture_gcqeu")
+color_ramp = SubResource("GradientTexture1D_7fciy")
+
+[node name="ExplosionParticle" type="GPUParticles2D" unique_id=504868403]
+z_index = 1
+scale = Vector2(5, 5)
+emitting = false
+amount = 50
+texture = ExtResource("1_kjohe")
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+fixed_fps = 60
+visibility_rect = Rect2(-8, -8, 16, 16)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_a77dk")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oj5t26wut7ra"
-path="res://.godot/imported/zone2.png-427dd78f7991408ac6d57bf4e0dae9d7.ctex"
+uid="uid://5nn14smarhq6"
+path="res://.godot/imported/Sprite-0002.png-ff9d15980403fc378cd099d9819445a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/zones/zone2.png"
-dest_files=["res://.godot/imported/zone2.png-427dd78f7991408ac6d57bf4e0dae9d7.ctex"]
+source_file="res://entities/effects/smoke_particle/Sprite-0002.png"
+dest_files=["res://.godot/imported/Sprite-0002.png-ff9d15980403fc378cd099d9819445a0.ctex"]
 
 [params]
 

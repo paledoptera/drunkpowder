@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bck58lo320iqk"]
 
 [ext_resource type="PackedScene" uid="uid://1hmcpx3q23bf" path="res://systems/entities/zone.tscn" id="1_xcrse"]
-[ext_resource type="Texture2D" uid="uid://ud35e1slrr1w" path="res://entities/zones/zone3.png" id="2_q2pk4"]
+[ext_resource type="Texture2D" uid="uid://ud35e1slrr1w" path="res://entities/zones/_res/blue.png" id="2_q2pk4"]
 
 [node name="Blue" unique_id=241756046 instance=ExtResource("1_xcrse")]
 

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bjsdyso2d4w8s"]
 
 [ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="1_yu8jd"]
-[ext_resource type="Texture2D" uid="uid://d3ox00w1cb4mj" path="res://entities/bombs/image2.png" id="2_6wbnt"]
+[ext_resource type="Texture2D" uid="uid://d3ox00w1cb4mj" path="res://entities/bombs/_res/red.png" id="2_6wbnt"]
 
 [node name="Bomb" unique_id=966582241 instance=ExtResource("1_yu8jd")]
 color = 1
 
-[node name="Sprite2D" parent="." index="1" unique_id=1452204312]
-scale = Vector2(1, 1)
+[node name="Sprite2D" parent="." index="2" unique_id=1452204312]
 texture = ExtResource("2_6wbnt")
+
+[node name="SmokeParticle" parent="Sprite2D" index="0" unique_id=1789729948]
+color = Color(1, 0.68865365, 0.735357, 1)

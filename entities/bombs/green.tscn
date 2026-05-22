@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://h3x2t200m6id"]
+
+[ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="1_hmwsc"]
+[ext_resource type="Texture2D" uid="uid://bipy1c5meujlj" path="res://entities/bombs/_res/green.png" id="2_hmwsc"]
+
+[node name="Bomb" unique_id=966582241 instance=ExtResource("1_hmwsc")]
+color = 2
+
+[node name="Sprite2D" parent="." index="1" unique_id=1452204312]
+texture = ExtResource("2_hmwsc")
+
+[node name="SmokeParticle" parent="Sprite2D" index="0" unique_id=1789729948]
+color = Color(0.859696, 1, 0.61055017, 1)

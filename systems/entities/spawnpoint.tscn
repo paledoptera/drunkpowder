@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cuna42kimdj6k"]
-
-[ext_resource type="Script" uid="uid://vxum8a0soyx2" path="res://systems/entities/spawnpoint.gd" id="1_vwg4m"]
-
-[node name="Spawnpoint" type="Node2D" unique_id=172747774 groups=["spawnpoint"]]
-script = ExtResource("1_vwg4m")

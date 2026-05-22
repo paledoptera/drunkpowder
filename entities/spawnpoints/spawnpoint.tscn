@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cuna42kimdj6k"]
+
+[ext_resource type="Script" uid="uid://vxum8a0soyx2" path="res://entities/spawnpoints/spawnpoint.gd" id="1_vwg4m"]
+[ext_resource type="Texture2D" uid="uid://551jgkj8ix1x" path="res://entities/spawnpoints/_res/arrow.png" id="2_im8ff"]
+
+[node name="Spawnpoint" type="Node2D" unique_id=172747774 groups=["spawnpoint"]]
+script = ExtResource("1_vwg4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998066044]
+texture = ExtResource("2_im8ff")
+offset = Vector2(0, 8.04)
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1362812502]
+position = Vector2(0, 16)
+gizmo_extents = 4.0

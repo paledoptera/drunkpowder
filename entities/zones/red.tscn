@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bd2epqwvt433b"]
 
 [ext_resource type="PackedScene" uid="uid://1hmcpx3q23bf" path="res://systems/entities/zone.tscn" id="1_j0i11"]
-[ext_resource type="Texture2D" uid="uid://bw6uvsdcreoyj" path="res://entities/zones/image.png" id="2_j0i11"]
+[ext_resource type="Texture2D" uid="uid://bw6uvsdcreoyj" path="res://entities/zones/_res/red.png" id="2_j0i11"]
 
 [node name="Red" unique_id=241756046 instance=ExtResource("1_j0i11")]
 color = 1

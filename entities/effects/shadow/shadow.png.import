@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfdtdkdu4bc1i"
-path="res://.godot/imported/claw.png-72273ec5ba37152f014e2df3174b8b9b.ctex"
+uid="uid://ddlgtlybjmu82"
+path="res://.godot/imported/shadow.png-6f709e4b4047484df030bc2fd4d0f421.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/effects/cursor_effect/_res/claw.png"
-dest_files=["res://.godot/imported/claw.png-72273ec5ba37152f014e2df3174b8b9b.ctex"]
+source_file="res://entities/effects/shadow/shadow.png"
+dest_files=["res://.godot/imported/shadow.png-6f709e4b4047484df030bc2fd4d0f421.ctex"]
 
 [params]
 

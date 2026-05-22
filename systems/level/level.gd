@@ -5,12 +5,17 @@ class_name Level
 @export var sections: Array[LevelSection]
 @export var timer: Timer
 @export var parent_bombs: Node
+@export var actions: AnimationPlayer
 
 var spawnpoints: Array[Spawnpoint]
 var zones: Array[Zone]
+var no_more_bombs: bool = false
+var ended: bool = false
 
 
 func _ready() -> void:
+	Global.level = self
+	
 	# Setting up node groups
 	for zone in get_tree().get_nodes_in_group("zone"):
 		zones.append(zone)
@@ -22,6 +27,14 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start(3.0)
 
+func _process(delta: float) -> void:
+	if ended:
+		return
+	
+	if no_more_bombs and parent_bombs.get_child_count() == 0:
+		end()
+
+	
 
 func load_level_section() -> void:
 	
@@ -36,7 +49,7 @@ func load_level_section() -> void:
 func _on_timer_timeout() -> void:
 	
 	if sections.size() == 0:
-		end()
+		no_more_bombs = true
 		return
 	
 	var section = sections[0] # Getting the first array in the queue
@@ -51,10 +64,13 @@ func _on_timer_timeout() -> void:
 		return
 	
 	var spawnpoint = spawnpoints.pick_random()
-	var bomb = section.pool.pop_front().instantiate()
+	var bomb: Bomb = section.pool.pop_front().instantiate()
 	parent_bombs.add_child(bomb)
-	bomb.global_transform = spawnpoint.global_transform
-
+	bomb.direction = spawnpoint.direction
+	bomb.speed = spawnpoint.velocity
+	bomb.global_position = spawnpoint.global_position
+	
 
 func end() -> void:
-	print("END")
+	ended = true
+	$Animations.play("end")

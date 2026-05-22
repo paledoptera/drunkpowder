@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xst75lfsmiby"
-path="res://.godot/imported/image.png-819354a4189626bc01e48bfa6ffa089c.ctex"
+uid="uid://bw6uvsdcreoyj"
+path="res://.godot/imported/red.png-6ff29f7b61c694084308334c6fb94f99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bombs/image.png"
-dest_files=["res://.godot/imported/image.png-819354a4189626bc01e48bfa6ffa089c.ctex"]
+source_file="res://entities/zones/_res/red.png"
+dest_files=["res://.godot/imported/red.png-6ff29f7b61c694084308334c6fb94f99.ctex"]
 
 [params]
 

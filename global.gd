@@ -20,5 +20,4 @@ func _process(delta: float) -> void:
 func damage(value: int) -> void:
 	health -= value
 	health = max(health,0)
-	level.actions.stop()
 	level.camera_shake(8)

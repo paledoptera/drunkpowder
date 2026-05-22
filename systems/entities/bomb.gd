@@ -32,8 +32,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	fuse_progress = move_toward(fuse_progress,0.0,delta)
-	progress.region_rect.size.y = fuse_progress/fuse*initial_progress_height
-	progress.region_rect.position.y = initial_progress_y + (initial_progress_height - fuse_progress/fuse*initial_progress_height)
+	progress.region_rect.size.y = (fuse_progress/fuse*initial_progress_height)
+	progress.region_rect.position.y = (initial_progress_y + initial_progress_height - fuse_progress/fuse*initial_progress_height)
 	progress.offset = sprite.offset
 	progress.offset.y += (initial_progress_height - fuse_progress/fuse*initial_progress_height)
 	if fuse_progress/fuse < 0.2:
@@ -106,11 +106,13 @@ func drop() -> void:
 
 
 func explode() -> void:
-	create_particle(SMOKEPUFF_SCENE)
-	create_particle(EXPLODE_SCENE,Vector2(0.0,-6.0))
-	
 	Global.score = clampi(Global.score-5,0,999999999)
 	Global.damage(1)
+	#for bomb in Global.level.parent_bombs.get_children():
+		#if bomb != self:
+			#bomb.queue_free()
+	create_particle(SMOKEPUFF_SCENE)
+	create_particle(EXPLODE_SCENE,Vector2(0.0,-6.0))
 	queue_free()
 
 func defuse(zone: Zone) -> void:
@@ -123,6 +125,7 @@ func defuse(zone: Zone) -> void:
 	defused_bomb.scale = sprite.scale
 	var neo_progress = progress.duplicate()
 	neo_progress.offset.x = 0
+	neo_progress.offset.y = int(initial_progress_height - fuse_progress/fuse*initial_progress_height)
 	defused_bomb.add_child(neo_progress)
 	defused_bomb.fuse = fuse
 	defused_bomb.fuse_progress = fuse_progress

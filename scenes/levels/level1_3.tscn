@@ -5,10 +5,7 @@
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_rt21c"]
 [ext_resource type="PackedScene" uid="uid://bjsdyso2d4w8s" path="res://entities/bombs/red.tscn" id="5_2ljqd"]
 [ext_resource type="PackedScene" uid="uid://bmiyohd2inws1" path="res://entities/bombs/blue.tscn" id="6_e0kkb"]
-[ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="7_e2yq7"]
 [ext_resource type="PackedScene" uid="uid://h3x2t200m6id" path="res://entities/bombs/green.tscn" id="8_mv1ue"]
-[ext_resource type="Texture2D" uid="uid://xst75lfsmiby" path="res://entities/bombs/_res/blue.png" id="8_tkgv8"]
-[ext_resource type="Texture2D" uid="uid://d3ox00w1cb4mj" path="res://entities/bombs/_res/red.png" id="9_wltl1"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_mv1ue"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="10_ofpqk"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_4al73"]
@@ -17,48 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="14_aphvk"]
 [ext_resource type="PackedScene" uid="uid://cls3wxswdwjfu" path="res://entities/zones/green.tscn" id="14_ibrn3"]
 
-[sub_resource type="PackedScene" id="PackedScene_ibrn3"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array()],
-"names": PackedStringArray("Bomb", "color", "Sprite2D", "scale", "texture"),
-"node_count": 2,
-"node_ids": PackedInt32Array(966582241, 1452204312),
-"node_paths": [NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 524290, -1, 2, 3, 2, 4, 3, 0),
-"variants": [ExtResource("7_e2yq7"), 1, Vector2(1, 1), ExtResource("9_wltl1")],
-"version": 3
-}
-
 [sub_resource type="Resource" id="Resource_mv1ue"]
 script = ExtResource("4_rt21c")
 amount = 5
-scene = SubResource("PackedScene_ibrn3")
+scene = ExtResource("6_e0kkb")
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="PackedScene" id="PackedScene_rt21c"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [],
-"names": PackedStringArray("Bomb", "CollisionShape2D", "Sprite2D", "texture", "CPUParticles2D", "Area2D", "Control", "AnimationPlayer"),
-"node_count": 2,
-"node_ids": PackedInt32Array(966582241, 1452204312),
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 0, 0, 2147483647, 524290, -1, 1, 3, 1, 0),
-"variants": [ExtResource("7_e2yq7"), ExtResource("8_tkgv8")],
-"version": 3
-}
 
 [sub_resource type="Resource" id="Resource_2ljqd"]
 script = ExtResource("4_rt21c")
 amount = 5
-scene = SubResource("PackedScene_rt21c")
+scene = ExtResource("5_2ljqd")
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_e0kkb"]
@@ -158,48 +123,16 @@ script = ExtResource("3_mv1ue")
 delay_between_spawns = 4.0
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="PackedScene" id="PackedScene_1xax6"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array()],
-"names": PackedStringArray("Bomb", "Sprite2D", "scale", "texture"),
-"node_count": 2,
-"node_ids": PackedInt32Array(966582241, 1452204312),
-"node_paths": [NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, -1, 2147483647, 524289, -1, 2, 2, 1, 3, 2, 0),
-"variants": [ExtResource("7_e2yq7"), Vector2(1, 1), ExtResource("8_tkgv8")],
-"version": 3
-}
-
 [sub_resource type="Resource" id="Resource_6gwlt"]
 script = ExtResource("4_rt21c")
 amount = 20
-scene = SubResource("PackedScene_1xax6")
+scene = ExtResource("6_e0kkb")
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="PackedScene" id="PackedScene_c2nc4"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array()],
-"names": PackedStringArray("Bomb", "color", "Sprite2D", "scale", "texture"),
-"node_count": 2,
-"node_ids": PackedInt32Array(966582241, 1452204312),
-"node_paths": [NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 524290, -1, 2, 3, 2, 4, 3, 0),
-"variants": [ExtResource("7_e2yq7"), 1, Vector2(1, 1), ExtResource("9_wltl1")],
-"version": 3
-}
 
 [sub_resource type="Resource" id="Resource_vhxpm"]
 script = ExtResource("4_rt21c")
 amount = 20
-scene = SubResource("PackedScene_c2nc4")
+scene = ExtResource("5_2ljqd")
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_4al73"]

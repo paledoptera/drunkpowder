@@ -265,7 +265,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5ldy"]
-size = Vector2(160, 30)
+size = Vector2(152, 22)
 
 [node name="Level" unique_id=873046396 node_paths=PackedStringArray("timer", "parent_bombs") instance=ExtResource("1_i5ldy")]
 sections = Array[ExtResource("3_qug8b")]([SubResource("Resource_plydf"), SubResource("Resource_nfihu"), SubResource("Resource_lgguw"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_jrfo0"), SubResource("Resource_db1r7"), SubResource("Resource_arkx4")])

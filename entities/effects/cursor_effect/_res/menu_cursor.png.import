@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjfbd3kepfstg"
-path="res://.godot/imported/red.png-ea8f87a324ba7155aa2cf3a613be9b90.ctex"
+uid="uid://dnjpg37spfxy2"
+path="res://.godot/imported/menu_cursor.png-78cdcba87e420d019cbb2a476489ffe2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bombs/_res/red.png"
-dest_files=["res://.godot/imported/red.png-ea8f87a324ba7155aa2cf3a613be9b90.ctex"]
+source_file="res://entities/effects/cursor_effect/_res/menu_cursor.png"
+dest_files=["res://.godot/imported/menu_cursor.png-78cdcba87e420d019cbb2a476489ffe2.ctex"]
 
 [params]
 

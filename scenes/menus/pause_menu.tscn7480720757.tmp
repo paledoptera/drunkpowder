@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://db2u8uuft5bo4"]
+
+[ext_resource type="Script" uid="uid://bcbm07ei2me01" path="res://scenes/menus/pause_menu.gd" id="1_fwndu"]
+[ext_resource type="Script" uid="uid://bbtofuh7vkqtx" path="res://scenes/menus/menu_option.gd" id="2_7unhi"]
+
+[node name="PauseMenu" type="Node2D" unique_id=1259586640]
+script = ExtResource("1_fwndu")
+
+[node name="Continue" type="Label" parent="." unique_id=171165086]
+top_level = true
+z_index = 200
+offset_left = 69.0
+offset_top = 37.0
+offset_right = 169.0
+offset_bottom = 60.0
+text = "Continue"
+script = ExtResource("2_7unhi")
+metadata/_custom_type_script = "uid://bbtofuh7vkqtx"
+
+[node name="Options" type="Label" parent="." unique_id=963218732]
+offset_left = 69.0
+offset_top = 64.0
+offset_right = 169.0
+offset_bottom = 87.0
+text = "Options"
+script = ExtResource("2_7unhi")
+metadata/_custom_type_script = "uid://bbtofuh7vkqtx"
+
+[node name="Quit" type="Label" parent="." unique_id=1069934831]
+offset_left = 69.0
+offset_top = 93.0
+offset_right = 169.0
+offset_bottom = 116.0
+text = "Quit"
+script = ExtResource("2_7unhi")
+metadata/_custom_type_script = "uid://bbtofuh7vkqtx"

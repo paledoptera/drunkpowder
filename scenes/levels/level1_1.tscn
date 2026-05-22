@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="7_qyw83"]
 [ext_resource type="Texture2D" uid="uid://xst75lfsmiby" path="res://entities/bombs/_res/blue.png" id="8_ji7x1"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="9_2roow"]
-[ext_resource type="Texture2D" uid="uid://d3ox00w1cb4mj" path="res://entities/bombs/_res/red.png" id="9_c6ci0"]
+[ext_resource type="Texture2D" uid="uid://bjfbd3kepfstg" path="res://entities/bombs/_res/red.png" id="9_c6ci0"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="10_3pwey"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_3mg8e"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="12_vyb5e"]
@@ -154,11 +154,11 @@ data_pool = Array[ExtResource("4_s7anj")]([SubResource("Resource_6gwlt"), SubRes
 delay_between_spawns = 0.88
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkeig"]
-size = Vector2(240, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2roow"]
+size = Vector2(240, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfihu"]
-size = Vector2(62, 196)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrck8"]
+size = Vector2(56, 196)
 
 [node name="Level" unique_id=873046396 node_paths=PackedStringArray("timer", "parent_bombs") instance=ExtResource("1_2roow")]
 sections = Array[ExtResource("3_mvvcc")]([SubResource("Resource_plydf"), SubResource("Resource_nfihu"), SubResource("Resource_lgguw"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_jrfo0"), SubResource("Resource_db1r7"), SubResource("Resource_arkx4")])
@@ -184,26 +184,28 @@ position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("10_3pwey")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="2" unique_id=1055372152]
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="2" unique_id=56091229]
+collision_layer = 129
+collision_mask = 129
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1359158925]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1494062798]
 position = Vector2(120, 18)
-shape = SubResource("RectangleShape2D_nkeig")
+shape = SubResource("RectangleShape2D_2roow")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=606879491]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=561352219]
 position = Vector2(120, 178)
-shape = SubResource("RectangleShape2D_nkeig")
+shape = SubResource("RectangleShape2D_2roow")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1233917382]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=474929336]
 position = Vector2(-31, 98)
-shape = SubResource("RectangleShape2D_nfihu")
+shape = SubResource("RectangleShape2D_lrck8")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=116691887]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=2037867541]
 position = Vector2(271, 98)
-shape = SubResource("RectangleShape2D_nfihu")
+shape = SubResource("RectangleShape2D_lrck8")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
 [node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]

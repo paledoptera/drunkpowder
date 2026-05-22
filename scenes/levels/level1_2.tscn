@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmiyohd2inws1" path="res://entities/bombs/blue.tscn" id="6_iiyga"]
 [ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="7_kelyw"]
 [ext_resource type="Texture2D" uid="uid://xst75lfsmiby" path="res://entities/bombs/_res/blue.png" id="8_3qqrh"]
-[ext_resource type="Texture2D" uid="uid://d3ox00w1cb4mj" path="res://entities/bombs/_res/red.png" id="9_dl7h1"]
+[ext_resource type="Texture2D" uid="uid://bjfbd3kepfstg" path="res://entities/bombs/_res/red.png" id="9_dl7h1"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_i5ldy"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="10_pd5rs"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_2ygw2"]
@@ -154,11 +154,11 @@ data_pool = Array[ExtResource("4_y5diu")]([SubResource("Resource_6gwlt"), SubRes
 delay_between_spawns = 0.88
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkeig"]
-size = Vector2(240, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1rt"]
+size = Vector2(240, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfihu"]
-size = Vector2(62, 196)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qug8b"]
+size = Vector2(56, 196)
 
 [sub_resource type="Animation" id="Animation_ko1rt"]
 length = 0.001
@@ -282,29 +282,7 @@ position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("10_pd5rs")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="1" unique_id=1055372152]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1359158925]
-position = Vector2(120, 18)
-shape = SubResource("RectangleShape2D_nkeig")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=606879491]
-position = Vector2(120, 178)
-shape = SubResource("RectangleShape2D_nkeig")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1233917382]
-position = Vector2(-31, 98)
-shape = SubResource("RectangleShape2D_nfihu")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=116691887]
-position = Vector2(271, 98)
-shape = SubResource("RectangleShape2D_nfihu")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="ColorRect" type="TextureRect" parent="Background" index="2" unique_id=1013067490]
+[node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=1013067490]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
 offset_top = 36.0
 offset_right = 240.0
@@ -312,6 +290,30 @@ offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("10_i5ldy")
 stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="2" unique_id=1750212520]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1221557702]
+position = Vector2(120, 18)
+shape = SubResource("RectangleShape2D_ko1rt")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=1686507217]
+position = Vector2(120, 178)
+shape = SubResource("RectangleShape2D_ko1rt")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=394583985]
+position = Vector2(-31, 98)
+shape = SubResource("RectangleShape2D_qug8b")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=719768283]
+position = Vector2(271, 98)
+shape = SubResource("RectangleShape2D_qug8b")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
 [node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
 

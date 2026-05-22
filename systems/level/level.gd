@@ -7,6 +7,7 @@ class_name Level
 @export var parent_bombs: Node
 @export var actions: AnimationPlayer
 @onready var camera : Camera2D = $CameraPivot/Camera2D
+@onready var cursor : Node = $Cursor
 
 var spawnpoints: Array[Spawnpoint]
 var zones: Array[Zone]
@@ -28,7 +29,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start(3.0)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ui_label.text = "Score: "+str(Global.score*10) + "\n"
 	ui_label.text += "HP: "+str(Global.health)
 	if ended:
@@ -36,8 +37,6 @@ func _process(delta: float) -> void:
 	
 	if no_more_bombs and parent_bombs.get_child_count() == 0:
 		end()
-
-	
 
 func load_level_section() -> void:
 	

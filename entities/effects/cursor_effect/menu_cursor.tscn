@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c4g0bbs38pbmg"]
+
+[ext_resource type="Script" uid="uid://db3g5omy48fod" path="res://entities/effects/cursor_effect/cursor.gd" id="1_3lrox"]
+[ext_resource type="Texture2D" uid="uid://dnjpg37spfxy2" path="res://entities/effects/cursor_effect/_res/menu_cursor.png" id="2_3lrox"]
+
+[node name="Cursor" type="Node2D" unique_id=1688053411]
+script = ExtResource("1_3lrox")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1417351752]
+z_index = 4096
+z_as_relative = false
+texture = ExtResource("2_3lrox")
+centered = false
+offset = Vector2(-2, -2)

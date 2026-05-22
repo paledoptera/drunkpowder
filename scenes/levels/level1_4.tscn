@@ -145,11 +145,11 @@ data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_6gwlt"), SubRes
 delay_between_spawns = 0.7
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkeig"]
-size = Vector2(240, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1womr"]
+size = Vector2(240, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfihu"]
-size = Vector2(62, 196)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i63tj"]
+size = Vector2(56, 196)
 
 [sub_resource type="Animation" id="Animation_ko1rt"]
 length = 0.001
@@ -290,26 +290,28 @@ position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("11_3d8b1")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="2" unique_id=1055372152]
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="2" unique_id=1845243788]
+collision_layer = 129
+collision_mask = 129
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1359158925]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1645517936]
 position = Vector2(120, 18)
-shape = SubResource("RectangleShape2D_nkeig")
+shape = SubResource("RectangleShape2D_1womr")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=606879491]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=1728234073]
 position = Vector2(120, 178)
-shape = SubResource("RectangleShape2D_nkeig")
+shape = SubResource("RectangleShape2D_1womr")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1233917382]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1337467757]
 position = Vector2(-31, 98)
-shape = SubResource("RectangleShape2D_nfihu")
+shape = SubResource("RectangleShape2D_i63tj")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=116691887]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=699327742]
 position = Vector2(271, 98)
-shape = SubResource("RectangleShape2D_nfihu")
+shape = SubResource("RectangleShape2D_i63tj")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
 [node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=2120049199]

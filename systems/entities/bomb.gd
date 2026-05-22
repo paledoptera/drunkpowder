@@ -7,24 +7,44 @@ const SMOKEPUFF_SCENE = preload("uid://bgwfebdgtnu3v")
 
 @export var area: Area2D
 @export var sprite: Sprite2D
+@onready var progress : Sprite2D = $Sprite2D/Progress
 @export var color: Global.COLOR_ENUM
 @export var fuse: float = 10.0
 
 var direction : Vector2
 var speed : float = 50.0
 var speed_mult: float = 1.0
+@onready var fuse_progress : float = fuse
 
 var held: bool = false
 var held_offset := Vector2.ZERO
 var area_inside: Area2D
 var rotate_sign: int = 1
 
+var initial_progress_height : int
+var initial_progress_y : int
+var flash_count : int
+
 func _ready() -> void:
 	rotate_sign = [-1,1].pick_random()
+	initial_progress_height = progress.region_rect.size.y
+	initial_progress_y = progress.region_rect.position.y
 
 func _physics_process(delta: float) -> void:
-	fuse = move_toward(fuse,0.0,delta)
-	if fuse <= 0.0:
+	fuse_progress = move_toward(fuse_progress,0.0,delta)
+	progress.region_rect.size.y = fuse_progress/fuse*initial_progress_height
+	progress.region_rect.position.y = initial_progress_y + (initial_progress_height - fuse_progress/fuse*initial_progress_height)
+	progress.offset = sprite.offset
+	progress.offset.y += (initial_progress_height - fuse_progress/fuse*initial_progress_height)
+	if fuse_progress/fuse < 0.2:
+		if flash_count == 0:
+			flash_count = 3
+			if sprite.modulate == Color.WHITE:
+				sprite.modulate = Color.YELLOW
+			else:
+				sprite.modulate = Color.WHITE
+		else: flash_count -= 1
+	if fuse_progress <= 0.0:
 		explode()
 		return
 	
@@ -89,6 +109,7 @@ func explode() -> void:
 	create_particle(SMOKEPUFF_SCENE)
 	create_particle(EXPLODE_SCENE,Vector2(0.0,-6.0))
 	
+	Global.score = clampi(Global.score-5,0,999999999)
 	Global.damage(1)
 	queue_free()
 
@@ -97,7 +118,14 @@ func defuse(zone: Zone) -> void:
 	zone.add_child(defused_bomb)
 	defused_bomb.global_transform = global_transform
 	defused_bomb.texture = sprite.texture
+	defused_bomb.hframes = sprite.hframes
+	defused_bomb.frame = sprite.frame
 	defused_bomb.scale = sprite.scale
+	var neo_progress = progress.duplicate()
+	neo_progress.offset.x = 0
+	defused_bomb.add_child(neo_progress)
+	defused_bomb.fuse = fuse
+	defused_bomb.fuse_progress = fuse_progress
 	queue_free()
 
 func create_particle(particle: PackedScene, offset:= Vector2.ZERO) -> void:

@@ -6,8 +6,13 @@
 [node name="Bomb" unique_id=966582241 instance=ExtResource("1_hmwsc")]
 color = 2
 
-[node name="Sprite2D" parent="." index="1" unique_id=1452204312]
+[node name="Sprite2D" parent="." index="2" unique_id=1452204312]
 texture = ExtResource("2_hmwsc")
 
-[node name="SmokeParticle" parent="Sprite2D" index="0" unique_id=1789729948]
+[node name="Progress" parent="Sprite2D" index="0" unique_id=1231568079]
+position = Vector2(-6, -6)
+texture = ExtResource("2_hmwsc")
+region_rect = Rect2(2, 2, 12, 13)
+
+[node name="SmokeParticle" parent="Sprite2D" index="1" unique_id=1789729948]
 color = Color(0.859696, 1, 0.61055017, 1)

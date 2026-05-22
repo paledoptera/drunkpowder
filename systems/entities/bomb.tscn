@@ -112,6 +112,12 @@ texture = ExtResource("2_7ulnv")
 shape = SubResource("CircleShape2D_s2r61")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1452204312]
+hframes = 2
+frame = 1
+
+[node name="Progress" type="Sprite2D" parent="Sprite2D" unique_id=1231568079]
+centered = false
+region_enabled = true
 
 [node name="SmokeParticle" parent="Sprite2D" unique_id=1789729948 instance=ExtResource("2_j3d1m")]
 position = Vector2(0, -6)

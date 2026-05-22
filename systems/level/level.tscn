@@ -93,8 +93,9 @@ _data = {
 &"start": SubResource("Animation_jprdt")
 }
 
-[node name="Level" type="Node2D" unique_id=873046396 node_paths=PackedStringArray("actions")]
+[node name="Level" type="Node2D" unique_id=873046396 node_paths=PackedStringArray("ui_label", "actions")]
 script = ExtResource("1_8xjlc")
+ui_label = NodePath("CameraPivot/Camera2D/Label")
 actions = NodePath("Actions")
 
 [node name="CameraPivot" type="Node2D" parent="." unique_id=429022513]
@@ -103,6 +104,16 @@ position = Vector2(120, 80)
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=809897051]
 rotation = -3.1415925
 zoom = Vector2(1.0118415, 1.0118415)
+
+[node name="Label" type="Label" parent="CameraPivot/Camera2D" unique_id=403635167]
+offset_left = 117.000015
+offset_top = 76.999985
+offset_right = 223.33315
+offset_bottom = 125.999985
+scale = Vector2(-1, -1)
+theme_override_font_sizes/font_size = 8
+text = "Score:
+HP:"
 
 [node name="Actions" type="AnimationPlayer" parent="." unique_id=291484428]
 libraries/ = SubResource("AnimationLibrary_8u3oo")

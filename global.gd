@@ -8,7 +8,7 @@ var level_num: int = 1
 var health_max: int = 3
 var health: int
 
-
+var score : int
 
 func _ready() -> void:
 	health = health_max
@@ -21,4 +21,4 @@ func damage(value: int) -> void:
 	health -= value
 	health = max(health,0)
 	level.actions.stop()
-	level.actions.play("camera_shake")
+	level.camera_shake(8)

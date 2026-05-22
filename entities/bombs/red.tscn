@@ -9,5 +9,10 @@ color = 1
 [node name="Sprite2D" parent="." index="2" unique_id=1452204312]
 texture = ExtResource("2_6wbnt")
 
-[node name="SmokeParticle" parent="Sprite2D" index="0" unique_id=1789729948]
+[node name="Progress" parent="Sprite2D" index="0" unique_id=1231568079]
+position = Vector2(-3, -6)
+texture = ExtResource("2_6wbnt")
+region_rect = Rect2(7, 4, 6, 8)
+
+[node name="SmokeParticle" parent="Sprite2D" index="1" unique_id=1789729948]
 color = Color(1, 0.68865365, 0.735357, 1)

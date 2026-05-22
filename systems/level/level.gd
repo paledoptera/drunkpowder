@@ -1,11 +1,12 @@
 extends Node2D
 class_name Level
 
-
+@export var ui_label : Label
 @export var sections: Array[LevelSection]
 @export var timer: Timer
 @export var parent_bombs: Node
 @export var actions: AnimationPlayer
+@onready var camera : Camera2D = $CameraPivot/Camera2D
 
 var spawnpoints: Array[Spawnpoint]
 var zones: Array[Zone]
@@ -28,6 +29,8 @@ func _ready() -> void:
 	timer.start(3.0)
 
 func _process(delta: float) -> void:
+	ui_label.text = "Score: "+str(Global.score*10) + "\n"
+	ui_label.text += "HP: "+str(Global.health)
 	if ended:
 		return
 	
@@ -70,6 +73,14 @@ func _on_timer_timeout() -> void:
 	bomb.speed = spawnpoint.velocity
 	bomb.global_position = spawnpoint.global_position
 	
+
+func camera_shake(length:int=4):
+	while length > 0:
+		camera.offset = Vector2i(randi_range(-length*2,length*2),randi_range(-length,length))
+		length -= 1
+		await get_tree().process_frame
+		await get_tree().process_frame
+	camera.offset = Vector2.ZERO
 
 func end() -> void:
 	ended = true

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxk3tkd4qbgvo"]
+
+[ext_resource type="PackedScene" uid="uid://cqpms1sg3jqih" path="res://systems/entities/bomb_defused.tscn" id="1_dbape"]
+[ext_resource type="Script" uid="uid://b5fnildnumgvv" path="res://entities/bombs/colorswapper/colorswapper_defused.gd" id="2_eshkp"]
+[ext_resource type="Texture2D" uid="uid://dirc3j176fkye" path="res://entities/bombs/_res/colorswapper.png" id="3_3wt7v"]
+
+[node name="ColorswapperDefused" unique_id=1452204312 node_paths=PackedStringArray("emblem") instance=ExtResource("1_dbape")]
+script = ExtResource("2_eshkp")
+emblem = NodePath("ColorswapEmblem")
+
+[node name="ColorswapEmblem" type="Sprite2D" parent="." index="3" unique_id=792666144]
+z_index = 1
+position = Vector2(0, -3)
+texture = ExtResource("3_3wt7v")
+
+[node name="ReFuseTimer" type="Timer" parent="." index="4" unique_id=1110250061]
+one_shot = true
+
+[connection signal="timeout" from="ReFuseTimer" to="." method="_on_re_fuse_timer_timeout"]

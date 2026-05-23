@@ -5,17 +5,17 @@
 
 [node name="Bomb" unique_id=966582241 instance=ExtResource("1_cil4v")]
 
-[node name="Sprite2D2" parent="." index="0" unique_id=1947372494]
+[node name="Shadow" parent="." index="1" unique_id=1947372494]
 position = Vector2(0, 1)
 scale = Vector2(1.25, 1)
 
-[node name="Sprite2D" parent="." index="2" unique_id=1452204312]
+[node name="BombSprite" parent="." index="2" unique_id=1452204312]
 texture = ExtResource("2_2ux18")
 
-[node name="Progress" parent="Sprite2D" index="0" unique_id=1231568079]
+[node name="ProgressSprite" parent="BombSprite" index="0" unique_id=1231568079]
 position = Vector2(-6, -6)
 texture = ExtResource("2_2ux18")
 region_rect = Rect2(4, 4, 12, 6)
 
-[node name="SmokeParticle" parent="Sprite2D" index="1" unique_id=1789729948]
+[node name="SmokeParticle" parent="BombSprite" index="1" unique_id=1789729948]
 color = Color(0.62131935, 1, 1, 1)

@@ -12,7 +12,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("BombSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/path = NodePath("BombSprite:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:skew")
+tracks/2/path = NodePath("BombSprite:skew")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -53,7 +53,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("BombSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +65,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/path = NodePath("BombSprite:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -77,7 +77,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:skew")
+tracks/2/path = NodePath("BombSprite:skew")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -97,30 +97,31 @@ _data = {
 &"spawn": SubResource("Animation_j3d1m")
 }
 
-[node name="Bomb" type="CharacterBody2D" unique_id=966582241 node_paths=PackedStringArray("area", "sprite")]
+[node name="Bomb" type="CharacterBody2D" unique_id=966582241 node_paths=PackedStringArray("area", "sprite", "progress")]
 collision_layer = 0
 collision_mask = 129
 script = ExtResource("1_i4dkq")
 area = NodePath("Area2D")
-sprite = NodePath("Sprite2D")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1947372494]
-modulate = Color(1, 1, 1, 0.358)
-show_behind_parent = true
-texture = ExtResource("2_7ulnv")
+sprite = NodePath("BombSprite")
+progress = NodePath("BombSprite/ProgressSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501459446]
 shape = SubResource("CircleShape2D_s2r61")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1452204312]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1947372494]
+modulate = Color(1, 1, 1, 0.358)
+show_behind_parent = true
+texture = ExtResource("2_7ulnv")
+
+[node name="BombSprite" type="Sprite2D" parent="." unique_id=1452204312]
 hframes = 2
 frame = 1
 
-[node name="Progress" type="Sprite2D" parent="Sprite2D" unique_id=1231568079]
+[node name="ProgressSprite" type="Sprite2D" parent="BombSprite" unique_id=1231568079]
 centered = false
 region_enabled = true
 
-[node name="SmokeParticle" parent="Sprite2D" unique_id=1789729948 instance=ExtResource("2_j3d1m")]
+[node name="SmokeParticle" parent="BombSprite" unique_id=1789729948 instance=ExtResource("2_j3d1m")]
 position = Vector2(0, -6)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1128813882]

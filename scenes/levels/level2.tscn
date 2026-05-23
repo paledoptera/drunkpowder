@@ -423,6 +423,9 @@ offset_top = -15.0
 offset_right = 80.0
 offset_bottom = 15.0
 
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-80, -15, 80, -14, 80, 15, -80, 15, -80, 11, 76, 11, 76, -11, -76, -11, -76, 11, -80, 11)
+
 [node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("13_h22eu")]
 position = Vector2(80, 145)
 
@@ -434,6 +437,9 @@ offset_left = -80.0
 offset_top = -15.0
 offset_right = 80.0
 offset_bottom = 15.0
+
+[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" parent_id_path=PackedInt32Array(1407830815, 2033168375) index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-80, -15, 80, -14, 80, 15, -80, 15, -80, 11, 76, 11, 76, -11, -76, -11, -76, 11, -80, 11)
 
 [editable path="Zones/Blue"]
 [editable path="Zones/Red"]

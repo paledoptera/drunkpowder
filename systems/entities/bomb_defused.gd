@@ -1,6 +1,7 @@
 extends Sprite2D
 class_name BombDefused
 
+var color : Global.COLOR_ENUM
 var fuse : float = 10.0
 var fuse_progress : float = 10.0
 

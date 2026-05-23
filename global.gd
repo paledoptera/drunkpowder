@@ -16,6 +16,7 @@ var pause_menu : Node
 var display: Node
 var current_scene: Node
 var level_screen_open: bool = false
+var level_colors: int = 0
 
 func _ready() -> void:
 	await get_tree().process_frame

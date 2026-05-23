@@ -9,6 +9,7 @@ const LEVEL_SCENES = [
 	preload("uid://c06lcbdnm8ndj"), # level2.tscn
 	preload("uid://bqwop3lig75a8"), # level3.tscn
 	preload("uid://duq3jaaounanm"), # level4.tscn
+	preload("uid://8mjrn4s6y11c"), #level5.tscn
 ]
 
 func _ready() -> void:
@@ -31,5 +32,7 @@ func _on_play_pressed() -> void:
 
 func _on_level_button_pressed(node: Node) -> void:
 	var level_num = int(node.name)
+	if level_num > LEVEL_SCENES.size():
+		return
 	
 	Global.goto_scene(LEVEL_SCENES[level_num-1])

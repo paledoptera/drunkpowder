@@ -232,6 +232,7 @@ libraries/ = SubResource("AnimationLibrary_vudbd")
 
 [node name="LevelScreen" type="ScrollContainer" parent="." unique_id=953486520]
 clip_children = 1
+clip_contents = false
 offset_top = 160.0
 offset_right = 240.0
 offset_bottom = 320.0
@@ -241,7 +242,7 @@ vertical_scroll_mode = 2
 scroll_hint_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="LevelScreen" unique_id=43227279]
-custom_minimum_size = Vector2(224, 430)
+custom_minimum_size = Vector2(224, 528)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -267,7 +268,7 @@ offset_top = 13.0
 offset_right = 206.0
 offset_bottom = 133.0
 
-[node name="Title" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1092247019]
+[node name="Title1" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1092247019]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_ugfu2")
 theme_override_font_sizes/font_size = 30
@@ -299,6 +300,120 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_ugfu2")
 theme_override_font_sizes/font_size = 18
 text = "4. Carousel"
+alignment = 0
+
+[node name="Title2" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1963000186]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_ugfu2")
+theme_override_font_sizes/font_size = 30
+text = "Mixed Drinks"
+
+[node name="5" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1057002605]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "5. Swappers"
+alignment = 0
+
+[node name="6" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=425105222]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "6. Trifecta"
+alignment = 0
+
+[node name="7" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=494214177]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "7. Four Corners"
+alignment = 0
+
+[node name="8" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1028917079]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "8. Rainbow"
+alignment = 0
+
+[node name="Title3" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1608097496]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_ugfu2")
+theme_override_font_sizes/font_size = 30
+text = "Heavy Hitters"
+
+[node name="9" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=71018239]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "9. Fireworks"
+alignment = 0
+
+[node name="10" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=568923418]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "10. Hot Potato"
+alignment = 0
+
+[node name="11" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1650557797]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "11. Roman Candle"
+alignment = 0
+
+[node name="12" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2106104858]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "12. Floor is Lava"
+alignment = 0
+
+[node name="Title4" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1227070906]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_ugfu2")
+theme_override_font_sizes/font_size = 30
+text = "Special Orders"
+
+[node name="13" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=355120309]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "13. Flashbangs"
+alignment = 0
+
+[node name="14" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=244267254]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "14. Pick a Card"
+alignment = 0
+
+[node name="15" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=801684572]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "15. Ferris Wheel"
+alignment = 0
+
+[node name="16" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1714188836]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+theme_override_fonts/font = SubResource("FontVariation_ugfu2")
+theme_override_font_sizes/font_size = 18
+text = "16. Drunkpowder"
 alignment = 0
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]

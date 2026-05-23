@@ -5,6 +5,7 @@ const BOMBS = [
 	preload("uid://bmiyohd2inws1"), #blue.tscn
 	preload("uid://bjsdyso2d4w8s"), #red.tscn
 	preload("uid://h3x2t200m6id"), #green.tscn
+	preload("uid://cfe64yq8hvuuq"), #colorswapper.tscn
 ]
 
 @export var ui_label : Label
@@ -28,8 +29,11 @@ func _ready() -> void:
 	Global.ui_cursor.hide()
 	
 	# Setting up node groups
+	Global.level_colors = -1
 	for zone in get_tree().get_nodes_in_group("zone"):
 		zones.append(zone)
+		if zone.color > Global.level_colors:
+			Global.level_colors = zone.color
 	
 	for spawnpoint in get_tree().get_nodes_in_group("spawnpoint"):
 		spawnpoints.append(spawnpoint)
@@ -76,6 +80,9 @@ func load_level_section() -> void:
 func clear_board() -> void:
 	for i in zones:
 		for e in i.get_children():
+			if e is ColorswapperDefused:
+				continue
+			
 			if e is BombDefused:
 				e.queue_free()
 

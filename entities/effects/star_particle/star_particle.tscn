@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dc8f55vdbb1oo"]
+
+[ext_resource type="Texture2D" uid="uid://80kfuahuyb8p" path="res://entities/effects/star_particle/Sprite-0010.png" id="1_jl5j0"]
+
+[sub_resource type="Curve" id="Curve_7ulnv"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.31196576, 62.656116), 202.63103, 202.63103, 0, 0, Vector2(1, 100), 14.229724, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_jl5j0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9688312, 0.87710077), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vuhii"]
+offsets = PackedFloat32Array(0, 0.11051213, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1.6524299, 1.6524299, 1.6524299, 1, 0, 0, 0, 0)
+
+[node name="SmokeParticle" type="CPUParticles2D" unique_id=1789729948]
+show_behind_parent = true
+z_index = 1
+scale = Vector2(3, 3)
+amount = 10
+texture = ExtResource("1_jl5j0")
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.3
+explosiveness = 1.0
+randomness = 0.4
+local_coords = true
+direction = Vector2(0, -20)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+angular_velocity_min = -400.0
+angular_velocity_max = 400.0
+linear_accel_min = 10.0
+linear_accel_max = 500.0
+damping_min = 5.0
+damping_max = 5.0
+damping_curve = SubResource("Curve_7ulnv")
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_jl5j0")
+color_ramp = SubResource("Gradient_vuhii")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

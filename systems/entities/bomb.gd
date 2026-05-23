@@ -1,13 +1,14 @@
 class_name Bomb
 extends CharacterBody2D
 
-const DEFUSED_SCENE = preload("uid://cqpms1sg3jqih")
+
 const EXPLODE_SCENE = preload("uid://ypu58akmjecd")
 const SMOKEPUFF_SCENE = preload("uid://bgwfebdgtnu3v")
+var DEFUSED_SCENE = preload("uid://cqpms1sg3jqih")
 
 @export var area: Area2D
 @export var sprite: Sprite2D
-@onready var progress : Sprite2D = $Sprite2D/Progress
+@export var progress : Sprite2D
 @export var color: Global.COLOR_ENUM
 @export var fuse: float = 10.0
 
@@ -25,6 +26,8 @@ var initial_progress_height : int
 var initial_progress_position : Vector2
 var initial_progress_y : int
 var flash_count : int
+
+var defused_bomb: Node
 
 func _ready() -> void:
 	rotate_sign = [-1,1].pick_random()
@@ -110,8 +113,11 @@ func drop() -> void:
 			if area.color == color:
 				defuse(area)
 			else:
-				explode()
-			
+				dropped_in_wrong_area()
+
+
+func dropped_in_wrong_area():
+	explode()
 
 
 func explode() -> void:
@@ -125,8 +131,9 @@ func explode() -> void:
 	queue_free()
 
 func defuse(zone: Zone) -> void:
-	var defused_bomb = DEFUSED_SCENE.instantiate()
+	defused_bomb = DEFUSED_SCENE.instantiate()
 	zone.add_child(defused_bomb)
+	defused_bomb.color = color
 	defused_bomb.global_position = ceil(global_position)
 	defused_bomb.texture = sprite.texture
 	defused_bomb.hframes = sprite.hframes
@@ -141,7 +148,7 @@ func defuse(zone: Zone) -> void:
 	defused_bomb.add_child(neo_progress)
 	defused_bomb.fuse = fuse
 	defused_bomb.fuse_progress = fuse_progress
-	queue_free()
+	call_deferred("queue_free")
 
 func create_particle(particle: PackedScene, offset:= Vector2.ZERO) -> void:
 	var inst = particle.instantiate()

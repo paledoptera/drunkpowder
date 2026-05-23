@@ -12,6 +12,9 @@ func _ready() -> void:
 
 func _on_re_fuse_timer_timeout() -> void:
 	
+	if Global.level.ended:
+		return
+	
 	var new_bomb = load("uid://cfe64yq8hvuuq").instantiate()
 	new_bomb.last_color = int(color)
 	Global.level.parent_bombs.add_child(new_bomb)

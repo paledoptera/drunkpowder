@@ -128,6 +128,7 @@ func explode() -> void:
 			#bomb.queue_free()
 	create_particle(SMOKEPUFF_SCENE)
 	create_particle(EXPLODE_SCENE,Vector2(0.0,-6.0))
+	Global.level.reset_fuses()
 	queue_free()
 
 func defuse(zone: Zone) -> void:

@@ -115,7 +115,7 @@ func drop() -> void:
 
 
 func explode() -> void:
-	Global.score = clampi(Global.score-5,0,999999999)
+	Global.score = clampi(Global.score-20,0,999999999)
 	Global.damage(1)
 	#for bomb in Global.level.parent_bombs.get_children():
 		#if bomb != self:

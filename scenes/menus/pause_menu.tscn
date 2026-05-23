@@ -45,3 +45,4 @@ script = ExtResource("2_7unhi")
 metadata/_custom_type_script = "uid://bbtofuh7vkqtx"
 
 [connection signal="clicked" from="Continue" to="." method="_on_continue_clicked"]
+[connection signal="clicked" from="Quit" to="." method="_on_quit_clicked"]

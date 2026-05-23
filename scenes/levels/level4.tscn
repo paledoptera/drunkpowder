@@ -3,146 +3,70 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_etasl"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_go002"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_u0bhu"]
-[ext_resource type="PackedScene" uid="uid://h3x2t200m6id" path="res://entities/bombs/green.tscn" id="8_5hi3v"]
-[ext_resource type="PackedScene" uid="uid://bmiyohd2inws1" path="res://entities/bombs/blue.tscn" id="9_a0101"]
-[ext_resource type="PackedScene" uid="uid://bjsdyso2d4w8s" path="res://entities/bombs/red.tscn" id="10_egxtj"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_etasl"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="11_3d8b1"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="12_lijuj"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="13_v4vd8"]
 [ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="14_hyuqe"]
 [ext_resource type="PackedScene" uid="uid://cls3wxswdwjfu" path="res://entities/zones/green.tscn" id="15_lyoh4"]
-[ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="16_k78og"]
 
 [sub_resource type="Resource" id="Resource_mv1ue"]
 script = ExtResource("4_u0bhu")
 amount = 5
-scene = ExtResource("10_egxtj")
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_2ljqd"]
 script = ExtResource("4_u0bhu")
 amount = 5
-scene = ExtResource("9_a0101")
+bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_e0kkb"]
 script = ExtResource("4_u0bhu")
-scene = ExtResource("8_5hi3v")
+amount = 5
+bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
-[sub_resource type="Resource" id="Resource_e2yq7"]
+[sub_resource type="Resource" id="Resource_4vryo"]
 resource_name = "Intro"
 script = ExtResource("3_go002")
 data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_mv1ue"), SubResource("Resource_2ljqd"), SubResource("Resource_e0kkb")])
-delay_between_spawns = 2.0
+delay_between_spawns = 1.5
+spawn_mode = 1
+await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_nfihu"]
 resource_name = "Break"
 script = ExtResource("3_go002")
+refresh_board = true
+level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_nkeig"]
 script = ExtResource("4_u0bhu")
-scene = ExtResource("9_a0101")
+amount = 8
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_jprdt"]
 script = ExtResource("4_u0bhu")
-scene = ExtResource("10_egxtj")
+amount = 8
+bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_rt21c"]
 script = ExtResource("4_u0bhu")
-scene = ExtResource("8_5hi3v")
+amount = 8
+bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
-[sub_resource type="Resource" id="Resource_tkgv8"]
+[sub_resource type="Resource" id="Resource_g1ckg"]
 resource_name = "Medium"
 script = ExtResource("3_go002")
 data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_nkeig"), SubResource("Resource_jprdt"), SubResource("Resource_rt21c")])
-delay_between_spawns = 1.2
-metadata/_custom_type_script = "uid://cxrs7e5mafahr"
-
-[sub_resource type="Resource" id="Resource_sbmf2"]
-script = ExtResource("4_u0bhu")
-scene = ExtResource("9_a0101")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_1xax6"]
-script = ExtResource("4_u0bhu")
-scene = ExtResource("10_egxtj")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_wltl1"]
-script = ExtResource("4_u0bhu")
-scene = ExtResource("8_5hi3v")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_ps2vj"]
-resource_name = "Fast"
-script = ExtResource("3_go002")
-data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_wltl1")])
-metadata/_custom_type_script = "uid://cxrs7e5mafahr"
-
-[sub_resource type="Resource" id="Resource_g7tkf"]
-resource_name = "LongerBreak"
-script = ExtResource("3_go002")
-delay_between_spawns = 2.0
-metadata/_custom_type_script = "uid://cxrs7e5mafahr"
-
-[sub_resource type="Resource" id="Resource_4fww7"]
-script = ExtResource("4_u0bhu")
-amount = 2
-scene = ExtResource("9_a0101")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_gvm5i"]
-script = ExtResource("4_u0bhu")
-amount = 2
-scene = ExtResource("10_egxtj")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_ofpqk"]
-script = ExtResource("4_u0bhu")
-amount = 2
-scene = ExtResource("8_5hi3v")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_jrfo0"]
-resource_name = "Rapid"
-script = ExtResource("3_go002")
-data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_4fww7"), SubResource("Resource_gvm5i"), SubResource("Resource_ofpqk")])
-delay_between_spawns = 0.05
-metadata/_custom_type_script = "uid://cxrs7e5mafahr"
-
-[sub_resource type="Resource" id="Resource_db1r7"]
-resource_name = "ExtraLongBreak"
-script = ExtResource("3_go002")
-delay_between_spawns = 4.0
-metadata/_custom_type_script = "uid://cxrs7e5mafahr"
-
-[sub_resource type="Resource" id="Resource_6gwlt"]
-script = ExtResource("4_u0bhu")
-scene = ExtResource("9_a0101")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_vhxpm"]
-script = ExtResource("4_u0bhu")
-scene = ExtResource("10_egxtj")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_4al73"]
-script = ExtResource("4_u0bhu")
-scene = ExtResource("8_5hi3v")
-metadata/_custom_type_script = "uid://clavaqhijyeeg"
-
-[sub_resource type="Resource" id="Resource_y84es"]
-resource_name = "Fast"
-script = ExtResource("3_go002")
-data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_6gwlt"), SubResource("Resource_vhxpm"), SubResource("Resource_4al73")])
-delay_between_spawns = 0.7
+delay_between_spawns = 1.0
+spawn_mode = 1
+await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1womr"]
@@ -266,15 +190,10 @@ func _physics_process(delta: float) -> void:
 	rotate(0.4*delta)
 "
 
-[node name="Level" unique_id=873046396 node_paths=PackedStringArray("timer", "parent_bombs") instance=ExtResource("1_etasl")]
-sections = Array[ExtResource("3_go002")]([SubResource("Resource_e2yq7"), SubResource("Resource_nfihu"), SubResource("Resource_tkgv8"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_jrfo0"), SubResource("Resource_db1r7"), SubResource("Resource_y84es")])
-timer = NodePath("Timer")
-parent_bombs = NodePath("Bombs")
+[node name="Level" unique_id=873046396 instance=ExtResource("1_etasl")]
+sections = Array[ExtResource("3_go002")]([SubResource("Resource_4vryo"), SubResource("Resource_nfihu"), SubResource("Resource_g1ckg"), SubResource("Resource_nfihu")])
 
-[node name="Timer" type="Timer" parent="." index="1" unique_id=1025894025]
-one_shot = true
-
-[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
+[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="0" unique_id=414186318]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
@@ -314,7 +233,7 @@ position = Vector2(271, 98)
 shape = SubResource("RectangleShape2D_i63tj")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=2120049199]
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=2120049199]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spawnpoints" index="0" unique_id=566599711]
 libraries/ = SubResource("AnimationLibrary_5sjjt")
@@ -345,7 +264,7 @@ loop = false
 rotation = 3.1415927
 velocity = 100.0
 
-[node name="Zones" type="Node2D" parent="." index="4" unique_id=1627028995]
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1627028995]
 
 [node name="Red" parent="Zones" index="0" unique_id=1407830815 instance=ExtResource("14_hyuqe")]
 position = Vector2(120.00001, 77)
@@ -384,7 +303,7 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 
-[node name="Carousel" type="Node2D" parent="." index="5" unique_id=584441020]
+[node name="Carousel" type="Node2D" parent="." index="4" unique_id=584441020]
 position = Vector2(120, 109)
 rotation = 6.2831855
 script = SubResource("GDScript_etasl")
@@ -416,11 +335,6 @@ position = Vector2(0, -32)
 remote_path = NodePath("../../../../Zones/Blue")
 update_rotation = false
 update_scale = false
-
-[node name="Bombs" type="Node2D" parent="." index="6" unique_id=846036303]
-y_sort_enabled = true
-
-[node name="Cursor" parent="." index="7" unique_id=1688053411 instance=ExtResource("16_k78og")]
 
 [editable path="Zones/Red"]
 [editable path="Zones/Blue"]

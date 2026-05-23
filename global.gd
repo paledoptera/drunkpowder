@@ -13,8 +13,18 @@ var score : int
 var paused : bool = false
 var ui_cursor : Node
 var pause_menu : Node
+var display: Node
+var current_scene: Node
+var level_screen_open: bool = false
 
 func _ready() -> void:
+	await get_tree().process_frame
+	display = Node.new()
+	display.name = "Display"
+	current_scene = get_tree().current_scene
+	get_tree().root.add_child(display)
+	current_scene.reparent(display)
+	
 	health = health_max
 	var temp = load("res://entities/effects/cursor_effect/menu_cursor.tscn")
 	ui_cursor = temp.instantiate()
@@ -46,6 +56,7 @@ func toggle_pause():
 		ui_cursor.show()
 		ui_cursor.update()
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		pause_menu.global_position = current_scene.get_viewport().get_camera_2d().get_screen_center_position()-Vector2(240/2,160/2)
 		pause_menu.show()
 		pause_menu.process_mode = Node.PROCESS_MODE_INHERIT
 	else:
@@ -62,3 +73,13 @@ func damage(value: int) -> void:
 	health -= value
 	health = max(health,0)
 	level.camera_shake(8)
+	level.actions.stop()
+	level.actions.play("camera_shake")
+
+func goto_scene(new_scene:PackedScene) -> Node:
+	current_scene.queue_free()
+	await current_scene.tree_exited
+	var scene := new_scene.instantiate()
+	display.add_child(scene)
+	current_scene = scene
+	return scene

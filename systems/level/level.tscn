@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cj45w1r8yi8q7"]
 
 [ext_resource type="Script" uid="uid://btpt5lcggvs51" path="res://systems/level/level.gd" id="1_8xjlc"]
+[ext_resource type="Script" uid="uid://c2bnm1b3662wp" path="res://scenes/levels/bombs.gd" id="2_kqcy0"]
+[ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="3_viu5s"]
 
 [sub_resource type="Animation" id="Animation_kqcy0"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraPivot/Camera2D:offset")
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +25,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraPivot/Camera2D:offset")
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,10 +95,15 @@ _data = {
 &"start": SubResource("Animation_jprdt")
 }
 
-[node name="Level" type="Node2D" unique_id=873046396 node_paths=PackedStringArray("ui_label", "actions")]
+[node name="Level" type="Node2D" unique_id=873046396 node_paths=PackedStringArray("ui_label", "timer", "parent_bombs", "actions")]
 script = ExtResource("1_8xjlc")
 ui_label = NodePath("CameraPivot/Camera2D/Label")
+timer = NodePath("Timer")
+parent_bombs = NodePath("Bombs")
 actions = NodePath("Actions")
+
+[node name="Timer" type="Timer" parent="." unique_id=1536030849]
+one_shot = true
 
 [node name="CameraPivot" type="Node2D" parent="." unique_id=429022513]
 position = Vector2(120, 80)
@@ -115,9 +122,15 @@ theme_override_font_sizes/font_size = 8
 text = "Score:
 HP:"
 
+[node name="Bombs" type="Node2D" parent="." unique_id=1464511498]
+y_sort_enabled = true
+script = ExtResource("2_kqcy0")
+
 [node name="Actions" type="AnimationPlayer" parent="." unique_id=291484428]
 libraries/ = SubResource("AnimationLibrary_8u3oo")
 
 [node name="Animations" type="AnimationPlayer" parent="." unique_id=1796224555]
 libraries/ = SubResource("AnimationLibrary_8xjlc")
 autoplay = &"start"
+
+[node name="Cursor" parent="." unique_id=1688053411 instance=ExtResource("3_viu5s")]

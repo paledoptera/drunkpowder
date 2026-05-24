@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cjo832qg38kfr"]
+
+[ext_resource type="PackedScene" uid="uid://1hmcpx3q23bf" path="res://systems/entities/zone.tscn" id="1_0rfi6"]
+[ext_resource type="Texture2D" uid="uid://ck2g0cppjpon4" path="res://entities/zones/_res/purple.png" id="2_0rfi6"]
+
+[node name="Purple" unique_id=241756046 instance=ExtResource("1_0rfi6")]
+color = 3
+
+[node name="TextureRect" parent="." index="1" unique_id=105049977]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("2_0rfi6")

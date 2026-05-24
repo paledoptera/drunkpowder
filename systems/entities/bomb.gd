@@ -63,6 +63,8 @@ func _physics_process(delta: float) -> void:
 	
 	if not held:
 		move(delta)
+		if global_position.x < -10 or global_position.x > 250 or global_position.y < -10 or global_position.y > 170:
+			explode()
 		return
 	else:
 		drag(delta)

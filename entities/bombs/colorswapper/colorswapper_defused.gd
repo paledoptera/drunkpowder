@@ -14,6 +14,9 @@ func _on_re_fuse_timer_timeout() -> void:
 	
 	if Global.level.ended:
 		return
+	if global_position.x < 0 or global_position.x > 240:
+		$ReFuseTimer.start(randf_range(5.0,20.0))
+		return
 	
 	var new_bomb = load("uid://cfe64yq8hvuuq").instantiate()
 	new_bomb.last_color = int(color)

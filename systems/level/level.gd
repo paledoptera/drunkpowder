@@ -96,7 +96,8 @@ func clear_board() -> void:
 			if e is BombDefused:
 				e.z_index = 2
 				var pick : int = -160 if e.global_position.x < 120 else 160
-				tween.tween_property(e,"position",e.position + Vector2(pick,0),randf_range(0.6,1.6))
+				tween.tween_property(e,"global_position",e.global_position + Vector2(pick,0),randf_range(0.6,1.6))
+				tween.tween_property(e,"modulate", Color.TRANSPARENT,1.8)
 	await tween.finished
 	for i in zones:
 		for e in i.get_children():

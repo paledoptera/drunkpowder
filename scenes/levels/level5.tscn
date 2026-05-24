@@ -177,10 +177,10 @@ sections = Array[ExtResource("2_lsgss")]([SubResource("Resource_pm1y0"), SubReso
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=92387489]
-offset_top = -41.0
+[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=635809843]
+offset_top = -54.0
 offset_right = 239.0
-offset_bottom = 76.0
+offset_bottom = 63.0
 texture = ExtResource("4_vnf24")
 expand_mode = 2
 

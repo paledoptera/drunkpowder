@@ -325,7 +325,6 @@ alignment = 0
 
 [node name="7" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=494214177]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
 theme_override_fonts/font = SubResource("FontVariation_ugfu2")
 theme_override_font_sizes/font_size = 18
 text = "7. Four Corners"

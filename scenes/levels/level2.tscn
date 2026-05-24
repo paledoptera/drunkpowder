@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_i5ldy"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_qug8b"]
+[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_b0vvs"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_y5diu"]
+[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="7_oyk6k"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_i5ldy"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="10_pd5rs"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_2ygw2"]
@@ -339,12 +341,20 @@ sections = Array[ExtResource("3_qug8b")]([SubResource("Resource_plydf"), SubReso
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
-[node name="Bartender" type="Sprite2D" parent="Background" index="0" unique_id=381782793]
+[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1432110057]
+offset_top = -54.0
+offset_right = 239.0
+offset_bottom = 63.0
+texture = ExtResource("4_b0vvs")
+expand_mode = 2
+
+[node name="Bartender" type="Sprite2D" parent="Background" index="1" unique_id=381782793]
+z_index = 1
 position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("10_pd5rs")
 
-[node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=1013067490]
+[node name="ColorRect" type="TextureRect" parent="Background" index="2" unique_id=1013067490]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
 offset_top = 36.0
 offset_right = 240.0
@@ -353,7 +363,16 @@ mouse_filter = 2
 texture = ExtResource("10_i5ldy")
 stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="2" unique_id=1750212520]
+[node name="Edge" type="TextureRect" parent="Background" index="3" unique_id=522970712]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 36.0
+mouse_filter = 2
+texture = ExtResource("7_oyk6k")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=1750212520]
 collision_layer = 129
 collision_mask = 129
 

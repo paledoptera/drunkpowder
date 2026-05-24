@@ -25,7 +25,7 @@ var rotate_sign: int = 1
 var initial_progress_height : int
 var initial_progress_position : Vector2
 var initial_progress_y : int
-var flash_count : int
+var i_count : int
 
 var defused_bomb: Node
 
@@ -43,17 +43,21 @@ func _physics_process(delta: float) -> void:
 	progress.offset = sprite.offset
 	progress.offset.y += (initial_progress_height - progress.region_rect.size.y)
 	if fuse_progress/fuse < 0.2:
-		if flash_count == 0:
-			flash_count = 3
+		if i_count == 0:
+			Audio.play_sfx(load("res://sfx/snd_warning.ogg"),true)
 			if sprite.modulate == Color.WHITE:
 				sprite.modulate = Color.YELLOW
 			else:
 				sprite.modulate = Color.WHITE
-		else: flash_count -= 1
+	else:
+		sprite.modulate = Color.WHITE
+	if i_count == 0:
+		i_count = 6
+		Audio.play_sfx(load("res://sfx/Sssss.ogg"),true)
+	else: i_count -= 1
 	if fuse_progress <= 0.0:
 		explode()
 		return
-	
 	direction = direction.normalized()
 	
 	
@@ -83,7 +87,7 @@ func drag(delta) -> void:
 	
 	if not area.has_overlapping_areas():
 		if move_and_collide(Vector2.ZERO):
-			explode()
+			drop()
 	
 
 
@@ -128,10 +132,12 @@ func explode() -> void:
 			#bomb.queue_free()
 	create_particle(SMOKEPUFF_SCENE)
 	create_particle(EXPLODE_SCENE,Vector2(0.0,-6.0))
+	Audio.play_sfx(load("res://sfx/Box Explosion.ogg"))
 	Global.level.reset_fuses()
 	queue_free()
 
 func defuse(zone: Zone) -> void:
+	Audio.play_sfx(load("res://sfx/Thud 2.wav")).pitch_scale = randf_range(0.8,1.2)
 	defused_bomb = DEFUSED_SCENE.instantiate()
 	zone.add_child(defused_bomb)
 	defused_bomb.color = color

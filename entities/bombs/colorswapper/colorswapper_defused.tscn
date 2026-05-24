@@ -10,7 +10,7 @@ emblem = NodePath("ColorswapEmblem")
 
 [node name="ColorswapEmblem" type="Sprite2D" parent="." index="3" unique_id=792666144]
 z_index = 1
-position = Vector2(0, -3)
+position = Vector2(0, -12)
 texture = ExtResource("3_3wt7v")
 
 [node name="ReFuseTimer" type="Timer" parent="." index="4" unique_id=1110250061]

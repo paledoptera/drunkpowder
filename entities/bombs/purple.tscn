@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cnxcau5dihmjd"]
+
+[ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="1_x4k4h"]
+[ext_resource type="Texture2D" uid="uid://dld4drbhx0eyk" path="res://entities/bombs/_res/purple.png" id="2_x4k4h"]
+
+[node name="Bomb" unique_id=966582241 instance=ExtResource("1_x4k4h")]
+color = 3
+
+[node name="BombSprite" parent="." index="2" unique_id=1452204312]
+texture = ExtResource("2_x4k4h")
+
+[node name="ProgressSprite" parent="BombSprite" index="0" unique_id=1231568079]
+position = Vector2(-4, -7)
+texture = ExtResource("2_x4k4h")
+region_rect = Rect2(6, 3, 8, 13)
+
+[node name="SmokeParticle" parent="BombSprite" index="1" unique_id=1789729948]
+color = Color(0.88949996, 0.49, 1, 1)

@@ -13,6 +13,7 @@ func _ready() -> void:
 		$Label.self_modulate = Color.YELLOW
 		if ceili(fuse_progress) == fuse:
 			$Label.text += "\nPERFECT!"
+			Audio.play_sfx(load("res://sfx/sWalkMetal3.wav"))
 			#Global.level.camera_shake(2)
 		Global.score += ceili(fuse_progress)
 	else:

@@ -1,7 +1,14 @@
 extends Node
 
-enum COLOR_ENUM {BLUE, RED, GREEN}
-const COLOR = [Color("6a98ff"), Color("ff4d3c"), Color("00ff09")]
+enum COLOR_ENUM {BLUE, RED, GREEN, PURPLE}
+#const COLOR = [Color("6a98ff"), Color("ff4d3c"), Color("00ff09")]
+
+var music_volume : int = 2:
+	set(value):
+		music_volume = clamp(value,0,4)
+var sfx_volume : int = 4:
+	set(value):
+		sfx_volume = clamp(value,0,4)
 
 var level: Level
 var level_num: int = 1

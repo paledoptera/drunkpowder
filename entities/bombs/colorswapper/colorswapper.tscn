@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="1_uffw2"]
 [ext_resource type="Script" uid="uid://c3i0d0kw2473o" path="res://entities/bombs/colorswapper/colorswapper.gd" id="2_co7xk"]
-[ext_resource type="Texture2D" uid="uid://bipy1c5meujlj" path="res://entities/bombs/_res/green.png" id="3_ql0ne"]
+[ext_resource type="Texture2D" uid="uid://xst75lfsmiby" path="res://entities/bombs/_res/blue.png" id="3_co7xk"]
 [ext_resource type="Texture2D" uid="uid://dirc3j176fkye" path="res://entities/bombs/_res/colorswapper.png" id="4_co7xk"]
 
 [node name="Colorswapper" unique_id=966582241 node_paths=PackedStringArray("emblem") instance=ExtResource("1_uffw2")]
@@ -12,16 +12,16 @@ color = 1
 fuse = 15.0
 
 [node name="BombSprite" parent="." index="2" unique_id=1452204312]
-texture = ExtResource("3_ql0ne")
+texture = ExtResource("3_co7xk")
 
 [node name="ProgressSprite" parent="BombSprite" index="0" unique_id=1231568079]
-position = Vector2(-3, -6)
-texture = ExtResource("3_ql0ne")
-region_rect = Rect2(7, 4, 6, 8)
+position = Vector2(-6, -7)
+texture = ExtResource("3_co7xk")
+region_rect = Rect2(4, 3, 12, 13)
 
 [node name="SmokeParticle" parent="BombSprite" index="1" unique_id=1789729948]
 color = Color(1, 0.49, 0.49849987, 1)
 
 [node name="ColorswapEmblem" type="Sprite2D" parent="BombSprite" index="2" unique_id=1728258130]
-position = Vector2(0, 3)
+position = Vector2(0, -12)
 texture = ExtResource("4_co7xk")

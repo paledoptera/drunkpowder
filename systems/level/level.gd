@@ -5,10 +5,12 @@ const BOMBS = [
 	preload("uid://bmiyohd2inws1"), #blue.tscn
 	preload("uid://bjsdyso2d4w8s"), #red.tscn
 	preload("uid://h3x2t200m6id"), #green.tscn
+	preload("res://entities/bombs/purple.tscn"), #purple.tscn
 	preload("uid://cfe64yq8hvuuq"), #colorswapper.tscn
 ]
 
-@export var ui_label : Label
+@export var ui_label : RichTextLabel
+@onready var ui_shadow : RichTextLabel = $CameraPivot/Camera2D/Label/Shadow
 @export var sections: Array[LevelSection]
 @export var timer: Timer
 @export var parent_bombs: Node
@@ -51,8 +53,9 @@ func _ready() -> void:
 		
 
 func _process(_delta: float) -> void:
-	ui_label.text = "Score: "+str(Global.score*10) + "\n"
-	ui_label.text += "HP: "+str(Global.health)
+	ui_label.text = "[color=yellow]Score [/color]"+str(Global.score*10) + "\n"
+	ui_shadow.text = ui_label.text
+	#ui_label.text += "HP: "+str(Global.health)
 	if ended:
 		return
 
@@ -78,11 +81,25 @@ func load_level_section() -> void:
 	print("Section ", section, "loaded!")
 
 func clear_board() -> void:
+	await get_tree().create_timer(0.6).timeout
+	Audio.play_sfx(load("res://sfx/QuestCompleteSoundSingle.wav"))
+	await get_tree().create_timer(0.6).timeout
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_parallel()
 	for i in zones:
 		for e in i.get_children():
 			if e is ColorswapperDefused:
 				continue
-			
+			if e is BombDefused:
+				var pick : int = -160 if e.global_position.x < 120 else 160
+				tween.tween_property(e,"position",e.position + Vector2(pick,0),randf_range(0.6,1.6))
+	await tween.finished
+	for i in zones:
+		for e in i.get_children():
+			if e is ColorswapperDefused:
+				continue
 			if e is BombDefused:
 				e.queue_free()
 
@@ -134,6 +151,7 @@ func _on_timer_timeout() -> void:
 		# If current section wants to clear the board, clear the board
 		if sections[0].refresh_board:
 			clear_board()
+			await get_tree().create_timer(3).timeout
 
 	timer.start(sections[0].delay_between_spawns)
 
@@ -157,4 +175,4 @@ func reset_fuses():
 	for i in parent_bombs.get_children():
 		if i is not Bomb:
 			continue
-		i.fuse_progress = i.fuse
+		i.fuse_progress = clamp(i.fuse_progress+i.fuse/3.0,0,i.fuse)

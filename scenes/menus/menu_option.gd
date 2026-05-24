@@ -10,6 +10,8 @@ signal clicked
 @export var selected_offset : Vector2 = Vector2.ZERO
 @export var deselected_offset : Vector2 = Vector2.ZERO
 
+@export var hover_sound : AudioStream 
+
 var default_position : Vector2
 
 func _ready() -> void:
@@ -47,6 +49,7 @@ func _process(_delta: float) -> void:
 func on_mouse_entered():
 	modulate = selected_modulation
 	position = default_position + selected_offset
+	if hover_sound != null: Audio.play_sfx(hover_sound)
 	
 func on_mouse_exited():
 	modulate = deselected_modulation

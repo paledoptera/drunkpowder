@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6qwyf5dj7rk8"
+path="res://.godot/imported/Box Explosion.ogg-500dcfa9c1044385b98df6f90c227748.oggvorbisstr"
+
+[deps]
+
+source_file="res://sfx/Box Explosion.ogg"
+dest_files=["res://.godot/imported/Box Explosion.ogg-500dcfa9c1044385b98df6f90c227748.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xst75lfsmiby" path="res://entities/bombs/_res/blue.png" id="1_12rc0"]
 [ext_resource type="Script" uid="uid://bcace55kw55wo" path="res://systems/entities/bomb_defused.gd" id="2_wnhfj"]
 [ext_resource type="Texture2D" uid="uid://ddlgtlybjmu82" path="res://entities/effects/shadow/shadow.png" id="3_12rc0"]
+[ext_resource type="FontFile" uid="uid://cayc6lxiefo78" path="res://shared/fonts/Early GameBoy.ttf" id="4_j387j"]
 
 [sub_resource type="Animation" id="Animation_wnhfj"]
 length = 0.001
@@ -113,5 +114,6 @@ offset_left = -20.0
 offset_top = -13.0
 offset_right = 20.0
 offset_bottom = 10.0
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("4_j387j")
+theme_override_font_sizes/font_size = 7
 text = "+00"

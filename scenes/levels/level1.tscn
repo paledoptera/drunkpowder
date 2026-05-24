@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_mvvcc"]
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_plydf"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_s7anj"]
+[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_5ntmo"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="9_2roow"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="10_3pwey"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_3mg8e"]
@@ -136,10 +137,10 @@ sections = Array[ExtResource("3_mvvcc")]([SubResource("Resource_plydf"), SubReso
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=92387489]
-offset_top = -41.0
+[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1383891158]
+offset_top = -54.0
 offset_right = 239.0
-offset_bottom = 76.0
+offset_bottom = 63.0
 texture = ExtResource("4_plydf")
 expand_mode = 2
 
@@ -152,12 +153,21 @@ mouse_filter = 2
 texture = ExtResource("9_2roow")
 stretch_mode = 1
 
-[node name="Bartender" type="Sprite2D" parent="Background" index="2" unique_id=381782793]
+[node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=1450653542]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 36.0
+mouse_filter = 2
+texture = ExtResource("6_5ntmo")
+stretch_mode = 1
+
+[node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
 position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("10_3pwey")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="3" unique_id=56091229]
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=56091229]
 collision_layer = 129
 collision_mask = 129
 

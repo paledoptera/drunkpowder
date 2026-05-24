@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cj45w1r8yi8q7"]
 
 [ext_resource type="Script" uid="uid://btpt5lcggvs51" path="res://systems/level/level.gd" id="1_8xjlc"]
+[ext_resource type="FontFile" uid="uid://cayc6lxiefo78" path="res://shared/fonts/Early GameBoy.ttf" id="2_8u3oo"]
 [ext_resource type="Script" uid="uid://c2bnm1b3662wp" path="res://scenes/levels/bombs.gd" id="2_kqcy0"]
 [ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="3_viu5s"]
 
@@ -112,15 +113,29 @@ position = Vector2(120, 80)
 rotation = -3.1415925
 zoom = Vector2(1.0118415, 1.0118415)
 
-[node name="Label" type="Label" parent="CameraPivot/Camera2D" unique_id=403635167]
-offset_left = 117.000015
-offset_top = 76.999985
-offset_right = 223.33315
-offset_bottom = 125.999985
+[node name="Label" type="RichTextLabel" parent="CameraPivot/Camera2D" unique_id=1029735772]
+offset_left = 110.000015
+offset_top = 74.999985
+offset_right = 216.33315
+offset_bottom = 123.999985
 scale = Vector2(-1, -1)
-theme_override_font_sizes/font_size = 8
-text = "Score:
-HP:"
+theme_override_fonts/normal_font = ExtResource("2_8u3oo")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "Score"
+
+[node name="Shadow" type="RichTextLabel" parent="CameraPivot/Camera2D/Label" unique_id=828640891]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 1.0000076
+offset_top = 0.9999995
+offset_right = 107.33313
+offset_bottom = 50.0
+theme_override_fonts/normal_font = ExtResource("2_8u3oo")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "Score"
 
 [node name="Bombs" type="Node2D" parent="." unique_id=1464511498]
 y_sort_enabled = true

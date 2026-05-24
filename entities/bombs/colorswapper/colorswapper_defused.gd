@@ -19,6 +19,7 @@ func _on_re_fuse_timer_timeout() -> void:
 	new_bomb.last_color = int(color)
 	Global.level.parent_bombs.add_child(new_bomb)
 	new_bomb.global_position = global_position
+	Audio.play_sfx(load("res://sfx/sPalantaFirework.wav"))
 	
 	var particle = load("uid://dc8f55vdbb1oo").instantiate()
 	new_bomb.add_child(particle)

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cv0gs621cnjor"]
+
+[ext_resource type="Texture2D" uid="uid://baqk51uhmklkm" path="res://entities/hazards/_res/yellow.png" id="1_yp257"]
+[ext_resource type="Script" uid="uid://cyk6gjnxrbw2m" path="res://entities/hazards/bumpers.gd" id="2_4nnuv"]
+
+[node name="Bumpers" type="NinePatchRect" unique_id=1998952315]
+offset_right = 80.0
+offset_bottom = 16.0
+texture = ExtResource("1_yp257")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("2_4nnuv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=429786033]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1169493752]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bmt5iamide7d3"]
+
+[ext_resource type="Script" uid="uid://vxum8a0soyx2" path="res://entities/spawnpoints/spawnpoint.gd" id="1_kg7h7"]
+[ext_resource type="Texture2D" uid="uid://551jgkj8ix1x" path="res://entities/spawnpoints/_res/arrow.png" id="2_lr66x"]
+
+[node name="HazardSpawnpoint" type="Node2D" unique_id=172747774 groups=["hazard_spawnpoint"]]
+script = ExtResource("1_kg7h7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998066044]
+modulate = Color(0.84058106, 0, 0.1008186, 1)
+texture = ExtResource("2_lr66x")
+offset = Vector2(0, 8.04)
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D" unique_id=1362812502]
+position = Vector2(0, 16)
+gizmo_extents = 4.0

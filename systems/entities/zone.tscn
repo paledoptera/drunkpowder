@@ -50,7 +50,7 @@ visible = false
 polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30, -30, 26, 26, 26, 26, -26, -26, -26, -26, 26, -30, 26)
 
 [node name="IgnitionTimer" type="Timer" parent="." unique_id=1570960540]
-wait_time = 7.5
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="IgnitionTimer" to="." method="_on_ignition_timer_timeout"]

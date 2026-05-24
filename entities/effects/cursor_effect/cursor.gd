@@ -18,3 +18,11 @@ func update():
 		$Sprite2D.frame = 1
 	else:
 		$Sprite2D.frame = 0
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area is Fireball:
+		if Global.holding_item:
+			Global.holding_item.explode()
+		area.destroy()

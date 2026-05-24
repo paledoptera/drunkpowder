@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://db3g5omy48fod" path="res://entities/effects/cursor_effect/cursor.gd" id="1_3tgkk"]
 [ext_resource type="Texture2D" uid="uid://coqveypva8l3o" path="res://entities/effects/cursor_effect/_res/cursor.png" id="2_3tgkk"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3tgkk"]
+
 [node name="Cursor" type="Node2D" unique_id=1688053411]
 script = ExtResource("1_3tgkk")
 
@@ -12,3 +14,13 @@ z_as_relative = false
 texture = ExtResource("2_3tgkk")
 offset = Vector2(3, 0)
 hframes = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1575938281]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1568505270]
+position = Vector2(4, 1)
+shape = SubResource("CircleShape2D_3tgkk")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

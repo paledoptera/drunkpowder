@@ -15,7 +15,7 @@ const LEVEL_SCENES = [
 	preload("res://scenes/levels/level8.tscn"), #level8.tscn
 	preload("uid://vrgfxo1eskhc"), #level9.tscn
 	preload("uid://cqwj1yfg2pkb8"), #level10.tscn
-	null,
+	preload("uid://bu7kjeieqj426"), #level11.tscn
 	null,
 	null,
 	null,

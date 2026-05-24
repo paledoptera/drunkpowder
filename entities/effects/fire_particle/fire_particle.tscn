@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dc3fwdtj1hyaj"]
+
+[ext_resource type="Texture2D" uid="uid://bbuccjvwt3vkh" path="res://entities/hazards/_res/fireball.png" id="1_spk12"]
+
+[sub_resource type="Curve" id="Curve_7ulnv"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.31196576, 62.656116), 202.63103, 202.63103, 0, 0, Vector2(1, 100), 14.229724, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_rasgh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40170938, 0.621149), -2.2060657, -2.2060657, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_qrkqn"]
+offsets = PackedFloat32Array(0, 0.35309973, 0.6226415, 1)
+colors = PackedColorArray(2.9610486, 2.9610486, 2.9610486, 1, 1.0473454, 1.0473454, 1.0473454, 1, 0.6562619, 0.151463, 0.4062398, 1, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_vxa0p"]
+colors = PackedColorArray(1.2476258, 0.7866599, 1.0581573, 1, 1, 1, 1, 1)
+
+[node name="FireParticle" type="CPUParticles2D" unique_id=1025432948]
+show_behind_parent = true
+z_index = 1
+emitting = false
+amount = 20
+texture = ExtResource("1_spk12")
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.6
+explosiveness = 1.0
+randomness = 0.4
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -200)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+linear_accel_min = -500.0
+linear_accel_max = -500.0
+damping_min = 20.0
+damping_max = 20.0
+damping_curve = SubResource("Curve_7ulnv")
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_rasgh")
+color_ramp = SubResource("Gradient_qrkqn")
+color_initial_ramp = SubResource("Gradient_vxa0p")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

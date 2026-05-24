@@ -44,10 +44,9 @@ data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_s4x5n")])
 spawn_mode = 2
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="Resource" id="Resource_nfihu"]
+[sub_resource type="Resource" id="Resource_1se4v"]
 resource_name = "Break"
 script = ExtResource("2_8kjvp")
-refresh_board = true
 level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -103,6 +102,13 @@ spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
+[sub_resource type="Resource" id="Resource_nfihu"]
+resource_name = "Break"
+script = ExtResource("2_8kjvp")
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
 [sub_resource type="Resource" id="Resource_sbmf2"]
 script = ExtResource("3_bu22b")
 amount = 3
@@ -142,10 +148,16 @@ spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
+[sub_resource type="Resource" id="Resource_634p2"]
+script = ExtResource("3_bu22b")
+amount = 2
+bomb_type = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
 [sub_resource type="Resource" id="Resource_sqrei"]
 resource_name = "Fast2"
 script = ExtResource("2_8kjvp")
-data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6")])
+data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_634p2")])
 delay_between_spawns = 0.44
 spawn_mode = 1
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -168,6 +180,12 @@ data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_b4tpv"), SubRes
 delay_between_spawns = 0.44
 spawn_mode = 2
 await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_ysxgg"]
+resource_name = "Break"
+script = ExtResource("2_8kjvp")
+level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_yhrca"]
@@ -247,6 +265,14 @@ data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_45jfw"), SubRes
 delay_between_spawns = 0.1
 spawn_mode = 2
 await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_21itu"]
+resource_name = "Break"
+script = ExtResource("2_8kjvp")
+await_board_clear = true
+refresh_board = true
+level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1rt"]
@@ -360,13 +386,14 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5ldy"]
-size = Vector2(152, 22)
+size = Vector2(130, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4x5n"]
 size = Vector2(32, 32)
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_s4x5n")]
-sections = Array[ExtResource("2_8kjvp")]([SubResource("Resource_plydf"), SubResource("Resource_8kjvp"), SubResource("Resource_nfihu"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_6sre3"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_nfihu"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_nfihu"), SubResource("Resource_b3p8y"), SubResource("Resource_nfihu"), SubResource("Resource_ida7w"), SubResource("Resource_nfihu"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_nfihu")])
+sections = Array[ExtResource("2_8kjvp")]([SubResource("Resource_plydf"), SubResource("Resource_8kjvp"), SubResource("Resource_1se4v"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_6sre3"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_nfihu"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_ysxgg"), SubResource("Resource_b3p8y"), SubResource("Resource_nfihu"), SubResource("Resource_ida7w"), SubResource("Resource_nfihu"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_21itu")])
+number = null
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
@@ -441,7 +468,7 @@ progress = 12.0
 loop = false
 
 [node name="Spawnpoint" parent="Spawnpoints/LeftPath/PathFollow2D" index="0" unique_id=172747774 instance=ExtResource("8_21itu")]
-velocity = 100.0
+velocity = 200.0
 
 [node name="RightPath" type="Path2D" parent="Spawnpoints" index="2" unique_id=1712615983]
 position = Vector2(228, 0)
@@ -455,7 +482,7 @@ loop = false
 
 [node name="Spawnpoint2" parent="Spawnpoints/RightPath/PathFollow2D" index="0" unique_id=1910062797 instance=ExtResource("8_21itu")]
 rotation = 3.1415927
-velocity = 100.0
+velocity = 200.0
 
 [node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
@@ -466,13 +493,19 @@ position = Vector2(120, 48)
 shape = SubResource("RectangleShape2D_i5ldy")
 
 [node name="TextureRect" parent="Zones/Blue" index="1" unique_id=105049977]
-offset_left = -80.0
+offset_left = -69.0
 offset_top = -15.0
-offset_right = 80.0
+offset_right = 69.0
 offset_bottom = 15.0
 
-[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
-polygon = PackedVector2Array(-80, -15, 80, -14, 80, 15, -80, 15, -80, 11, 76, 11, 76, -11, -76, -11, -76, 11, -80, 11)
+[node name="StaticBody2D" parent="Zones/Blue" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-69, -15, 69, -15, 69, 15, -69, 15, -69, 11, 65, 11, 65, -11, -65, -11, -65, 11, -69, 11)
+
+[node name="IgnitionTimer" parent="Zones/Blue" index="3" unique_id=1570960540]
+wait_time = 7.5
 
 [node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("10_w4xpj")]
 position = Vector2(120, 142)
@@ -481,13 +514,19 @@ position = Vector2(120, 142)
 shape = SubResource("RectangleShape2D_i5ldy")
 
 [node name="TextureRect" parent="Zones/Red" index="1" unique_id=105049977]
-offset_left = -80.0
+offset_left = -69.0
 offset_top = -15.0
-offset_right = 80.0
+offset_right = 69.0
 offset_bottom = 15.0
 
-[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" parent_id_path=PackedInt32Array(1407830815, 2033168375) index="0" unique_id=1283301792]
-polygon = PackedVector2Array(-80, -15, 80, -14, 80, 15, -80, 15, -80, 11, 76, 11, 76, -11, -76, -11, -76, 11, -80, 11)
+[node name="StaticBody2D" parent="Zones/Red" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-69, -15, 69, -15, 69, 15, -69, 15, -69, 11, 65, 11, 65, -11, -65, -11, -65, 11, -69, 11)
+
+[node name="IgnitionTimer" parent="Zones/Red" index="3" unique_id=1570960540]
+wait_time = 7.5
 
 [node name="Red1" parent="Zones" index="2" unique_id=1595040607 instance=ExtResource("10_w4xpj")]
 position = Vector2(219, 139)
@@ -507,6 +546,9 @@ visible = true
 [node name="CollisionPolygon2D" parent="Zones/Red1/StaticBody2D" index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
 
+[node name="IgnitionTimer" parent="Zones/Red1" index="3" unique_id=1570960540]
+wait_time = 7.5
+
 [node name="Red2" parent="Zones" index="3" unique_id=1744461388 instance=ExtResource("10_w4xpj")]
 position = Vector2(20, 139)
 
@@ -524,6 +566,9 @@ visible = true
 
 [node name="CollisionPolygon2D" parent="Zones/Red2/StaticBody2D" index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="IgnitionTimer" parent="Zones/Red2" index="3" unique_id=1570960540]
+wait_time = 7.5
 
 [node name="Blue1" parent="Zones" index="4" unique_id=1078378786 instance=ExtResource("9_x1flq")]
 position = Vector2(20, 54)
@@ -544,6 +589,9 @@ visible = true
 [node name="CollisionPolygon2D" parent="Zones/Blue1/StaticBody2D" index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
 
+[node name="IgnitionTimer" parent="Zones/Blue1" index="3" unique_id=1570960540]
+wait_time = 7.5
+
 [node name="Blue2" parent="Zones" index="5" unique_id=119856625 instance=ExtResource("9_x1flq")]
 position = Vector2(218, 54)
 scale = Vector2(0.99999994, 0.99999994)
@@ -562,6 +610,9 @@ visible = true
 
 [node name="CollisionPolygon2D" parent="Zones/Blue2/StaticBody2D" index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="IgnitionTimer" parent="Zones/Blue2" index="3" unique_id=1570960540]
+wait_time = 7.5
 
 [editable path="Zones/Blue"]
 [editable path="Zones/Red"]

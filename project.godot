@@ -47,6 +47,7 @@ folder_colors={
 
 spawnpoint=""
 zone=""
+hazard_spawnpoint=""
 
 [input]
 

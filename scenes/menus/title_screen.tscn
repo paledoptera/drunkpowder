@@ -354,7 +354,6 @@ alignment = 0
 
 [node name="10" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=568923418]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
 theme_override_fonts/font = SubResource("FontVariation_ugfu2")
 theme_override_font_sizes/font_size = 18
 text = "10. Hot Potato"
@@ -362,10 +361,9 @@ alignment = 0
 
 [node name="11" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1650557797]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
 theme_override_fonts/font = SubResource("FontVariation_ugfu2")
 theme_override_font_sizes/font_size = 18
-text = "11. Roman Candle"
+text = "11. Bubbling Crucible"
 alignment = 0
 
 [node name="12" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2106104858]

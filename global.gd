@@ -17,6 +17,7 @@ var level: Level
 var level_num: int = 1
 var health_max: int = 3
 var health: int
+var holding_item: Node
 
 var score : int
 

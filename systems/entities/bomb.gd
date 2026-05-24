@@ -105,6 +105,7 @@ func pick_up(offset: Vector2) -> void:
 	held = true
 	held_offset = offset
 	$AnimationPlayer.play("pick_up")
+	Global.holding_item = self
 
 func drop() -> void:
 	
@@ -115,12 +116,14 @@ func drop() -> void:
 	set_collision_mask_value(1, true)
 	$AnimationPlayer.play_backwards("pick_up")
 	$AnimationPlayer.queue("move")
+	Global.holding_item = null
 	if not area.has_overlapping_areas():
 		Audio.play_sfx(preload("uid://by4u06xpmrt2k"),true,randf_range(0.8,1.2))
 		$PlaceBuffer.start()
 		return
 	
 	check_sort()
+	
 	
 
 

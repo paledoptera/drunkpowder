@@ -10,9 +10,12 @@ const BOMBS = [
 	preload("uid://dv8m7gb8dcbw1") # faulty.tscn
 ]
 
+var events = [false,false,false,false,false]
+
 @export var ui_label : RichTextLabel
 @onready var ui_shadow : RichTextLabel = $CameraPivot/Camera2D/Label/Shadow
 @export var sections: Array[LevelSection]
+@export var number: int = 0
 @export var timer: Timer
 @export var parent_bombs: Node
 @export var actions: AnimationPlayer
@@ -191,9 +194,10 @@ func reset_fuses():
 			continue
 		i.fuse_progress = clamp(i.fuse_progress+i.fuse/3.0,0,i.fuse)
 
-func create_particle(particle_scene: PackedScene, particle_position: Vector2, parent: Node):
+func create_particle(particle_scene: PackedScene, particle_position: Vector2, parent: Node) -> Node:
 	var particle = particle_scene.instantiate()
 	parent.add_child(particle)
 	particle.global_position = particle_position
 	particle.emitting = true
 	particle.finished.connect(particle.queue_free)
+	return particle

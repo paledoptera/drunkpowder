@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_i5ldy"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_qug8b"]
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_b0vvs"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/other_background.png" id="4_oyk6k"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_y5diu"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="7_oyk6k"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_i5ldy"]
@@ -341,12 +341,12 @@ sections = Array[ExtResource("3_qug8b")]([SubResource("Resource_plydf"), SubReso
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1432110057]
+[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1659368629]
+offset_left = -158.0
 offset_top = -54.0
-offset_right = 239.0
-offset_bottom = 63.0
-texture = ExtResource("4_b0vvs")
-expand_mode = 2
+offset_right = 322.0
+offset_bottom = 106.0
+texture = ExtResource("4_oyk6k")
 
 [node name="Bartender" type="Sprite2D" parent="Background" index="1" unique_id=381782793]
 z_index = 1

@@ -53,9 +53,10 @@ func _ready() -> void:
 		
 
 func _process(_delta: float) -> void:
-	ui_label.text = "[color=yellow]Score [/color]"+str(Global.score*10) + "\n"
+	ui_label.text = "[color=yellow]Score [/color]"+str(Global.score*10)
 	ui_shadow.text = ui_label.text
-	#ui_label.text += "HP: "+str(Global.health)
+	$CameraPivot/Camera2D/Lives.text = "x"+str(Global.health)
+	$CameraPivot/Camera2D/Lives/Lives2.text = $CameraPivot/Camera2D/Lives.text 
 	if ended:
 		return
 
@@ -93,6 +94,7 @@ func clear_board() -> void:
 			if e is ColorswapperDefused:
 				continue
 			if e is BombDefused:
+				e.z_index = 2
 				var pick : int = -160 if e.global_position.x < 120 else 160
 				tween.tween_property(e,"position",e.position + Vector2(pick,0),randf_range(0.6,1.6))
 	await tween.finished

@@ -113,6 +113,82 @@ spawn_mode = 1
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
+[sub_resource type="Resource" id="Resource_f3jlr"]
+script = ExtResource("3_vnwci")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_057op"]
+script = ExtResource("3_vnwci")
+bomb_type = 3
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_68ps3"]
+script = ExtResource("3_vnwci")
+amount = 2
+bomb_type = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_h4erf"]
+script = ExtResource("2_l0cwd")
+data_pool = Array[ExtResource("3_vnwci")]([SubResource("Resource_f3jlr"), SubResource("Resource_057op"), SubResource("Resource_68ps3")])
+delay_between_spawns = 1.8
+spawn_mode = 1
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_1buan"]
+script = ExtResource("2_l0cwd")
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_bobwt"]
+script = ExtResource("3_vnwci")
+amount = 3
+bomb_type = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_i1o7m"]
+script = ExtResource("2_l0cwd")
+data_pool = Array[ExtResource("3_vnwci")]([SubResource("Resource_bobwt")])
+spawn_mode = 2
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_q4q1b"]
+script = ExtResource("3_vnwci")
+amount = 7
+bomb_type = 3
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_2h5bp"]
+script = ExtResource("3_vnwci")
+amount = 7
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_d0tw8"]
+script = ExtResource("3_vnwci")
+amount = 7
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_1h8sb"]
+script = ExtResource("3_vnwci")
+amount = 7
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_e008a"]
+script = ExtResource("2_l0cwd")
+data_pool = Array[ExtResource("3_vnwci")]([SubResource("Resource_q4q1b"), SubResource("Resource_2h5bp"), SubResource("Resource_d0tw8"), SubResource("Resource_1h8sb")])
+delay_between_spawns = 2.4
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_mpg6g"]
+script = ExtResource("2_l0cwd")
+refresh_board = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkeig"]
 size = Vector2(240, 30)
 
@@ -161,7 +237,7 @@ _data = {
 }
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_emhfo")]
-sections = Array[ExtResource("2_l0cwd")]([SubResource("Resource_gycp8"), SubResource("Resource_08qf2"), SubResource("Resource_l0cwd"), SubResource("Resource_prm31"), SubResource("Resource_ubfq5"), SubResource("Resource_5gm5m")])
+sections = Array[ExtResource("2_l0cwd")]([SubResource("Resource_gycp8"), SubResource("Resource_08qf2"), SubResource("Resource_l0cwd"), SubResource("Resource_prm31"), SubResource("Resource_ubfq5"), SubResource("Resource_5gm5m"), SubResource("Resource_h4erf"), SubResource("Resource_1buan"), SubResource("Resource_i1o7m"), SubResource("Resource_e008a"), SubResource("Resource_mpg6g")])
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 

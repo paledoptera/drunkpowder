@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_etasl"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_go002"]
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_g1ckg"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/other_background.png" id="4_f62st"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_u0bhu"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_t7v7a"]
+[ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="8_f62st"]
+[ext_resource type="FontFile" uid="uid://dxtc1q812b14x" path="res://shared/fonts/alagard.ttf" id="9_w24lh"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_etasl"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="11_3d8b1"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="12_lijuj"]
@@ -198,11 +200,11 @@ sections = Array[ExtResource("3_go002")]([SubResource("Resource_4vryo"), SubReso
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=2002412309]
-offset_top = -54.0
-offset_right = 239.0
-offset_bottom = 63.0
-texture = ExtResource("4_g1ckg")
-expand_mode = 2
+offset_left = -121.0
+offset_top = -55.0
+offset_right = 359.0
+offset_bottom = 105.0
+texture = ExtResource("4_f62st")
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=414186318]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
@@ -250,6 +252,94 @@ debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 position = Vector2(271, 98)
 shape = SubResource("RectangleShape2D_i63tj")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="Bumpers" parent="Background" index="5" unique_id=1998952315 instance=ExtResource("8_f62st")]
+offset_left = 154.0
+offset_top = -41.0
+offset_right = 234.0
+offset_bottom = -16.0
+
+[node name="Label" type="Label" parent="Background/Bumpers" index="1" unique_id=2069548239]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 77.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(1, 0.98039216, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("9_w24lh")
+text = "HEADS UP"
+
+[node name="ColorRect" type="ColorRect" parent="Background/Bumpers" index="2" unique_id=2027072914]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -46.0
+offset_right = 9.0
+color = Color(0.84313726, 0.5137255, 0.1882353, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers/ColorRect" index="0" unique_id=696484709]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 2.0
+offset_bottom = 46.0
+color = Color(0.89411765, 0.84705883, 0.08235294, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers" index="3" unique_id=1503939433]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -46.0
+offset_right = 74.0
+color = Color(0.84313726, 0.5137255, 0.1882353, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers/ColorRect2" index="0" unique_id=1364648391]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 2.0
+offset_bottom = 46.0
+color = Color(0.89411765, 0.84705883, 0.08235294, 1)
+
+[node name="Bumpers2" parent="Background" index="6" unique_id=845212396 instance=ExtResource("8_f62st")]
+offset_left = 154.0
+offset_top = 5.0
+offset_right = 234.0
+offset_bottom = 30.0
+
+[node name="Label" type="Label" parent="Background/Bumpers2" index="1" unique_id=1841778206]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 77.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(1, 0.98039216, 0.7882353, 1)
+theme_override_fonts/font = ExtResource("9_w24lh")
+text = "SPIN SPIN"
+
+[node name="ColorRect" type="ColorRect" parent="Background/Bumpers2" index="2" unique_id=856548640]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -21.0
+offset_right = 9.0
+color = Color(0.84313726, 0.5137255, 0.1882353, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers2/ColorRect" index="0" unique_id=193313473]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 2.0
+offset_bottom = 21.0
+color = Color(0.89411765, 0.84705883, 0.08235294, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers2" index="3" unique_id=602930360]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -21.0
+offset_right = 74.0
+color = Color(0.84313726, 0.5137255, 0.1882353, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers2/ColorRect2" index="0" unique_id=1737265531]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 2.0
+offset_bottom = 21.0
+color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
 [node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=2120049199]
 

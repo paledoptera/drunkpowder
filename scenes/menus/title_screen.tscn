@@ -161,14 +161,16 @@ level_buttons_parent = NodePath("LevelScreen/ColorRect/LevelButtonContainer1")
 position = Vector2(120, 80)
 texture = ExtResource("1_n17qi")
 
+[node name="TitleLogo" type="Sprite2D" parent="." unique_id=1040842230]
+position = Vector2(120, 40)
+texture = ExtResource("2_eqhve")
+offset = Vector2(-10, -40)
+
 [node name="Drink" type="Sprite2D" parent="." unique_id=1981562741]
 position = Vector2(200, 86)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("6_ptv5j")
-
-[node name="TitleLogo" type="Sprite2D" parent="." unique_id=1040842230]
-position = Vector2(120, 40)
-texture = ExtResource("2_eqhve")
+offset = Vector2(0, 28)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1088681351]
 position = Vector2(120, 80)

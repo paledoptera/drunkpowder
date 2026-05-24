@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_ego0p"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_mv1ue"]
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_hadiw"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/other_background.png" id="4_ah4rv"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_rt21c"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="7_wb0vq"]
@@ -203,12 +203,12 @@ sections = Array[ExtResource("3_mv1ue")]([SubResource("Resource_e2yq7"), SubReso
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=346641624]
+[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=854042606]
+offset_left = -238.0
 offset_top = -54.0
-offset_right = 239.0
-offset_bottom = 63.0
-texture = ExtResource("4_hadiw")
-expand_mode = 2
+offset_right = 242.0
+offset_bottom = 106.0
+texture = ExtResource("4_ah4rv")
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=216541575]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)

@@ -116,8 +116,10 @@ func drop() -> void:
 		if area is Zone:
 			if area.color == color:
 				defuse(area)
+				return
 			else:
 				dropped_in_wrong_area()
+				return
 
 
 func dropped_in_wrong_area():
@@ -146,6 +148,7 @@ func defuse(zone: Zone) -> void:
 	defused_bomb.hframes = sprite.hframes
 	defused_bomb.frame = sprite.frame
 	defused_bomb.scale = sprite.scale
+	defused_bomb.z_index = 1
 	var neo_progress = progress.duplicate()
 	neo_progress.position = initial_progress_position
 	neo_progress.region_rect.size.y = int(fuse_progress/fuse*initial_progress_height)

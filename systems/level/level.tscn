@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://btpt5lcggvs51" path="res://systems/level/level.gd" id="1_8xjlc"]
 [ext_resource type="FontFile" uid="uid://cayc6lxiefo78" path="res://shared/fonts/Early GameBoy.ttf" id="2_8u3oo"]
 [ext_resource type="Script" uid="uid://c2bnm1b3662wp" path="res://scenes/levels/bombs.gd" id="2_kqcy0"]
+[ext_resource type="Texture2D" uid="uid://cifxkbqqtt6po" path="res://scenes/menus/lives_icon.png" id="3_l2bdh"]
 [ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="3_viu5s"]
 
 [sub_resource type="Animation" id="Animation_kqcy0"]
@@ -115,9 +116,9 @@ zoom = Vector2(1.0118415, 1.0118415)
 
 [node name="Label" type="RichTextLabel" parent="CameraPivot/Camera2D" unique_id=1029735772]
 offset_left = 110.000015
-offset_top = 74.999985
+offset_top = 69.999985
 offset_right = 216.33315
-offset_bottom = 123.999985
+offset_bottom = 118.999985
 scale = Vector2(-1, -1)
 theme_override_fonts/normal_font = ExtResource("2_8u3oo")
 theme_override_font_sizes/normal_font_size = 7
@@ -137,7 +138,38 @@ theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true
 text = "Score"
 
+[node name="Lives" type="RichTextLabel" parent="CameraPivot/Camera2D" unique_id=1354669357]
+clip_contents = false
+offset_left = -92.99999
+offset_top = 70.00001
+offset_right = 13.33313
+offset_bottom = 119.00001
+scale = Vector2(-1, -1)
+theme_override_fonts/normal_font = ExtResource("2_8u3oo")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "x1"
+
+[node name="Lives2" type="RichTextLabel" parent="CameraPivot/Camera2D/Lives" unique_id=151123319]
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+clip_contents = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 107.33313
+offset_bottom = 50.0
+theme_override_fonts/normal_font = ExtResource("2_8u3oo")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "x1"
+
+[node name="Sprite2D" type="Sprite2D" parent="CameraPivot/Camera2D/Lives" unique_id=1043481366]
+position = Vector2(-16, 4.9999986)
+texture = ExtResource("3_l2bdh")
+
 [node name="Bombs" type="Node2D" parent="." unique_id=1464511498]
+z_index = 8
 y_sort_enabled = true
 script = ExtResource("2_kqcy0")
 

@@ -19,6 +19,7 @@ func _ready() -> void:
 	else:
 		$Label.text = "+0"
 		$Label.self_modulate = Color.CRIMSON
+	$Label/Label2.text = $Label.text
 	show()
 	$AnimationPlayer.play("defuse")
 	await $AnimationPlayer.animation_finished

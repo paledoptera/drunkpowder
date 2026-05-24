@@ -135,6 +135,9 @@ size = Vector2(56, 196)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkkp2"]
 size = Vector2(32, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x7nc"]
+size = Vector2(240, 16)
+
 [sub_resource type="Animation" id="Animation_5x7nc"]
 length = 0.001
 tracks/0/type = "value"
@@ -212,7 +215,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 6, 12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(253, 0), Vector2(501, 0)]
+"values": [Vector2(0, 7), Vector2(253, 7), Vector2(501, 7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -320,12 +323,12 @@ shape = SubResource("RectangleShape2D_nkeig")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1233917382]
-position = Vector2(-31, 98)
+position = Vector2(-31, 183)
 shape = SubResource("RectangleShape2D_nfihu")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=116691887]
-position = Vector2(271, 98)
+position = Vector2(271, 183)
 shape = SubResource("RectangleShape2D_nfihu")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
@@ -478,7 +481,22 @@ texture = ExtResource("12_k12p4")
 [node name="CollisionPolygon2D" parent="Zones/Purple/StaticBody2D" parent_id_path=PackedInt32Array(1275813342, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 0, -19, 0, 37, -40, 37, -36, 33, -4, 33, -4, -15, -36, -15, -36, 33, -40, 37)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=152256862]
+[node name="Edge2" type="TextureRect" parent="." index="4" unique_id=282547714]
+modulate = Color(0.40244666, 0.3286, 0.53, 1)
+offset_top = 88.0
+offset_right = 240.0
+offset_bottom = 104.0
+mouse_filter = 2
+texture = ExtResource("6_wgfvi")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Edge2" index="0" unique_id=1226633097]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edge2/StaticBody2D" index="0" unique_id=144010630]
+position = Vector2(121, 8)
+shape = SubResource("RectangleShape2D_5x7nc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9" unique_id=152256862]
 root_node = NodePath("../Zones")
 libraries/ = SubResource("AnimationLibrary_hw1kd")
 autoplay = &"position"

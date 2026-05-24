@@ -45,6 +45,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7ulnv"]
 resource_name = "move"
@@ -87,6 +99,46 @@ tracks/2/keys = {
 "values": [0.0, 0.17453292519943295, 0.0, 0.0, -0.17453292519943295, 0.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_db7m7"]
+resource_name = "pick_up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BombSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(0.5, -2, 0.34151012),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BombSprite:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.2984513020910305, 0.24434609527920614, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, 6)]
+}
+
 [sub_resource type="Animation" id="Animation_j3d1m"]
 resource_name = "spawn"
 
@@ -94,6 +146,7 @@ resource_name = "spawn"
 _data = {
 &"RESET": SubResource("Animation_rasgh"),
 &"move": SubResource("Animation_7ulnv"),
+&"pick_up": SubResource("Animation_db7m7"),
 &"spawn": SubResource("Animation_j3d1m")
 }
 
@@ -135,13 +188,18 @@ shape = SubResource("CircleShape2D_s2r61")
 [node name="Control" type="Control" parent="." unique_id=1487166693]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 15.0
-offset_bottom = 15.0
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=429030492]
 libraries/ = SubResource("AnimationLibrary_7ulnv")
 autoplay = &"move"
 
+[node name="PlaceBuffer" type="Timer" parent="." unique_id=1452372884]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="gui_input" from="Control" to="." method="_on_gui_input"]
+[connection signal="timeout" from="PlaceBuffer" to="." method="_on_place_buffer_timeout"]

@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://vrgfxo1eskhc"]
+
+[ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_80f0i"]
+[ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_1na5m"]
+[ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_xkdka"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/other_background.png" id="4_fal67"]
+[ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="5_eu1gj"]
+[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_ace8g"]
+[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_xntys"]
+[ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_iek1g"]
+[ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="9_a25dg"]
+[ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="10_2p0ou"]
+
+[sub_resource type="Resource" id="Resource_fal67"]
+script = ExtResource("3_xkdka")
+amount = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_eu1gj"]
+script = ExtResource("3_xkdka")
+amount = 2
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_plydf"]
+resource_name = "Intro"
+script = ExtResource("2_1na5m")
+data_pool = Array[ExtResource("3_xkdka")]([SubResource("Resource_fal67"), SubResource("Resource_eu1gj")])
+delay_between_spawns = 2.0
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_80f0i"]
+script = ExtResource("3_xkdka")
+amount = 1
+bomb_type = 5
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_1na5m"]
+resource_name = "Faulty1"
+script = ExtResource("2_1na5m")
+data_pool = Array[ExtResource("3_xkdka")]([SubResource("Resource_80f0i")])
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_xkdka"]
+resource_name = "Break"
+script = ExtResource("2_1na5m")
+delay_between_spawns = 1.5
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_nkeig"]
+script = ExtResource("3_xkdka")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_jprdt"]
+script = ExtResource("3_xkdka")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_lgguw"]
+resource_name = "Medium"
+script = ExtResource("2_1na5m")
+data_pool = Array[ExtResource("3_xkdka")]([SubResource("Resource_nkeig"), SubResource("Resource_jprdt")])
+delay_between_spawns = 1.2
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_ace8g"]
+resource_name = "Faulty2"
+script = ExtResource("2_1na5m")
+data_pool = Array[ExtResource("3_xkdka")]([SubResource("Resource_80f0i")])
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_nfihu"]
+resource_name = "Break"
+script = ExtResource("2_1na5m")
+delay_between_spawns = 1.5
+await_board_clear = true
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_sbmf2"]
+script = ExtResource("3_xkdka")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_1xax6"]
+script = ExtResource("3_xkdka")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_ps2vj"]
+resource_name = "Fast"
+script = ExtResource("2_1na5m")
+data_pool = Array[ExtResource("3_xkdka")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6")])
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2roow"]
+size = Vector2(240, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrck8"]
+size = Vector2(56, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80f0i"]
+size = Vector2(32, 32)
+
+[node name="Level" unique_id=873046396 instance=ExtResource("1_80f0i")]
+sections = Array[ExtResource("2_1na5m")]([SubResource("Resource_plydf"), SubResource("Resource_1na5m"), SubResource("Resource_xkdka"), SubResource("Resource_lgguw"), SubResource("Resource_ace8g"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_nfihu")])
+
+[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+
+[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=616598615]
+offset_left = -2.0
+offset_top = -54.0
+offset_right = 478.0
+offset_bottom = 106.0
+texture = ExtResource("4_fal67")
+
+[node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=2023837217]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+offset_top = 36.0
+offset_right = 240.0
+offset_bottom = 160.0
+mouse_filter = 2
+texture = ExtResource("5_eu1gj")
+stretch_mode = 1
+
+[node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=1450653542]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 36.0
+mouse_filter = 2
+texture = ExtResource("6_ace8g")
+stretch_mode = 1
+
+[node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
+position = Vector2(123.00001, 5)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("7_xntys")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=56091229]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1494062798]
+position = Vector2(120, 18)
+shape = SubResource("RectangleShape2D_2roow")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=561352219]
+position = Vector2(120, 178)
+shape = SubResource("RectangleShape2D_2roow")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=474929336]
+position = Vector2(-31, 98)
+shape = SubResource("RectangleShape2D_lrck8")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=2037867541]
+position = Vector2(271, 98)
+shape = SubResource("RectangleShape2D_lrck8")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+
+[node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("8_iek1g")]
+position = Vector2(63, 158)
+rotation = -3.1415927
+
+[node name="Spawnpoint2" parent="Spawnpoints" index="1" unique_id=1144447987 instance=ExtResource("8_iek1g")]
+position = Vector2(177, 36)
+
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+
+[node name="Red1" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("10_2p0ou")]
+position = Vector2(219, 125)
+
+[node name="CollisionShape2D" parent="Zones/Red1" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_80f0i")
+
+[node name="TextureRect" parent="Zones/Red1" index="1" unique_id=105049977]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" parent="Zones/Red1" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Red1/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="Red2" parent="Zones" index="1" unique_id=1242404371 instance=ExtResource("10_2p0ou")]
+position = Vector2(176, 140)
+
+[node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_80f0i")
+
+[node name="TextureRect" parent="Zones/Red2" index="1" unique_id=105049977]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" parent="Zones/Red2" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Red2/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="Red3" parent="Zones" index="2" unique_id=1727978420 instance=ExtResource("10_2p0ou")]
+position = Vector2(176, 97)
+
+[node name="CollisionShape2D" parent="Zones/Red3" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_80f0i")
+
+[node name="TextureRect" parent="Zones/Red3" index="1" unique_id=105049977]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" parent="Zones/Red3" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Red3/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="IgnitionTimer" parent="Zones/Red3" index="3" unique_id=1570960540]
+wait_time = 4.0
+
+[node name="Blue1" parent="Zones" index="3" unique_id=112826103 instance=ExtResource("9_a25dg")]
+position = Vector2(20, 75)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" parent="Zones/Blue1" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_80f0i")
+
+[node name="TextureRect" parent="Zones/Blue1" index="1" unique_id=105049977]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" parent="Zones/Blue1" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Blue1/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="Blue2" parent="Zones" index="4" unique_id=378165355 instance=ExtResource("9_a25dg")]
+position = Vector2(62.999996, 55)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" parent="Zones/Blue2" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_80f0i")
+
+[node name="TextureRect" parent="Zones/Blue2" index="1" unique_id=105049977]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" parent="Zones/Blue2" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Blue2/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="Blue3" parent="Zones" index="5" unique_id=1823122325 instance=ExtResource("9_a25dg")]
+position = Vector2(63, 98)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" parent="Zones/Blue3" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_80f0i")
+
+[node name="TextureRect" parent="Zones/Blue3" index="1" unique_id=105049977]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="StaticBody2D" parent="Zones/Blue3" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Blue3/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
+
+[node name="IgnitionTimer" parent="Zones/Blue3" index="3" unique_id=1570960540]
+wait_time = 4.0
+
+[editable path="Zones/Red1"]
+[editable path="Zones/Red2"]
+[editable path="Zones/Red3"]
+[editable path="Zones/Blue1"]
+[editable path="Zones/Blue2"]
+[editable path="Zones/Blue3"]

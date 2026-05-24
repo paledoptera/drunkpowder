@@ -4,19 +4,14 @@ class_name Colorswapper
 @export var emblem: Node2D
 var last_color: = -1
 
-const BOMBS = [
-	preload("uid://bmiyohd2inws1"),
-	preload("uid://bjsdyso2d4w8s"),
-	preload("uid://h3x2t200m6id"),
-	preload("res://entities/bombs/purple.tscn")
-]
+
 
 func _ready() -> void:
 	super()
 	var arr = range(Global.level_colors+1)
 	arr.erase(last_color)
 	
-	color = arr.pick_random() as Global.COLOR_ENUM
+	color = arr.pick_random() as Global.BOMB_TYPE
 	set_sprites(self)
 	set_emblem(self)
 	DEFUSED_SCENE = preload("uid://bxk3tkd4qbgvo")
@@ -30,7 +25,7 @@ func defuse(zone: Zone) -> void:
 
 
 func set_sprites(node: Node) -> void:
-	var source_bomb = BOMBS[color].instantiate()
+	var source_bomb = Global.level.BOMBS[color].instantiate()
 	node.get_node("BombSprite").texture = source_bomb.get_node("BombSprite").texture
 	node.get_node("BombSprite/ProgressSprite").texture = source_bomb.get_node("BombSprite/ProgressSprite").texture
 	node.get_node("BombSprite/ProgressSprite").region_rect = source_bomb.get_node("BombSprite/ProgressSprite").region_rect

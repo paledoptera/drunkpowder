@@ -13,7 +13,7 @@ func update():
 	if not levelbound:
 		return
 	if Input.is_action_just_pressed("click"):
-		Audio.play_sfx(preload("res://sfx/SA_126.ogg"))
+		Audio.play_sfx(preload("uid://c3qnjmaeuea10"),true,randf_range(0.8,1.25))
 	if Input.is_action_pressed("click"):
 		$Sprite2D.frame = 1
 	else:

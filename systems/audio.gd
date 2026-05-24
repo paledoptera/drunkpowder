@@ -36,7 +36,7 @@ func fade_music():
 	music_player.stop()
 	fading = false
 	
-func play_sfx(audio: AudioStream, prevent_stacking = false) -> AudioStreamPlayer:
+func play_sfx(audio: AudioStream, prevent_stacking = false, pitch: float = 1.0) -> AudioStreamPlayer:
 	if audio == null:
 		return
 	
@@ -48,6 +48,7 @@ func play_sfx(audio: AudioStream, prevent_stacking = false) -> AudioStreamPlayer
 	var sfx_player = AudioStreamPlayer.new()
 	sfx_player.stream = audio
 	sfx_player.volume_linear = Global.sfx_volume * 0.25
+	sfx_player.pitch_scale = pitch
 	sfx_player.finished.connect(_on_sound_timeout.bind(sfx_player))
 	sfx_array.append(sfx_player)
 	add_child(sfx_player)

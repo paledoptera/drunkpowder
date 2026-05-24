@@ -23,5 +23,6 @@ region_rect = Rect2(4, 3, 12, 13)
 color = Color(1, 0.49, 0.49849987, 1)
 
 [node name="ColorswapEmblem" type="Sprite2D" parent="BombSprite" index="2" unique_id=1728258130]
+visible = false
 position = Vector2(0, -12)
 texture = ExtResource("4_co7xk")

@@ -2,11 +2,12 @@ extends Node2D
 class_name Level
 
 const BOMBS = [
-	preload("uid://bmiyohd2inws1"), #blue.tscn
-	preload("uid://bjsdyso2d4w8s"), #red.tscn
-	preload("uid://h3x2t200m6id"), #green.tscn
-	preload("res://entities/bombs/purple.tscn"), #purple.tscn
-	preload("uid://cfe64yq8hvuuq"), #colorswapper.tscn
+	preload("res://entities/bombs/blue.tscn"), # blue.tscn
+	preload("res://entities/bombs/red.tscn"), # red.tscn 
+	preload("res://entities/bombs/green.tscn"), # green.tscn
+	preload("res://entities/bombs/purple.tscn"), # purple.tscn
+	preload("uid://cfe64yq8hvuuq"), # colorswapper.tscn
+	preload("uid://dv8m7gb8dcbw1") # faulty.tscn
 ]
 
 @export var ui_label : RichTextLabel
@@ -60,15 +61,25 @@ func _process(_delta: float) -> void:
 	if ended:
 		return
 
-func spawn_bomb(spawnpoint: Spawnpoint, section: LevelSection) -> void:
+func spawn_bomb_from_pool(spawnpoint: Spawnpoint, section: LevelSection) -> void:
 	if section.pool.size() == 0:
 		return
 	
-	var bomb: Bomb = BOMBS[section.pool.pop_front()].instantiate()
+	var bomb_id = section.pool.pop_front()
+	spawn_bomb(bomb_id,spawnpoint.global_position,spawnpoint.direction,spawnpoint.velocity)
+
+func spawn_bomb(type: Global.BOMB_TYPE, bomb_position: Vector2, direction:= Vector2.DOWN, speed: float = 70.0):
+	
+	var bomb: Bomb
+	
+	Audio.play_sfx(preload("uid://d35nm56eiofii"),true,randf_range(0.5,1.5))
+	
+	bomb = BOMBS[type].instantiate()
+
 	parent_bombs.add_child(bomb)
-	bomb.direction = spawnpoint.direction
-	bomb.speed = spawnpoint.velocity
-	bomb.global_position = spawnpoint.global_position
+	bomb.direction = direction
+	bomb.speed = speed
+	bomb.global_position = bomb_position
 
 func load_level_section() -> void:
 	
@@ -91,7 +102,7 @@ func clear_board() -> void:
 	tween.set_parallel()
 	for i in zones:
 		for e in i.get_children():
-			if e is ColorswapperDefused:
+			if e is ColorswapperDefused or e is FaultyDefused:
 				continue
 			if e is BombDefused:
 				e.z_index = 2
@@ -101,7 +112,7 @@ func clear_board() -> void:
 	await tween.finished
 	for i in zones:
 		for e in i.get_children():
-			if e is ColorswapperDefused:
+			if e is ColorswapperDefused or e is FaultyDefused:
 				continue
 			if e is BombDefused:
 				e.queue_free()
@@ -118,17 +129,17 @@ func _on_timer_timeout() -> void:
 		match section.spawn_mode:
 			LevelSection.Mode.RANDOM:
 				var spawnpoint = spawnpoints.pick_random()
-				spawn_bomb(spawnpoint, section)
+				spawn_bomb_from_pool(spawnpoint, section)
 				
 			LevelSection.Mode.CYCLIC:
 				spawnpoint_ind += 1
 				spawnpoint_ind = wrapi(spawnpoint_ind,0,spawnpoints.size())
 				var spawnpoint = spawnpoints[spawnpoint_ind]
-				spawn_bomb(spawnpoint, section)
+				spawn_bomb_from_pool(spawnpoint, section)
 			
 			LevelSection.Mode.ALL:
 				for spawnpoint in spawnpoints:
-					spawn_bomb(spawnpoint, section)
+					spawn_bomb_from_pool(spawnpoint, section)
 		
 		
 		
@@ -179,3 +190,10 @@ func reset_fuses():
 		if i is not Bomb:
 			continue
 		i.fuse_progress = clamp(i.fuse_progress+i.fuse/3.0,0,i.fuse)
+
+func create_particle(particle_scene: PackedScene, particle_position: Vector2, parent: Node):
+	var particle = particle_scene.instantiate()
+	parent.add_child(particle)
+	particle.global_position = particle_position
+	particle.emitting = true
+	particle.finished.connect(particle.queue_free)

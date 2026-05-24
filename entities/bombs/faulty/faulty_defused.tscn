@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://chd7r50i6g2va"]
+
+[ext_resource type="PackedScene" uid="uid://cqpms1sg3jqih" path="res://systems/entities/bomb_defused.tscn" id="1_e12ty"]
+[ext_resource type="Texture2D" uid="uid://ckq6piqalxlpi" path="res://entities/bombs/_res/faulty.png" id="2_0fe1n"]
+[ext_resource type="Script" uid="uid://b18svxvsai0ms" path="res://entities/bombs/faulty/faulty_defused.gd" id="2_ql6g6"]
+[ext_resource type="Texture2D" uid="uid://dirc3j176fkye" path="res://entities/bombs/_res/colorswapper.png" id="3_rrgs1"]
+
+[node name="FaultyDefused" unique_id=1452204312 instance=ExtResource("1_e12ty")]
+texture = ExtResource("2_0fe1n")
+script = ExtResource("2_ql6g6")
+
+[node name="ColorswapEmblem" type="Sprite2D" parent="." index="3" unique_id=792666144]
+visible = false
+z_index = 1
+position = Vector2(0, -12)
+texture = ExtResource("3_rrgs1")
+
+[node name="ReFuseTimer" type="Timer" parent="." index="4" unique_id=1110250061]
+one_shot = true
+
+[connection signal="timeout" from="ReFuseTimer" to="." method="_on_re_fuse_timer_timeout"]

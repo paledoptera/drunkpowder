@@ -9,6 +9,7 @@ script = ExtResource("2_eshkp")
 emblem = NodePath("ColorswapEmblem")
 
 [node name="ColorswapEmblem" type="Sprite2D" parent="." index="3" unique_id=792666144]
+visible = false
 z_index = 1
 position = Vector2(0, -12)
 texture = ExtResource("3_3wt7v")

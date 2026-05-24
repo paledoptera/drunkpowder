@@ -1,6 +1,9 @@
 extends Node
 
-enum COLOR_ENUM {BLUE, RED, GREEN, PURPLE}
+enum BOMB_TYPE {BLUE, RED, GREEN, PURPLE, COLORSWAP, FAULTY}
+
+
+
 #const COLOR = [Color("6a98ff"), Color("ff4d3c"), Color("00ff09")]
 
 var music_volume : int = 2:

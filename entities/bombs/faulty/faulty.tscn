@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dv8m7gb8dcbw1"]
+
+[ext_resource type="PackedScene" uid="uid://dcc133y5yv5ya" path="res://systems/entities/bomb.tscn" id="1_n6h6g"]
+[ext_resource type="Script" uid="uid://dthnv4p8nwops" path="res://entities/bombs/faulty/faulty.gd" id="2_ngo26"]
+[ext_resource type="Texture2D" uid="uid://ckq6piqalxlpi" path="res://entities/bombs/_res/faulty.png" id="3_ngo26"]
+
+[sub_resource type="Gradient" id="Gradient_ngo26"]
+
+[node name="Faulty" unique_id=966582241 instance=ExtResource("1_n6h6g")]
+script = ExtResource("2_ngo26")
+color = 5
+
+[node name="BombSprite" parent="." index="2" unique_id=1452204312]
+texture = ExtResource("3_ngo26")
+
+[node name="ProgressSprite" parent="BombSprite" index="0" unique_id=1231568079]
+position = Vector2(-6, -7)
+texture = ExtResource("3_ngo26")
+region_rect = Rect2(4, 3, 12, 13)
+
+[node name="SmokeParticle" parent="BombSprite" index="1" unique_id=1789729948]
+amount = 140
+lifetime = 1.0
+speed_scale = 0.7
+gravity = Vector2(0, -150)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+linear_accel_min = -300.0
+linear_accel_max = -100.0
+scale_amount_min = 0.2
+scale_amount_max = 1.5
+color = Color(1, 0.49010885, 0.4988736, 1)
+color_initial_ramp = SubResource("Gradient_ngo26")

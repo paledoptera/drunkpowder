@@ -24,7 +24,5 @@ func _on_re_fuse_timer_timeout() -> void:
 	new_bomb.global_position = global_position
 	Audio.play_sfx(load("res://sfx/sPalantaFirework.wav"))
 	
-	var particle = load("uid://dc8f55vdbb1oo").instantiate()
-	new_bomb.add_child(particle)
-	particle.finished.connect(particle.queue_free)
+	Global.level.create_particle(load("uid://dc8f55vdbb1oo"),global_position,new_bomb)
 	queue_free()

@@ -13,6 +13,7 @@ const LEVEL_SCENES = [
 	preload("uid://dxrdamcvg5g17"), #level6.tscn
 	preload("res://scenes/levels/level7.tscn"), #level7.tscn
 	preload("res://scenes/levels/level8.tscn"), #level8.tscn
+	preload("uid://vrgfxo1eskhc"), #level9.tscn
 ]
 
 func _ready() -> void:

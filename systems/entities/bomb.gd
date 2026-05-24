@@ -9,7 +9,7 @@ var DEFUSED_SCENE = preload("uid://cqpms1sg3jqih")
 @export var area: Area2D
 @export var sprite: Sprite2D
 @export var progress : Sprite2D
-@export var color: Global.COLOR_ENUM
+@export var color: Global.BOMB_TYPE
 @export var fuse: float = 10.0
 
 var direction : Vector2
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		drag(delta)
 	
-	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
+	global_position = get_global_mouse_position() - held_offset + Vector2(13,13)
 
 func move(delta) -> void:
 	speed = lerp(speed,50.0,0.05)
@@ -82,7 +82,10 @@ func move(delta) -> void:
 
 func drag(delta) -> void:
 	var prev_pos = position
-	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
+	global_position = get_global_mouse_position() - held_offset + Vector2(13,13)
+	
+	#held_offset = held_offset.lerp(Vector2(10,5),0.5)
+	
 	if position - prev_pos != Vector2.ZERO: 
 		direction = (position - prev_pos)
 		speed = lerp(speed,(position-prev_pos).length()/delta,0.1)
@@ -94,48 +97,59 @@ func drag(delta) -> void:
 
 
 func pick_up(offset: Vector2) -> void:
+	Audio.play_sfx(preload("uid://by4u06xpmrt2k"),true,randf_range(0.8,1.2))
 	z_index = 400
 	z_as_relative = false
 	y_sort_enabled = false
 	set_collision_mask_value(1, false)
 	held = true
 	held_offset = offset
-	print(offset)
-	held_offset = held_offset.clamp(Vector2(5.0,5.0),Vector2(25.0,25.0))
-	print(offset)
-
+	$AnimationPlayer.play("pick_up")
 
 func drop() -> void:
+	
 	z_index = 0
 	z_as_relative = true
 	y_sort_enabled = true
 	held = false
 	set_collision_mask_value(1, true)
+	$AnimationPlayer.play_backwards("pick_up")
+	$AnimationPlayer.queue("move")
 	if not area.has_overlapping_areas():
+		Audio.play_sfx(preload("uid://by4u06xpmrt2k"),true,randf_range(0.8,1.2))
+		$PlaceBuffer.start()
 		return
 	
+	check_sort()
+	
+
+
+func check_sort():
 	for area in area.get_overlapping_areas():
 		if area is Zone:
 			if area.color == color:
+				if area.ignited:
+					return
 				defuse(area)
 				return
 			else:
 				dropped_in_wrong_area()
 				return
-
+			
 
 func dropped_in_wrong_area():
 	explode()
 
 
-func explode() -> void:
+func explode(damage: bool = true) -> void:
 	Global.score = clampi(Global.score-20,0,999999999)
-	Global.damage(1)
+	if damage:
+		Global.damage(1)
 	#for bomb in Global.level.parent_bombs.get_children():
 		#if bomb != self:
 			#bomb.queue_free()
-	create_particle(SMOKEPUFF_SCENE)
-	create_particle(EXPLODE_SCENE,Vector2(0.0,-6.0))
+	Global.level.create_particle(SMOKEPUFF_SCENE,global_position,get_parent())
+	Global.level.create_particle(EXPLODE_SCENE,global_position+Vector2(0.0,-6.0),get_parent())
 	Audio.play_sfx(load("res://sfx/Box Explosion.ogg"))
 	Global.level.reset_fuses()
 	queue_free()
@@ -162,13 +176,6 @@ func defuse(zone: Zone) -> void:
 	defused_bomb.fuse_progress = fuse_progress
 	call_deferred("queue_free")
 
-func create_particle(particle: PackedScene, offset:= Vector2.ZERO) -> void:
-	var inst = particle.instantiate()
-	get_parent().add_child(inst)
-	inst.emitting = true
-	inst.finished.connect(inst.queue_free)
-	inst.global_position = global_position + offset
-
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -179,5 +186,9 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if not event.pressed:
+		if not event.pressed and held:
 			drop()
+
+
+func _on_place_buffer_timeout() -> void:
+	check_sort()

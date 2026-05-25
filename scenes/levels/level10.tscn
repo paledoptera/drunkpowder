@@ -393,7 +393,6 @@ size = Vector2(32, 32)
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_s4x5n")]
 sections = Array[ExtResource("2_8kjvp")]([SubResource("Resource_plydf"), SubResource("Resource_8kjvp"), SubResource("Resource_1se4v"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_6sre3"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_nfihu"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_ysxgg"), SubResource("Resource_b3p8y"), SubResource("Resource_nfihu"), SubResource("Resource_ida7w"), SubResource("Resource_nfihu"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_21itu")])
-number = null
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
@@ -529,7 +528,6 @@ wait_time = 7.5
 
 [node name="Red1" parent="Zones" index="2" unique_id=1595040607 instance=ExtResource("10_w4xpj")]
 position = Vector2(220.99998, 129)
-limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Red1" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")
@@ -574,7 +572,6 @@ wait_time = 7.5
 [node name="Blue1" parent="Zones" index="4" unique_id=1078378786 instance=ExtResource("9_x1flq")]
 position = Vector2(17.000002, 66)
 scale = Vector2(0.99999994, 0.99999994)
-limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Blue1" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")
@@ -597,7 +594,6 @@ wait_time = 7.5
 [node name="Blue2" parent="Zones" index="5" unique_id=119856625 instance=ExtResource("9_x1flq")]
 position = Vector2(220, 66)
 scale = Vector2(0.99999994, 0.99999994)
-limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Blue2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")

@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_s4x5n"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_8kjvp"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_bu22b"]
-[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/other_background.png" id="4_6sre3"]
+[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/luigi_poker3.png" id="4_s4x5n"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="5_1se4v"]
-[ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="6_ysxgg"]
-[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="7_634p2"]
+[ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="6_s4x5n"]
+[ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="7_s4x5n"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_21itu"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="9_x1flq"]
 [ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="10_w4xpj"]
@@ -398,11 +398,12 @@ number = null
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1659368629]
+modulate = Color(0.6392157, 0, 0.18039216, 1)
 offset_left = -158.0
 offset_top = -54.0
 offset_right = 322.0
 offset_bottom = 106.0
-texture = ExtResource("4_6sre3")
+texture = ExtResource("4_s4x5n")
 
 [node name="Bartender" type="Sprite2D" parent="Background" index="1" unique_id=381782793]
 z_index = 1
@@ -411,21 +412,19 @@ scale = Vector2(0.33, 0.33)
 texture = ExtResource("5_1se4v")
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="2" unique_id=1013067490]
-modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
 offset_top = 36.0
 offset_right = 240.0
 offset_bottom = 160.0
 mouse_filter = 2
-texture = ExtResource("6_ysxgg")
+texture = ExtResource("6_s4x5n")
 stretch_mode = 1
 
 [node name="Edge" type="TextureRect" parent="Background" index="3" unique_id=522970712]
-modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
 offset_top = 20.0
 offset_right = 240.0
 offset_bottom = 36.0
 mouse_filter = 2
-texture = ExtResource("7_634p2")
+texture = ExtResource("7_s4x5n")
 stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=1750212520]
@@ -487,7 +486,7 @@ velocity = 200.0
 [node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("9_x1flq")]
-position = Vector2(120, 48)
+position = Vector2(120, 44)
 
 [node name="CollisionShape2D" parent="Zones/Blue" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_i5ldy")
@@ -508,7 +507,7 @@ polygon = PackedVector2Array(-69, -15, 69, -15, 69, 15, -69, 15, -69, 11, 65, 11
 wait_time = 7.5
 
 [node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("10_w4xpj")]
-position = Vector2(120, 142)
+position = Vector2(120, 148)
 
 [node name="CollisionShape2D" parent="Zones/Red" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_i5ldy")
@@ -529,7 +528,8 @@ polygon = PackedVector2Array(-69, -15, 69, -15, 69, 15, -69, 15, -69, 11, 65, 11
 wait_time = 7.5
 
 [node name="Red1" parent="Zones" index="2" unique_id=1595040607 instance=ExtResource("10_w4xpj")]
-position = Vector2(219, 139)
+position = Vector2(220.99998, 129)
+limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Red1" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")
@@ -550,7 +550,8 @@ polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20
 wait_time = 7.5
 
 [node name="Red2" parent="Zones" index="3" unique_id=1744461388 instance=ExtResource("10_w4xpj")]
-position = Vector2(20, 139)
+position = Vector2(17, 129)
+limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")
@@ -571,8 +572,9 @@ polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20
 wait_time = 7.5
 
 [node name="Blue1" parent="Zones" index="4" unique_id=1078378786 instance=ExtResource("9_x1flq")]
-position = Vector2(20, 54)
+position = Vector2(17.000002, 66)
 scale = Vector2(0.99999994, 0.99999994)
+limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Blue1" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")
@@ -593,8 +595,9 @@ polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20
 wait_time = 7.5
 
 [node name="Blue2" parent="Zones" index="5" unique_id=119856625 instance=ExtResource("9_x1flq")]
-position = Vector2(218, 54)
+position = Vector2(220, 66)
 scale = Vector2(0.99999994, 0.99999994)
+limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Blue2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")

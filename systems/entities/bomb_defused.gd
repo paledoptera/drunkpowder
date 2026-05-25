@@ -5,6 +5,8 @@ var color : Global.BOMB_TYPE
 var fuse : float = 10.0
 var fuse_progress : float = 10.0
 
+var zone : Zone
+
 func _ready() -> void:
 	hide()
 	await get_tree().process_frame

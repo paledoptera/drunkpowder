@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgftmw3myjbtv"]
 
-[ext_resource type="Script" uid="uid://dva45ubhrg7o6" path="res://entities/hazards/fireball.gd" id="1_374jd"]
+[ext_resource type="Script" path="res://entities/hazards/fireball.gd" id="1_374jd"]
 [ext_resource type="Texture2D" uid="uid://bbuccjvwt3vkh" path="res://entities/hazards/_res/fireball.png" id="1_hhf7v"]
 [ext_resource type="PackedScene" uid="uid://b3f5o0mvp1y7p" path="res://entities/effects/smoke_particle/smoke_particle.tscn" id="3_6bate"]
 

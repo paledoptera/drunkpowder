@@ -19,6 +19,8 @@ func _ready() -> void:
 	$Timer.start(firing_delay)
 
 func _on_timer_timeout() -> void:
+	if Global.level.ended:
+		return
 	match firing_mode:
 		Mode.RANDOM:
 			var spawnpoint = spawnpoints.pick_random()

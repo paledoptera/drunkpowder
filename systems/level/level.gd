@@ -108,6 +108,7 @@ func clear_board() -> void:
 			if e is ColorswapperDefused or e is FaultyDefused:
 				continue
 			if e is BombDefused:
+				i.bomb_count -= 1
 				e.z_index = 2
 				var pick : int = -160 if e.global_position.x < 120 else 160
 				tween.tween_property(e,"global_position",e.global_position + Vector2(pick,0),randf_range(0.6,1.6))

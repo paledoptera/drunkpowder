@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_glhiw"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_1npfv"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_h2ita"]
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_65jma"]
-[ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="5_xbk0o"]
-[ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="6_mdeir"]
+[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/luigi_poker3.png" id="4_glhiw"]
+[ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="5_glhiw"]
+[ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="6_glhiw"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_hkgte"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_gbni7"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="9_5j2dn"]
@@ -303,28 +303,27 @@ sections = Array[ExtResource("2_1npfv")]([SubResource("Resource_2rkt7"), SubReso
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1563412399]
+modulate = Color(0.6392157, 0, 0.18039216, 1)
 offset_top = -54.0
 offset_right = 239.0
 offset_bottom = 63.0
-texture = ExtResource("4_65jma")
+texture = ExtResource("4_glhiw")
 expand_mode = 2
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=82095950]
-modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 36.0
 offset_right = 240.0
 offset_bottom = 160.0
 mouse_filter = 2
-texture = ExtResource("5_xbk0o")
+texture = ExtResource("5_glhiw")
 stretch_mode = 1
 
 [node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=1275641623]
-modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 20.0
 offset_right = 240.0
 offset_bottom = 36.0
 mouse_filter = 2
-texture = ExtResource("6_mdeir")
+texture = ExtResource("6_glhiw")
 stretch_mode = 1
 
 [node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]

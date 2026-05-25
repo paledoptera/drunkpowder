@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_dmode"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_kr3vy"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_tivk1"]
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_uqnj2"]
-[ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="5_ybk5v"]
-[ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="6_bpv8q"]
+[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/luigi_poker3.png" id="4_dmode"]
+[ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="5_dmode"]
+[ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="6_dmode"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_h1yje"]
 [ext_resource type="PackedScene" uid="uid://bc4y5y4xrnxod" path="res://entities/hazards/cannon.tscn" id="8_dmode"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_qutlo"]
@@ -270,31 +270,30 @@ sections = Array[ExtResource("2_kr3vy")]([SubResource("Resource_2rkt7"), SubReso
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1563412399]
+modulate = Color(0.6392157, 0, 0.18039216, 1)
 offset_top = -54.0
 offset_right = 239.0
 offset_bottom = 63.0
-texture = ExtResource("4_uqnj2")
-expand_mode = 2
+texture = ExtResource("4_dmode")
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=82095950]
-modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 36.0
 offset_right = 240.0
 offset_bottom = 160.0
 mouse_filter = 2
-texture = ExtResource("5_ybk5v")
+texture = ExtResource("5_dmode")
 stretch_mode = 1
 
 [node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=1275641623]
-modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 20.0
 offset_right = 240.0
 offset_bottom = 36.0
 mouse_filter = 2
-texture = ExtResource("6_bpv8q")
+texture = ExtResource("6_dmode")
 stretch_mode = 1
 
 [node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
+z_index = 1
 position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("7_h1yje")
@@ -327,17 +326,32 @@ debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 firing_delay = 10.0
 
 [node name="HazardSpawnpoint" parent="Cannon" index="1" unique_id=172747774 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 61)
+position = Vector2(-20, 44)
 rotation = -1.5707964
 velocity = 30.0
 
 [node name="HazardSpawnpoint2" parent="Cannon" index="2" unique_id=972896005 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 95)
+position = Vector2(-20, 64)
 rotation = -1.5707964
 velocity = 30.0
 
 [node name="HazardSpawnpoint3" parent="Cannon" index="3" unique_id=1633492143 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 132)
+position = Vector2(-20, 86)
+rotation = -1.5707964
+velocity = 30.0
+
+[node name="HazardSpawnpoint4" parent="Cannon" index="4" unique_id=33045114 instance=ExtResource("9_kr3vy")]
+position = Vector2(-20, 105)
+rotation = -1.5707964
+velocity = 30.0
+
+[node name="HazardSpawnpoint5" parent="Cannon" index="5" unique_id=1177177140 instance=ExtResource("9_kr3vy")]
+position = Vector2(-20, 131)
+rotation = -1.5707964
+velocity = 30.0
+
+[node name="HazardSpawnpoint6" parent="Cannon" index="6" unique_id=1703676487 instance=ExtResource("9_kr3vy")]
+position = Vector2(-20, 149)
 rotation = -1.5707964
 velocity = 30.0
 
@@ -358,7 +372,7 @@ rotation = 1.5707964
 [node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("9_32cl3")]
-position = Vector2(122, 139)
+position = Vector2(162, 148)
 
 [node name="CollisionShape2D" parent="Zones/Blue" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_rkkp2")
@@ -369,14 +383,18 @@ offset_top = -19.0
 offset_right = 40.0
 offset_bottom = 19.0
 
-[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
+[node name="StaticBody2D" parent="Zones/Blue" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 40, -19, 40, 19, -40, 19, -40, 15, 36, 15, 36, -15, -36, -15, -36, 15, -40, 15)
 
 [node name="IgnitionTimer" parent="Zones/Blue" index="3" unique_id=1570960540]
 wait_time = 7.5
 
 [node name="Red" parent="Zones" index="1" unique_id=765482569 instance=ExtResource("10_uq8av")]
-position = Vector2(99, 47)
+position = Vector2(61, 107)
+limited_capacity = 8
 
 [node name="CollisionShape2D" parent="Zones/Red" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -394,8 +412,9 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Blue2" parent="Zones" index="2" unique_id=1770173030 instance=ExtResource("9_32cl3")]
-position = Vector2(139, 53)
+position = Vector2(161, 43)
 scale = Vector2(0.99999994, 0.99999994)
+limited_capacity = 8
 
 [node name="CollisionShape2D" parent="Zones/Blue2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -413,7 +432,8 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Green2" parent="Zones" index="3" unique_id=921818832 instance=ExtResource("11_02r4x")]
-position = Vector2(163, 89)
+position = Vector2(99, 122)
+limited_capacity = 8
 
 [node name="CollisionShape2D" parent="Zones/Green2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -431,7 +451,8 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Green" parent="Zones" index="4" unique_id=113705567 instance=ExtResource("11_02r4x")]
-position = Vector2(80, 84)
+position = Vector2(80, 64)
+limited_capacity = 8
 
 [node name="CollisionShape2D" parent="Zones/Green" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -449,7 +470,8 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Red2" parent="Zones" index="5" unique_id=230399050 instance=ExtResource("10_uq8av")]
-position = Vector2(121, 93)
+position = Vector2(131, 87)
+limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_kr3vy")

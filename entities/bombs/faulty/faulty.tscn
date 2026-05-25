@@ -14,9 +14,9 @@ color = 5
 texture = ExtResource("3_ngo26")
 
 [node name="ProgressSprite" parent="BombSprite" index="0" unique_id=1231568079]
-position = Vector2(-6, -7)
+position = Vector2(-7, -7)
 texture = ExtResource("3_ngo26")
-region_rect = Rect2(4, 3, 12, 13)
+region_rect = Rect2(3, 3, 14, 15)
 
 [node name="SmokeParticle" parent="BombSprite" index="1" unique_id=1789729948]
 amount = 140

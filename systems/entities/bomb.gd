@@ -133,7 +133,9 @@ func check_sort():
 			if area.color == color:
 				if area.ignited:
 					return
-				defuse(area)
+				if area.limited_capacity == -1 or area.bomb_count < area.limited_capacity:
+					defuse(area)
+					area.bomb_count += 1
 				return
 			else:
 				dropped_in_wrong_area()
@@ -177,6 +179,7 @@ func defuse(zone: Zone) -> void:
 	defused_bomb.add_child(neo_progress)
 	defused_bomb.fuse = fuse
 	defused_bomb.fuse_progress = fuse_progress
+	defused_bomb.zone = zone
 	call_deferred("queue_free")
 
 func _on_gui_input(event: InputEvent) -> void:

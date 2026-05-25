@@ -358,7 +358,6 @@ velocity = 200.0
 [node name="Blue1" parent="Zones/BlueHolder" index="0" unique_id=112826103 instance=ExtResource("9_a25dg")]
 position = Vector2(28, 75)
 scale = Vector2(0.99999994, 0.99999994)
-limited_capacity = 24
 
 [node name="CollisionShape2D" parent="Zones/BlueHolder/Blue1" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_1na5m")
@@ -381,7 +380,6 @@ wait_time = 7.5
 [node name="Blue2" parent="Zones/BlueHolder" index="1" unique_id=1914168594 instance=ExtResource("9_a25dg")]
 position = Vector2(-23, 75)
 scale = Vector2(0.99999994, 0.99999994)
-limited_capacity = 24
 
 [node name="CollisionShape2D" parent="Zones/BlueHolder/Blue2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_1na5m")
@@ -405,7 +403,6 @@ wait_time = 7.5
 
 [node name="Red1" parent="Zones/RedHolder" index="0" unique_id=241756046 instance=ExtResource("10_2p0ou")]
 position = Vector2(210, 124)
-limited_capacity = 24
 
 [node name="CollisionShape2D" parent="Zones/RedHolder/Red1" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_1na5m")
@@ -427,7 +424,6 @@ wait_time = 7.5
 
 [node name="Red2" parent="Zones/RedHolder" index="1" unique_id=1265045963 instance=ExtResource("10_2p0ou")]
 position = Vector2(263, 124)
-limited_capacity = 24
 
 [node name="CollisionShape2D" parent="Zones/RedHolder/Red2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_1na5m")

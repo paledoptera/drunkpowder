@@ -326,32 +326,17 @@ debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 firing_delay = 10.0
 
 [node name="HazardSpawnpoint" parent="Cannon" index="1" unique_id=172747774 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 44)
+position = Vector2(-20, 45)
 rotation = -1.5707964
 velocity = 30.0
 
 [node name="HazardSpawnpoint2" parent="Cannon" index="2" unique_id=972896005 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 64)
+position = Vector2(-20, 84)
 rotation = -1.5707964
 velocity = 30.0
 
 [node name="HazardSpawnpoint3" parent="Cannon" index="3" unique_id=1633492143 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 86)
-rotation = -1.5707964
-velocity = 30.0
-
-[node name="HazardSpawnpoint4" parent="Cannon" index="4" unique_id=33045114 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 105)
-rotation = -1.5707964
-velocity = 30.0
-
-[node name="HazardSpawnpoint5" parent="Cannon" index="5" unique_id=1177177140 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 131)
-rotation = -1.5707964
-velocity = 30.0
-
-[node name="HazardSpawnpoint6" parent="Cannon" index="6" unique_id=1703676487 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 149)
+position = Vector2(-20, 144)
 rotation = -1.5707964
 velocity = 30.0
 
@@ -372,7 +357,7 @@ rotation = 1.5707964
 [node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("9_32cl3")]
-position = Vector2(162, 148)
+position = Vector2(122, 144)
 
 [node name="CollisionShape2D" parent="Zones/Blue" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_rkkp2")
@@ -383,18 +368,14 @@ offset_top = -19.0
 offset_right = 40.0
 offset_bottom = 19.0
 
-[node name="StaticBody2D" parent="Zones/Blue" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 40, -19, 40, 19, -40, 19, -40, 15, 36, 15, 36, -15, -36, -15, -36, 15, -40, 15)
 
 [node name="IgnitionTimer" parent="Zones/Blue" index="3" unique_id=1570960540]
 wait_time = 7.5
 
 [node name="Red" parent="Zones" index="1" unique_id=765482569 instance=ExtResource("10_uq8av")]
-position = Vector2(61, 107)
-limited_capacity = 8
+position = Vector2(94, 58)
 
 [node name="CollisionShape2D" parent="Zones/Red" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -412,9 +393,8 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Blue2" parent="Zones" index="2" unique_id=1770173030 instance=ExtResource("9_32cl3")]
-position = Vector2(161, 43)
+position = Vector2(149, 58)
 scale = Vector2(0.99999994, 0.99999994)
-limited_capacity = 8
 
 [node name="CollisionShape2D" parent="Zones/Blue2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -432,8 +412,7 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Green2" parent="Zones" index="3" unique_id=921818832 instance=ExtResource("11_02r4x")]
-position = Vector2(99, 122)
-limited_capacity = 8
+position = Vector2(163, 99)
 
 [node name="CollisionShape2D" parent="Zones/Green2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -451,8 +430,7 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Green" parent="Zones" index="4" unique_id=113705567 instance=ExtResource("11_02r4x")]
-position = Vector2(80, 64)
-limited_capacity = 8
+position = Vector2(80, 99)
 
 [node name="CollisionShape2D" parent="Zones/Green" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_dmode")
@@ -470,8 +448,7 @@ visible = true
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Red2" parent="Zones" index="5" unique_id=230399050 instance=ExtResource("10_uq8av")]
-position = Vector2(131, 87)
-limited_capacity = 12
+position = Vector2(121, 99)
 
 [node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_kr3vy")

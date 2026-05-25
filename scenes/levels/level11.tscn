@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_dmode"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_kr3vy"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_tivk1"]
-[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/luigi_poker3.png" id="4_dmode"]
+[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/_res/luigi_poker3.png" id="4_dmode"]
 [ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="5_dmode"]
 [ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="6_dmode"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_h1yje"]
@@ -266,6 +266,7 @@ size = Vector2(32, 32)
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_dmode")]
 sections = Array[ExtResource("2_kr3vy")]([SubResource("Resource_2rkt7"), SubResource("Resource_53v2u"), SubResource("Resource_nfihu"), SubResource("Resource_km634"), SubResource("Resource_rx4po"), SubResource("Resource_vjdek"), SubResource("Resource_qw2ud"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu")])
+number = 10
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 

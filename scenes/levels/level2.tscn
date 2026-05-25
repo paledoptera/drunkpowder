@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_i5ldy"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_qug8b"]
-[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/other_background.png" id="4_oyk6k"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_oyk6k"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_y5diu"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="7_oyk6k"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_i5ldy"]
@@ -223,12 +223,6 @@ spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1rt"]
-size = Vector2(240, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qug8b"]
-size = Vector2(56, 196)
-
 [sub_resource type="Animation" id="Animation_ko1rt"]
 length = 0.001
 tracks/0/type = "value"
@@ -327,6 +321,12 @@ _data = {
 &"spawnpoint_movement": SubResource("Animation_i5ldy")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1rt"]
+size = Vector2(240, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qug8b"]
+size = Vector2(56, 196)
+
 [sub_resource type="Curve2D" id="Curve2D_i5ldy"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 6, 110, 0, 0, 0, 0, 6, 86)
@@ -334,12 +334,18 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5ldy"]
-size = Vector2(152, 22)
+size = Vector2(100, 22)
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_i5ldy")]
 sections = Array[ExtResource("3_qug8b")]([SubResource("Resource_plydf"), SubResource("Resource_nfihu"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_nfihu"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_nfihu"), SubResource("Resource_b3p8y"), SubResource("Resource_nfihu"), SubResource("Resource_ida7w"), SubResource("Resource_nfihu"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_nfihu")])
+number = 1
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0" unique_id=1290773266]
+root_node = NodePath("../Spawnpoints")
+libraries/ = SubResource("AnimationLibrary_ko1rt")
+autoplay = &"spawnpoint_movement"
+
+[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1659368629]
 offset_left = -158.0
@@ -396,13 +402,9 @@ position = Vector2(271, 98)
 shape = SubResource("RectangleShape2D_qug8b")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Spawnpoints" index="0" unique_id=1290773266]
-libraries/ = SubResource("AnimationLibrary_ko1rt")
-autoplay = &"spawnpoint_movement"
-
-[node name="LeftPath" type="Path2D" parent="Spawnpoints" index="1" unique_id=1013802512]
+[node name="LeftPath" type="Path2D" parent="Spawnpoints" index="0" unique_id=1013802512]
 curve = SubResource("Curve2D_i5ldy")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Spawnpoints/LeftPath" index="0" unique_id=1880892119]
@@ -414,7 +416,7 @@ loop = false
 [node name="Spawnpoint" parent="Spawnpoints/LeftPath/PathFollow2D" index="0" unique_id=172747774 instance=ExtResource("11_2ygw2")]
 velocity = 100.0
 
-[node name="RightPath" type="Path2D" parent="Spawnpoints" index="2" unique_id=1712615983]
+[node name="RightPath" type="Path2D" parent="Spawnpoints" index="1" unique_id=1712615983]
 position = Vector2(228, 0)
 curve = SubResource("Curve2D_i5ldy")
 
@@ -428,7 +430,7 @@ loop = false
 rotation = 3.1415927
 velocity = 100.0
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("12_g0kjq")]
 position = Vector2(160, 51)
@@ -437,13 +439,16 @@ position = Vector2(160, 51)
 shape = SubResource("RectangleShape2D_i5ldy")
 
 [node name="TextureRect" parent="Zones/Blue" index="1" unique_id=105049977]
-offset_left = -80.0
+offset_left = -54.0
 offset_top = -15.0
-offset_right = 80.0
+offset_right = 54.0
 offset_bottom = 15.0
 
-[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
-polygon = PackedVector2Array(-80, -15, 80, -14, 80, 15, -80, 15, -80, 11, 76, 11, 76, -11, -76, -11, -76, 11, -80, 11)
+[node name="StaticBody2D" parent="Zones/Blue" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-54, -15, 54, -15, 54, 15, -54, 15, -54, 11, 50, 11, 50, -11, -50, -11, -50, 11, -54, 11)
 
 [node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("13_h22eu")]
 position = Vector2(80, 145)
@@ -452,13 +457,16 @@ position = Vector2(80, 145)
 shape = SubResource("RectangleShape2D_i5ldy")
 
 [node name="TextureRect" parent="Zones/Red" index="1" unique_id=105049977]
-offset_left = -80.0
+offset_left = -54.0
 offset_top = -15.0
-offset_right = 80.0
+offset_right = 54.0
 offset_bottom = 15.0
 
-[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" parent_id_path=PackedInt32Array(1407830815, 2033168375) index="0" unique_id=1283301792]
-polygon = PackedVector2Array(-80, -15, 80, -14, 80, 15, -80, 15, -80, 11, 76, 11, 76, -11, -76, -11, -76, 11, -80, 11)
+[node name="StaticBody2D" parent="Zones/Red" index="2" unique_id=2033168375]
+visible = true
+
+[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-54, -15, 54, -15, 54, 15, -54, 15, -54, 11, 50, 11, 50, -11, -50, -11, -50, 11, -54, 11)
 
 [editable path="Zones/Blue"]
 [editable path="Zones/Red"]

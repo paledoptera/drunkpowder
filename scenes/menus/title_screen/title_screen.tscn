@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cgskbsomutq37"]
 
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="1_n17qi"]
-[ext_resource type="Script" uid="uid://c2a2da7y25l0" path="res://scenes/menus/title_screen.gd" id="1_qc2aw"]
-[ext_resource type="Texture2D" uid="uid://wdrl2gywg5u2" path="res://scenes/menus/Sprite-0003.png" id="2_eqhve"]
-[ext_resource type="Texture2D" uid="uid://dn3m4f7estkq5" path="res://scenes/menus/Sprite-0007.png" id="5_ptv5j"]
-[ext_resource type="Texture2D" uid="uid://bdsyklmnpsuyn" path="res://scenes/menus/Sprite-0005.png" id="6_ptv5j"]
+[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="1_n17qi"]
+[ext_resource type="Script" uid="uid://c2a2da7y25l0" path="res://scenes/menus/title_screen/title_screen.gd" id="1_qc2aw"]
+[ext_resource type="Texture2D" uid="uid://wdrl2gywg5u2" path="res://scenes/menus/_res/Sprite-0003.png" id="2_eqhve"]
+[ext_resource type="Texture2D" uid="uid://dn3m4f7estkq5" path="res://scenes/menus/_res/Sprite-0007.png" id="5_ptv5j"]
+[ext_resource type="Texture2D" uid="uid://bdsyklmnpsuyn" path="res://scenes/menus/_res/Sprite-0005.png" id="6_ptv5j"]
 [ext_resource type="FontFile" uid="uid://cjwu7p0ffw0jl" path="res://shared/fonts/HP-Boneheaded-Regular.ttf" id="6_ugfu2"]
+[ext_resource type="PackedScene" uid="uid://bb43xse07c34y" path="res://scenes/menus/title_screen/level_buttono.tscn" id="8_00755"]
 [ext_resource type="FontFile" uid="uid://di848vtof3uuk" path="res://shared/fonts/HPLookinSharpRegular.ttf" id="8_ssxho"]
-[ext_resource type="FontFile" uid="uid://bubphwcisn2lu" path="res://shared/fonts/HighPoweredHand-Regular.ttf" id="8_ugfu2"]
 
 [sub_resource type="FontVariation" id="FontVariation_yx444"]
 base_font = ExtResource("8_ssxho")
@@ -146,12 +146,6 @@ _data = {
 &"pan_to_levels": SubResource("Animation_qc2aw")
 }
 
-[sub_resource type="FontVariation" id="FontVariation_ugfu2"]
-base_font = ExtResource("8_ugfu2")
-spacing_glyph = 2
-spacing_top = -4
-spacing_bottom = -4
-
 [node name="TitleScreen" type="Node2D" unique_id=1051756561 node_paths=PackedStringArray("anim", "level_buttons_parent")]
 script = ExtResource("1_qc2aw")
 anim = NodePath("AnimationPlayer")
@@ -276,33 +270,20 @@ theme_override_fonts/font = ExtResource("6_ugfu2")
 theme_override_font_sizes/font_size = 30
 text = "Easy Brews"
 
-[node name="1" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1722004065]
+[node name="1" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=421437190 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "1. Kablooey"
-alignment = 0
 
-[node name="2" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1145757180]
+[node name="2" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=476468791 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "2. Two Steps Forward"
-alignment = 0
+text = "2. Dizzy Glass"
 
-[node name="3" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1226060906]
+[node name="3" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=285296132 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "3. Three Steps Back"
-alignment = 0
+text = "3. Triple Shot"
 
-[node name="4" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=256468064]
+[node name="4" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1972610030 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "4. Carousel"
-alignment = 0
 
 [node name="Title2" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1963000186]
 layout_mode = 2
@@ -310,34 +291,21 @@ theme_override_fonts/font = ExtResource("6_ugfu2")
 theme_override_font_sizes/font_size = 30
 text = "Mixed Drinks"
 
-[node name="5" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1057002605]
+[node name="5" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1413368029 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "5. Swappers"
-alignment = 0
 
-[node name="6" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=425105222]
+[node name="6" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1619674483 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "6. Trifecta"
-alignment = 0
 
-[node name="7" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=494214177]
+[node name="7" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1662330927 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "7. Four Corners"
-alignment = 0
 
-[node name="8" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1028917079]
+[node name="8" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1117340717 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "8. Rainbow"
-alignment = 0
 
 [node name="Title3" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1608097496]
 layout_mode = 2
@@ -345,34 +313,21 @@ theme_override_fonts/font = ExtResource("6_ugfu2")
 theme_override_font_sizes/font_size = 30
 text = "Heavy Hitters"
 
-[node name="9" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=71018239]
+[node name="9" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1962374937 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "9. Fireworks"
-alignment = 0
 
-[node name="10" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=568923418]
+[node name="10" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=711517127 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "10. Hot Potato"
-alignment = 0
+text = "10. Hot n' Spicy"
 
-[node name="11" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1650557797]
+[node name="11" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2000784181 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "11. Bubbling Crucible"
-alignment = 0
+text = "11. Flame Crucible"
 
-[node name="12" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2106104858]
+[node name="12" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1791867355 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "12. Floor is Lava"
-alignment = 0
+text = "12. Lava Wave"
 
 [node name="Title4" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1227070906]
 layout_mode = 2
@@ -380,35 +335,20 @@ theme_override_fonts/font = ExtResource("6_ugfu2")
 theme_override_font_sizes/font_size = 30
 text = "Special Orders"
 
-[node name="13" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=355120309]
+[node name="13" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2147131549 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "13. Flashbangs"
-alignment = 0
+text = "13. Pick a Card"
 
-[node name="14" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=244267254]
+[node name="14" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1786741701 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "14. Pick a Card"
-alignment = 0
+text = "14. Ferris Wheel"
 
-[node name="15" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=801684572]
+[node name="15" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=251856398 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
-text = "15. Ferris Wheel"
-alignment = 0
+text = "15. Rainbow River"
 
-[node name="16" type="Button" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1714188836]
+[node name="16" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1257922178 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
-theme_override_fonts/font = SubResource("FontVariation_ugfu2")
-theme_override_font_sizes/font_size = 18
 text = "16. Drunkpowder"
-alignment = 0
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]

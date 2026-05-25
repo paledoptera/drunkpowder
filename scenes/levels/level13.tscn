@@ -1,192 +1,192 @@
-[gd_scene format=3 uid="uid://bqwop3lig75a8"]
+[gd_scene format=3 uid="uid://dnpjh8xc3tvfl"]
 
-[ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_ego0p"]
-[ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_mv1ue"]
-[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_ah4rv"]
-[ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_rt21c"]
-[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_ah4rv"]
-[ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="7_wb0vq"]
-[ext_resource type="FontFile" uid="uid://dxtc1q812b14x" path="res://shared/fonts/alagard.ttf" id="8_ah4rv"]
-[ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_mv1ue"]
-[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="10_ofpqk"]
-[ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_4al73"]
-[ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="12_y84es"]
-[ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="13_u88ht"]
-[ext_resource type="PackedScene" uid="uid://cls3wxswdwjfu" path="res://entities/zones/green.tscn" id="14_ibrn3"]
+[ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_c6thi"]
+[ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_16q2q"]
+[ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_bf1ur"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_g7hm7"]
+[ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="5_xuust"]
+[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_kq0s3"]
+[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_vloh2"]
+[ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="8_b0gqe"]
+[ext_resource type="FontFile" uid="uid://dxtc1q812b14x" path="res://shared/fonts/alagard.ttf" id="9_18lmw"]
+[ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="10_cq2g3"]
+[ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="11_13w8r"]
+[ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="12_mq6yf"]
+[ext_resource type="PackedScene" uid="uid://cls3wxswdwjfu" path="res://entities/zones/green.tscn" id="13_y6ef3"]
 
 [sub_resource type="Resource" id="Resource_mv1ue"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 5
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_2ljqd"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 5
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_e0kkb"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 5
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_e2yq7"]
 resource_name = "Intro"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_mv1ue"), SubResource("Resource_2ljqd"), SubResource("Resource_e0kkb")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_mv1ue"), SubResource("Resource_2ljqd"), SubResource("Resource_e0kkb")])
 delay_between_spawns = 1.5
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_nfihu"]
 resource_name = "Break"
-script = ExtResource("3_mv1ue")
+script = ExtResource("2_16q2q")
 refresh_board = true
 level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_nkeig"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 8
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_jprdt"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 8
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_rt21c"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 8
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_tkgv8"]
 resource_name = "Medium"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_nkeig"), SubResource("Resource_jprdt"), SubResource("Resource_rt21c")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_nkeig"), SubResource("Resource_jprdt"), SubResource("Resource_rt21c")])
 delay_between_spawns = 1.0
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_7eb4w"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_hadiw"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 1
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_72x3h"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 1
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_wb0vq"]
 resource_name = "Triple"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_7eb4w"), SubResource("Resource_hadiw"), SubResource("Resource_72x3h")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_7eb4w"), SubResource("Resource_hadiw"), SubResource("Resource_72x3h")])
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_sbmf2"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 4
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_1xax6"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 4
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_wltl1"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 4
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_ps2vj"]
 resource_name = "Fast"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_wltl1")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_wltl1")])
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_g7tkf"]
 resource_name = "LongerBreak"
-script = ExtResource("3_mv1ue")
+script = ExtResource("2_16q2q")
 delay_between_spawns = 1.5
 refresh_board = true
 level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_522sc"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_a82vw"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 1
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_t14x3"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 1
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_ahaer"]
 resource_name = "Triple2"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_522sc"), SubResource("Resource_a82vw"), SubResource("Resource_t14x3")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_522sc"), SubResource("Resource_a82vw"), SubResource("Resource_t14x3")])
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_wo5bm"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 3
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_wt4k6"]
 resource_name = "Fakeout"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_wo5bm")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_wo5bm")])
 delay_between_spawns = 1.5
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_4fww7"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 3
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_gvm5i"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 3
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_ofpqk"]
-script = ExtResource("4_rt21c")
+script = ExtResource("3_bf1ur")
 amount = 3
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_jrfo0"]
 resource_name = "Rapid"
-script = ExtResource("3_mv1ue")
-data_pool = Array[ExtResource("4_rt21c")]([SubResource("Resource_4fww7"), SubResource("Resource_gvm5i"), SubResource("Resource_ofpqk")])
+script = ExtResource("2_16q2q")
+data_pool = Array[ExtResource("3_bf1ur")]([SubResource("Resource_4fww7"), SubResource("Resource_gvm5i"), SubResource("Resource_ofpqk")])
 delay_between_spawns = 0.1
 spawn_mode = 2
 await_board_clear = true
@@ -198,9 +198,9 @@ size = Vector2(240, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfihu"]
 size = Vector2(56, 196)
 
-[node name="Level" unique_id=873046396 instance=ExtResource("1_ego0p")]
-sections = Array[ExtResource("3_mv1ue")]([SubResource("Resource_e2yq7"), SubResource("Resource_nfihu"), SubResource("Resource_tkgv8"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu")])
-number = 2
+[node name="Level" unique_id=873046396 instance=ExtResource("1_c6thi")]
+sections = Array[ExtResource("2_16q2q")]([SubResource("Resource_e2yq7"), SubResource("Resource_nfihu"), SubResource("Resource_tkgv8"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu")])
+number = 12
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 
@@ -209,7 +209,7 @@ offset_left = -238.0
 offset_top = -54.0
 offset_right = 242.0
 offset_bottom = 106.0
-texture = ExtResource("4_ah4rv")
+texture = ExtResource("4_g7hm7")
 
 [node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=216541575]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
@@ -217,7 +217,7 @@ offset_top = 36.0
 offset_right = 240.0
 offset_bottom = 160.0
 mouse_filter = 2
-texture = ExtResource("10_mv1ue")
+texture = ExtResource("5_xuust")
 stretch_mode = 1
 
 [node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=450105148]
@@ -226,14 +226,14 @@ offset_top = 20.0
 offset_right = 240.0
 offset_bottom = 36.0
 mouse_filter = 2
-texture = ExtResource("6_ah4rv")
+texture = ExtResource("6_kq0s3")
 stretch_mode = 1
 
 [node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
 z_index = 1
 position = Vector2(123.00001, 5)
 scale = Vector2(0.33, 0.33)
-texture = ExtResource("10_ofpqk")
+texture = ExtResource("7_vloh2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=1055372152]
 collision_layer = 129
@@ -259,7 +259,7 @@ position = Vector2(271, 98)
 shape = SubResource("RectangleShape2D_nfihu")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="Bumpers" parent="Background" index="5" unique_id=1998952315 instance=ExtResource("7_wb0vq")]
+[node name="Bumpers" parent="Background" index="5" unique_id=1998952315 instance=ExtResource("8_b0gqe")]
 offset_left = 154.0
 offset_top = -8.0
 offset_right = 234.0
@@ -272,7 +272,7 @@ offset_top = 6.0
 offset_right = 76.0
 offset_bottom = 75.0
 theme_override_colors/font_color = Color(1, 0.98039216, 0.7882353, 1)
-theme_override_fonts/font = ExtResource("8_ah4rv")
+theme_override_fonts/font = ExtResource("9_18lmw")
 text = "DRINK UP"
 
 [node name="ColorRect" type="ColorRect" parent="Background/Bumpers" index="2" unique_id=1369730273]
@@ -305,25 +305,25 @@ color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
 [node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
 
-[node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("11_4al73")]
+[node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("10_cq2g3")]
 position = Vector2(120, 160)
 rotation = 3.1415927
 
-[node name="Spawnpoint3" parent="Spawnpoints" index="1" unique_id=1016601922 instance=ExtResource("11_4al73")]
+[node name="Spawnpoint3" parent="Spawnpoints" index="1" unique_id=1016601922 instance=ExtResource("10_cq2g3")]
 position = Vector2(131, 160)
 rotation = 3.4906585
 
-[node name="Spawnpoint2" parent="Spawnpoints" index="2" unique_id=451350695 instance=ExtResource("11_4al73")]
+[node name="Spawnpoint2" parent="Spawnpoints" index="2" unique_id=451350695 instance=ExtResource("10_cq2g3")]
 position = Vector2(111, 160)
 rotation = 2.6179938
 
 [node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
-[node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("12_y84es")]
+[node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("11_13w8r")]
 position = Vector2(48, 66)
 
-[node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("13_u88ht")]
+[node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("12_mq6yf")]
 position = Vector2(120, 66)
 
-[node name="Green" parent="Zones" index="2" unique_id=1950830002 instance=ExtResource("14_ibrn3")]
+[node name="Green" parent="Zones" index="2" unique_id=1950830002 instance=ExtResource("13_y6ef3")]
 position = Vector2(192, 66)

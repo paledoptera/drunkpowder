@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dujvx58vgn63w"]
+
+[ext_resource type="Script" uid="uid://cf3kbhxhrtexl" path="res://scenes/menus/gameover.gd" id="1_5aif7"]
+[ext_resource type="FontFile" uid="uid://di848vtof3uuk" path="res://shared/fonts/HPLookinSharpRegular.ttf" id="2_vrxrw"]
+
+[sub_resource type="FontVariation" id="FontVariation_yx444"]
+base_font = ExtResource("2_vrxrw")
+spacing_glyph = 1
+
+[node name="Gameover" type="Node2D" unique_id=1051756561 node_paths=PackedStringArray("buttons_parent")]
+script = ExtResource("1_5aif7")
+buttons_parent = NodePath("Buttons")
+
+[node name="RichTextLabel" type="Label" parent="." unique_id=1977273863]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = 21.0
+offset_right = 161.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1088681351]
+position = Vector2(120, 80)
+
+[node name="Buttons" type="Node2D" parent="." unique_id=1457408331]
+
+[node name="Replay" type="Button" parent="Buttons" unique_id=1081501662]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 108.0
+offset_right = 158.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_yx444")
+theme_override_font_sizes/font_size = 15
+text = "REPLAY LEVEL"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Buttons" unique_id=1480972077]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 90.5
+offset_top = 130.0
+offset_right = 142.5
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_yx444")
+theme_override_font_sizes/font_size = 15
+text = "QUIT TO TITLE"
+flat = true
+metadata/_edit_use_anchors_ = true

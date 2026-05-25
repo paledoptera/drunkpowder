@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_hw1kd"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_5v622"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_ofvo0"]
-[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/Sprite-0002.png" id="4_lnxpb"]
+[ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="4_lnxpb"]
 [ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="5_250dg"]
 [ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="6_wgfvi"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_xr5re"]
@@ -274,6 +274,7 @@ _data = {
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_hw1kd")]
 sections = Array[ExtResource("2_5v622")]([SubResource("Resource_hw1kd"), SubResource("Resource_lnxpb"), SubResource("Resource_wgfvi"), SubResource("Resource_xr5re"), SubResource("Resource_75nnh"), SubResource("Resource_b8bg4"), SubResource("Resource_w8oq5")])
+number = 7
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 

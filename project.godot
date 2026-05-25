@@ -40,7 +40,9 @@ folder_colors={
 "res://entities/effects/cursor_effect/_res/": "gray",
 "res://entities/hazards/_res/": "gray",
 "res://entities/spawnpoints/_res/": "gray",
-"res://entities/zones/_res/": "gray"
+"res://entities/zones/_res/": "gray",
+"res://scenes/levels/_res/": "gray",
+"res://scenes/menus/_res/": "gray"
 }
 
 [global_group]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifxkbqqtt6po"
-path="res://.godot/imported/lives_icon.png-86f6262b4607f75a29e6d2255f0e5971.ctex"
+uid="uid://dspjcxbfskosu"
+path="res://.godot/imported/luigi_poker3.png-bec41c7bcfabf104a305a1dadde6c8a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/menus/lives_icon.png"
-dest_files=["res://.godot/imported/lives_icon.png-86f6262b4607f75a29e6d2255f0e5971.ctex"]
+source_file="res://scenes/menus/_res/luigi_poker3.png"
+dest_files=["res://.godot/imported/luigi_poker3.png-bec41c7bcfabf104a305a1dadde6c8a8.ctex"]
 
 [params]
 

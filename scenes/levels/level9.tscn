@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_80f0i"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_1na5m"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_xkdka"]
-[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/luigi_poker3.png" id="4_80f0i"]
+[ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/_res/luigi_poker3.png" id="4_80f0i"]
 [ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="5_80f0i"]
 [ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="6_80f0i"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_xntys"]
@@ -283,7 +283,7 @@ _data = {
 script = SubResource("GDScript_80f0i")
 event_anim = NodePath("Zones/AnimationPlayer")
 sections = Array[ExtResource("2_1na5m")]([SubResource("Resource_xntys"), SubResource("Resource_1na5m"), SubResource("Resource_xkdka"), SubResource("Resource_lgguw"), SubResource("Resource_ace8g"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_nfihu"), SubResource("Resource_2p0ou"), SubResource("Resource_gblyi"), SubResource("Resource_7g6pv"), SubResource("Resource_nfihu")])
-number = 9
+number = 8
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
 

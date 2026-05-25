@@ -10,6 +10,7 @@ const BOMBS = [
 	preload("uid://dv8m7gb8dcbw1") # faulty.tscn
 ]
 
+
 var events = [false,false,false,false,false]
 
 @export var ui_label : RichTextLabel
@@ -32,7 +33,9 @@ func _ready() -> void:
 	Global.level = self
 	Global.health = Global.health_max
 	Global.score = 0
-	Global.ui_cursor.hide()
+	
+	if Global.ui_cursor:
+		Global.ui_cursor.hide()
 	
 	# Setting up node groups
 	Global.level_colors = -1
@@ -57,6 +60,12 @@ func _ready() -> void:
 		
 
 func _process(_delta: float) -> void:
+	if Global.health <= 0:
+		Global.death()
+
+	
+	
+	
 	ui_label.text = "[color=yellow]Score [/color]"+str(Global.score*10)
 	ui_shadow.text = ui_label.text
 	$CameraPivot/Camera2D/Lives.text = "x"+str(Global.health)
@@ -188,6 +197,9 @@ func camera_shake(length:int=4):
 func end() -> void:
 	ended = true
 	$Animations.play("end")
+	await $Animations.animation_finished
+	Global.victory()
+	#Global.goto_scene(VICTORY_SCENE)
 
 func reset_fuses():
 	for i in parent_bombs.get_children():

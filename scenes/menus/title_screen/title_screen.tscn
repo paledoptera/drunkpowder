@@ -323,10 +323,12 @@ text = "10. Hot n' Spicy"
 
 [node name="11" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2000784181 instance=ExtResource("8_00755")]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.20229399, 0.20152515, 0.19943067, 1)
 text = "11. Flame Crucible"
 
 [node name="12" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1791867355 instance=ExtResource("8_00755")]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.20229399, 0.20152515, 0.19943067, 1)
 text = "12. Lava Wave"
 
 [node name="Title4" type="Label" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1227070906]
@@ -337,18 +339,22 @@ text = "Special Orders"
 
 [node name="13" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=2147131549 instance=ExtResource("8_00755")]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.20229399, 0.20152515, 0.19943067, 1)
 text = "13. Pick a Card"
 
 [node name="14" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1786741701 instance=ExtResource("8_00755")]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.20229399, 0.20152515, 0.19943067, 1)
 text = "14. Ferris Wheel"
 
 [node name="15" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=251856398 instance=ExtResource("8_00755")]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.20392157, 0.2, 0.2, 1)
 text = "15. Rainbow River"
 
 [node name="16" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1257922178 instance=ExtResource("8_00755")]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.20392157, 0.2, 0.2, 1)
 text = "16. Drunkpowder"
 
 [node name="Back" type="Button" parent="LevelScreen/ColorRect" unique_id=1090899511]

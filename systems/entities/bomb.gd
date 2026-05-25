@@ -129,9 +129,7 @@ func check_sort():
 			if zone.color == color:
 				if zone.ignited:
 					return
-				if zone.limited_capacity == -1 or zone.bomb_count < area.limited_capacity:
-					defuse(zone)
-					zone.bomb_count += 1
+				defuse(zone)
 				return
 			else:
 				dropped_in_wrong_area(zone)

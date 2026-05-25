@@ -124,7 +124,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "Fast1"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6")])
-delay_between_spawns = 0.44
+delay_between_spawns = 0.7
 spawn_mode = 1
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -158,7 +158,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "Fast2"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_634p2")])
-delay_between_spawns = 0.44
+delay_between_spawns = 0.7
 spawn_mode = 1
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -177,7 +177,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "DoubleThrees"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_b4tpv"), SubResource("Resource_hkuam")])
-delay_between_spawns = 0.44
+delay_between_spawns = 0.6
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -203,7 +203,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "RapidDoubleThrees"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_yhrca"), SubResource("Resource_4eecq")])
-delay_between_spawns = 0.2
+delay_between_spawns = 0.4
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -223,7 +223,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "RapidDoubleThrees"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_bxuut"), SubResource("Resource_g04qb")])
-delay_between_spawns = 0.15
+delay_between_spawns = 0.4
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -243,7 +243,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "LastStretch"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_4wmb1"), SubResource("Resource_xidjn")])
-delay_between_spawns = 0.44
+delay_between_spawns = 1.0
 spawn_mode = 1
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -262,7 +262,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "RapidDoublesFinale"
 script = ExtResource("2_8kjvp")
 data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_45jfw"), SubResource("Resource_8kpy5")])
-delay_between_spawns = 0.1
+delay_between_spawns = 1.0
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -271,6 +271,63 @@ metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 resource_name = "Break"
 script = ExtResource("2_8kjvp")
 await_board_clear = true
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_x1flq"]
+script = ExtResource("3_bu22b")
+amount = 8
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_w4xpj"]
+script = ExtResource("3_bu22b")
+amount = 8
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_sa2bg"]
+script = ExtResource("3_bu22b")
+amount = 4
+bomb_type = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_4ji8w"]
+resource_name = "Doubles"
+script = ExtResource("2_8kjvp")
+data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_x1flq"), SubResource("Resource_w4xpj"), SubResource("Resource_sa2bg")])
+delay_between_spawns = 1.5
+spawn_mode = 2
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_k056o"]
+resource_name = "Break"
+script = ExtResource("2_8kjvp")
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_a0e7p"]
+script = ExtResource("3_bu22b")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_otn3r"]
+script = ExtResource("3_bu22b")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_u8rrv"]
+script = ExtResource("2_8kjvp")
+data_pool = Array[ExtResource("3_bu22b")]([SubResource("Resource_a0e7p"), SubResource("Resource_otn3r")])
+delay_between_spawns = 1.0
+spawn_mode = 1
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_08hg2"]
+resource_name = "Break"
+script = ExtResource("2_8kjvp")
 refresh_board = true
 level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -286,34 +343,22 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LeftPath/PathFollow2D:progress_ratio")
+tracks/0/path = NodePath("LeftPath/PathFollow2D/Spawnpoint:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LeftPath/PathFollow2D/Spawnpoint:rotation")
+tracks/1/path = NodePath("RightPath/PathFollow2D/Spawnpoint2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RightPath/PathFollow2D/Spawnpoint2:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -327,46 +372,22 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LeftPath/PathFollow2D:progress_ratio")
+tracks/0/path = NodePath("LeftPath/PathFollow2D/Spawnpoint:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 1.25, 3.75, 5),
-"transitions": PackedFloat32Array(0.5, -2, 2, 0.5),
-"update": 0,
-"values": [0.5, 1.0, 0.0, 0.5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RightPath/PathFollow2D:progress_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2666667, 3.7333333, 4.9666667),
-"transitions": PackedFloat32Array(0.5, -2, 2, 0.5),
-"update": 0,
-"values": [0.5, 0.0, 1.0, 0.5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftPath/PathFollow2D/Spawnpoint:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.3, 3.7666667, 5.0000005),
 "transitions": PackedFloat32Array(0.5, -2, 2, 1),
 "update": 0,
 "values": [0.0, -0.3490658503988659, 0.3490658503988659, 0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RightPath/PathFollow2D/Spawnpoint2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightPath/PathFollow2D/Spawnpoint2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.3, 3.7666667, 5.0000005),
 "transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
 "update": 0,
@@ -378,6 +399,12 @@ _data = {
 &"RESET": SubResource("Animation_ko1rt"),
 &"spawnpoint_movement": SubResource("Animation_i5ldy")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_s4x5n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6, 110, 0, 0, 0, 0, 6, 86)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_i5ldy"]
 _data = {
@@ -392,7 +419,7 @@ size = Vector2(130, 22)
 size = Vector2(32, 32)
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_s4x5n")]
-sections = Array[ExtResource("2_8kjvp")]([SubResource("Resource_plydf"), SubResource("Resource_8kjvp"), SubResource("Resource_1se4v"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_6sre3"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_nfihu"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_ysxgg"), SubResource("Resource_b3p8y"), SubResource("Resource_nfihu"), SubResource("Resource_ida7w"), SubResource("Resource_nfihu"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_21itu")])
+sections = Array[ExtResource("2_8kjvp")]([SubResource("Resource_plydf"), SubResource("Resource_8kjvp"), SubResource("Resource_1se4v"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_6sre3"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_nfihu"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_ysxgg"), SubResource("Resource_b3p8y"), SubResource("Resource_nfihu"), SubResource("Resource_ida7w"), SubResource("Resource_nfihu"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_21itu"), SubResource("Resource_4ji8w"), SubResource("Resource_k056o"), SubResource("Resource_u8rrv"), SubResource("Resource_08hg2")])
 number = 9
 
 [node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
@@ -458,7 +485,7 @@ libraries/ = SubResource("AnimationLibrary_ko1rt")
 autoplay = &"spawnpoint_movement"
 
 [node name="LeftPath" type="Path2D" parent="Spawnpoints" index="1" unique_id=1013802512]
-curve = SubResource("Curve2D_i5ldy")
+curve = SubResource("Curve2D_s4x5n")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Spawnpoints/LeftPath" index="0" unique_id=1880892119]
 position = Vector2(6, 98)
@@ -550,7 +577,6 @@ wait_time = 7.5
 
 [node name="Red2" parent="Zones" index="3" unique_id=1744461388 instance=ExtResource("10_w4xpj")]
 position = Vector2(17, 129)
-limited_capacity = 12
 
 [node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
 shape = SubResource("RectangleShape2D_s4x5n")

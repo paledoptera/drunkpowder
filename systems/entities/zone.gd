@@ -2,21 +2,11 @@ class_name Zone
 extends Area2D
 
 @export var color: Global.BOMB_TYPE
-@export var limited_capacity : int = -1
-var bomb_count : int = 0
 var ignited: bool = false:
 	set(value):
 		ignited = value
 		$TextureRect/IgnitedOverlay.visible = value
 
-func _ready() -> void:
-	$Label.visible = false
-	if limited_capacity > 0:
-		$Label.visible = true
-		
-func _physics_process(delta: float) -> void:
-	$Label.text = str(limited_capacity - bomb_count) + "\nLeft"
-	$Label/Label2.text = $Label.text
 
 func ignite() -> void:
 	ignited = true
@@ -25,7 +15,6 @@ func ignite() -> void:
 			var dir = global_position.direction_to(i.global_position)
 			Global.level.spawn_bomb(i.color,i.global_position,dir,200.0)
 			i.queue_free()
-			bomb_count -= 1
 	$IgnitionTimer.stop()
 	$IgnitionTimer.start()
 
@@ -44,6 +33,6 @@ func _on_ignition_timer_timeout() -> void:
 			any_ignited_bombs = true
 	
 	if any_ignited_bombs:
-		Global.damage(2)
+		Global.damage(1)
 	
 	

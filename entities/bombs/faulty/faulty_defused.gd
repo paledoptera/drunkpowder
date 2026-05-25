@@ -4,11 +4,20 @@ class_name FaultyDefused
 
 func _ready() -> void:
 	super()
+	
+	var time = randf_range(10.0,30.0)
+	
+	var count: int = 0
+	
+	for i in get_parent().get_children():
+		if i is FaultyDefused:
+			count += 1
+	
 	if Global.level.number == 8 and Global.level.events[0] == false:
 		Global.level.events[0] = true
-		$ReFuseTimer.start(3.0)
+		$ReFuseTimer.start(2.5)
 		return
-	$ReFuseTimer.start(randf_range(10.0,30.0))
+	$ReFuseTimer.start(time/count)
 
 
 

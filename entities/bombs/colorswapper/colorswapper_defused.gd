@@ -27,5 +27,4 @@ func _on_re_fuse_timer_timeout() -> void:
 	Audio.play_sfx(load("res://sfx/sPalantaFirework.wav"))
 	
 	Global.level.create_particle(load("uid://dc8f55vdbb1oo"),global_position,new_bomb)
-	zone.bomb_count -= 1
 	queue_free()

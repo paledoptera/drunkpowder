@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		drag(delta)
 	
-	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
+	global_position = get_global_mouse_position() - held_offset + Vector2(10,10)
 
 
 func move(delta) -> void:
@@ -76,8 +76,8 @@ func move(delta) -> void:
 		check_sort()
 	
 	
-	speed = lerp(speed,50.0,0.05)
-	speed_mult = speed/50.0
+	speed = lerp(speed,40.0,0.05)
+	speed_mult = speed/40.0
 	direction = direction.rotated(rotate_sign*0.01*(0.9+(speed_mult/10)))
 	
 	var collision = move_and_collide(direction * speed * delta)
@@ -87,9 +87,9 @@ func move(delta) -> void:
 
 func drag(delta) -> void:
 	var prev_pos = position
-	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
+	global_position = get_global_mouse_position() - held_offset + Vector2(10,10)
 	
-	held_offset = held_offset.lerp(Vector2(15,17),0.5)
+	held_offset = held_offset.lerp(Vector2(10,11),0.5)
 	
 	if position - prev_pos != Vector2.ZERO: 
 		direction = (position - prev_pos)

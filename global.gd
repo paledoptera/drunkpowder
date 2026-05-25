@@ -15,8 +15,8 @@ var sfx_volume : int = 4:
 
 var level: Level
 var level_num: int = 0
-var health_max: int = 3
-var health: int = 3
+var health_max: int = 5
+var health: int = 5
 var holding_item: Node
 var save:= PlayerSave.new()
 

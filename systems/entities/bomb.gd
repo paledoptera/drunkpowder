@@ -63,15 +63,19 @@ func _physics_process(delta: float) -> void:
 	
 	if not held:
 		move(delta)
-		if global_position.x < -10 or global_position.x > 250 or global_position.y < -10 or global_position.y > 170:
-			explode()
 		return
 	else:
 		drag(delta)
 	
 	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
 
+
 func move(delta) -> void:
+	
+	if area.has_overlapping_areas():
+		check_sort()
+	
+	
 	speed = lerp(speed,50.0,0.05)
 	speed_mult = speed/50.0
 	direction = direction.rotated(rotate_sign*0.01*(0.9+(speed_mult/10)))
@@ -79,6 +83,7 @@ func move(delta) -> void:
 	var collision = move_and_collide(direction * speed * delta)
 	if collision: 
 		direction = direction.bounce(collision.get_normal())
+
 
 func drag(delta) -> void:
 	var prev_pos = position
@@ -89,10 +94,6 @@ func drag(delta) -> void:
 	if position - prev_pos != Vector2.ZERO: 
 		direction = (position - prev_pos)
 		speed = lerp(speed,(position-prev_pos).length()/delta,0.1)
-	
-	if not area.has_overlapping_areas():
-		if move_and_collide(Vector2.ZERO):
-			drop()
 	
 
 
@@ -108,7 +109,6 @@ func pick_up(offset: Vector2) -> void:
 	Global.holding_item = self
 
 func drop() -> void:
-	
 	z_index = 0
 	z_as_relative = true
 	y_sort_enabled = true
@@ -117,32 +117,28 @@ func drop() -> void:
 	$AnimationPlayer.play_backwards("pick_up")
 	$AnimationPlayer.queue("move")
 	Global.holding_item = null
-	if not area.has_overlapping_areas():
-		Audio.play_sfx(preload("uid://by4u06xpmrt2k"),true,randf_range(0.8,1.2))
-		$PlaceBuffer.start()
-		return
-	
-	check_sort()
-	
-	
+	Audio.play_sfx(preload("uid://by4u06xpmrt2k"),true,randf_range(0.8,1.2))
 
 
 func check_sort():
-	for area in area.get_overlapping_areas():
-		if area is Zone:
-			if area.color == color:
-				if area.ignited:
+	if not area.has_overlapping_areas():
+		return
+	
+	for zone in area.get_overlapping_areas():
+		if zone is Zone:
+			if zone.color == color:
+				if zone.ignited:
 					return
-				if area.limited_capacity == -1 or area.bomb_count < area.limited_capacity:
-					defuse(area)
-					area.bomb_count += 1
+				if zone.limited_capacity == -1 or zone.bomb_count < area.limited_capacity:
+					defuse(zone)
+					zone.bomb_count += 1
 				return
 			else:
-				dropped_in_wrong_area()
+				dropped_in_wrong_area(zone)
 				return
 			
 
-func dropped_in_wrong_area():
+func dropped_in_wrong_area(zone: Zone):
 	explode()
 
 
@@ -150,9 +146,6 @@ func explode(damage: bool = true) -> void:
 	Global.score = clampi(Global.score-20,0,999999999)
 	if damage:
 		Global.damage(1)
-	#for bomb in Global.level.parent_bombs.get_children():
-		#if bomb != self:
-			#bomb.queue_free()
 	Global.level.create_particle(SMOKEPUFF_SCENE,global_position,get_parent())
 	Global.level.create_particle(EXPLODE_SCENE,global_position+Vector2(0.0,-6.0),get_parent())
 	Audio.play_sfx(load("res://sfx/Box Explosion.ogg"))

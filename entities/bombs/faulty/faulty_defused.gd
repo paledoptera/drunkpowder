@@ -4,7 +4,7 @@ class_name FaultyDefused
 
 func _ready() -> void:
 	super()
-	if Global.level.number == 9 and Global.level.events[0] == false:
+	if Global.level.number == 8 and Global.level.events[0] == false:
 		Global.level.events[0] = true
 		$ReFuseTimer.start(3.0)
 		return
@@ -13,7 +13,10 @@ func _ready() -> void:
 
 
 func _on_re_fuse_timer_timeout() -> void:
-	if Global.level.number == 9 and Global.level.events[1] == false:
+	if Global.level.ended or Global.level.sections.size() <= 1:
+		return
+	
+	if Global.level.number == 8 and Global.level.events[1] == false:
 		Global.level.events[1] = true
 		Global.level.event_anim.play("move_zones")
 	var zone = get_parent()

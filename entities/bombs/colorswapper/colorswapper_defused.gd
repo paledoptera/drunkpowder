@@ -12,16 +12,18 @@ func _ready() -> void:
 
 func _on_re_fuse_timer_timeout() -> void:
 	
-	if Global.level.ended:
+	if Global.level.ended or Global.level.sections.size() <= 1:
 		return
+	
 	if global_position.x < 0 or global_position.x > 240:
 		$ReFuseTimer.start(randf_range(5.0,20.0))
 		return
 	
 	var new_bomb = load("uid://cfe64yq8hvuuq").instantiate()
 	new_bomb.last_color = int(color)
-	Global.level.parent_bombs.add_child(new_bomb)
+	get_parent().add_child(new_bomb)
 	new_bomb.global_position = global_position
+	new_bomb.z_index = 500
 	Audio.play_sfx(load("res://sfx/sPalantaFirework.wav"))
 	
 	Global.level.create_particle(load("uid://dc8f55vdbb1oo"),global_position,new_bomb)

@@ -47,5 +47,11 @@ func set_emblem(node: Node) -> void:
 		2:
 			node.emblem.position = Vector2(0.0,-8+3.0)
 
-func dropped_in_wrong_area():
+func dropped_in_wrong_area(zone: Zone):
+	z_index = 500
+	reparent(zone)
 	return
+
+func drop_on_board():
+	z_index = 0
+	reparent(Global.level.parent_bombs)

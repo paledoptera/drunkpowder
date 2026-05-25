@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://btpt5lcggvs51" path="res://systems/level/level.gd" id="1_8xjlc"]
 [ext_resource type="FontFile" uid="uid://cayc6lxiefo78" path="res://shared/fonts/Early GameBoy.ttf" id="2_8u3oo"]
+[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="2_76yk2"]
 [ext_resource type="Script" uid="uid://c2bnm1b3662wp" path="res://scenes/levels/bombs.gd" id="2_kqcy0"]
 [ext_resource type="Texture2D" uid="uid://cifxkbqqtt6po" path="res://scenes/levels/_res/lives_icon.png" id="3_l2bdh"]
 [ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="3_viu5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2bdh"]
+size = Vector2(1000, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76yk2"]
+size = Vector2(200, 196)
 
 [sub_resource type="Animation" id="Animation_kqcy0"]
 length = 0.001
@@ -104,6 +111,38 @@ timer = NodePath("Timer")
 parent_bombs = NodePath("Bombs")
 actions = NodePath("Actions")
 
+[node name="BackgroundElements" type="Node2D" parent="." unique_id=1863968372]
+
+[node name="Bartender" type="Sprite2D" parent="BackgroundElements" unique_id=699056708]
+position = Vector2(123.00001, 5)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("2_76yk2")
+
+[node name="LevelBounds" type="StaticBody2D" parent="BackgroundElements" unique_id=181002708]
+position = Vector2(-1, 1)
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1565448384]
+position = Vector2(120, -66)
+shape = SubResource("RectangleShape2D_l2bdh")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1130705387]
+position = Vector2(120, 259)
+shape = SubResource("RectangleShape2D_l2bdh")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1956227953]
+position = Vector2(-99, 98)
+shape = SubResource("RectangleShape2D_76yk2")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1935552773]
+position = Vector2(341, 98)
+shape = SubResource("RectangleShape2D_76yk2")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
 [node name="Timer" type="Timer" parent="." unique_id=1536030849]
 one_shot = true
 
@@ -112,7 +151,6 @@ position = Vector2(120, 80)
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=809897051]
 rotation = -3.1415925
-zoom = Vector2(1.0118415, 1.0118415)
 
 [node name="Label" type="RichTextLabel" parent="CameraPivot/Camera2D" unique_id=1029735772]
 offset_left = 110.000015
@@ -120,6 +158,7 @@ offset_top = 69.999985
 offset_right = 216.33315
 offset_bottom = 118.999985
 scale = Vector2(-1, -1)
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_8u3oo")
 theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true
@@ -133,6 +172,7 @@ offset_left = 1.0000076
 offset_top = 0.9999995
 offset_right = 107.33313
 offset_bottom = 50.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_8u3oo")
 theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true
@@ -145,6 +185,7 @@ offset_top = 70.00001
 offset_right = 13.33313
 offset_bottom = 119.00001
 scale = Vector2(-1, -1)
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_8u3oo")
 theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true
@@ -159,6 +200,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 107.33313
 offset_bottom = 50.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_8u3oo")
 theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true

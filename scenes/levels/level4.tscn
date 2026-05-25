@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="8_f62st"]
 [ext_resource type="FontFile" uid="uid://dxtc1q812b14x" path="res://shared/fonts/alagard.ttf" id="9_w24lh"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_etasl"]
-[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="11_3d8b1"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="12_lijuj"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="13_v4vd8"]
 [ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="14_hyuqe"]
@@ -40,10 +39,9 @@ spawn_mode = 1
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="Resource" id="Resource_nfihu"]
-resource_name = "Break"
+[sub_resource type="Resource" id="Resource_f62st"]
+resource_name = "BreakNoClear"
 script = ExtResource("3_go002")
-refresh_board = true
 level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -73,11 +71,122 @@ spawn_mode = 1
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1womr"]
-size = Vector2(240, 30)
+[sub_resource type="Resource" id="Resource_nfihu"]
+resource_name = "Break"
+script = ExtResource("3_go002")
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i63tj"]
-size = Vector2(56, 196)
+[sub_resource type="Resource" id="Resource_5sfmg"]
+script = ExtResource("4_u0bhu")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_tsmbm"]
+script = ExtResource("4_u0bhu")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_y3vdi"]
+script = ExtResource("4_u0bhu")
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_w24lh"]
+resource_name = "Doubles"
+script = ExtResource("3_go002")
+data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_5sfmg"), SubResource("Resource_tsmbm"), SubResource("Resource_y3vdi")])
+delay_between_spawns = 1.5
+spawn_mode = 2
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_irrt8"]
+script = ExtResource("4_u0bhu")
+amount = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_ev8xs"]
+script = ExtResource("4_u0bhu")
+amount = 4
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_q6dln"]
+script = ExtResource("4_u0bhu")
+amount = 4
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_qtppw"]
+resource_name = "Fast"
+script = ExtResource("3_go002")
+data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_irrt8"), SubResource("Resource_ev8xs"), SubResource("Resource_q6dln")])
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_atlnk"]
+script = ExtResource("4_u0bhu")
+amount = 4
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_7kkoh"]
+resource_name = "Greens"
+script = ExtResource("3_go002")
+data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_atlnk")])
+delay_between_spawns = 1.0
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_m1gbu"]
+script = ExtResource("4_u0bhu")
+amount = 3
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_yw4fb"]
+script = ExtResource("4_u0bhu")
+amount = 3
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_1wpw8"]
+script = ExtResource("4_u0bhu")
+amount = 3
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_w1hcc"]
+resource_name = "DoublesFast"
+script = ExtResource("3_go002")
+data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_m1gbu"), SubResource("Resource_yw4fb"), SubResource("Resource_1wpw8")])
+spawn_mode = 2
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_npa1m"]
+script = ExtResource("4_u0bhu")
+amount = 12
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_ll01n"]
+script = ExtResource("4_u0bhu")
+amount = 12
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_hxr3b"]
+script = ExtResource("4_u0bhu")
+amount = 12
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_ph4mq"]
+resource_name = "End"
+script = ExtResource("3_go002")
+data_pool = Array[ExtResource("4_u0bhu")]([SubResource("Resource_npa1m"), SubResource("Resource_ll01n"), SubResource("Resource_hxr3b")])
+delay_between_spawns = 0.9
+spawn_mode = 2
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Animation" id="Animation_ko1rt"]
 length = 0.001
@@ -195,19 +304,18 @@ func _physics_process(delta: float) -> void:
 "
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_etasl")]
-sections = Array[ExtResource("3_go002")]([SubResource("Resource_4vryo"), SubResource("Resource_nfihu"), SubResource("Resource_g1ckg"), SubResource("Resource_nfihu")])
+sections = Array[ExtResource("3_go002")]([SubResource("Resource_4vryo"), SubResource("Resource_f62st"), SubResource("Resource_g1ckg"), SubResource("Resource_nfihu"), SubResource("Resource_w24lh"), SubResource("Resource_nfihu"), SubResource("Resource_qtppw"), SubResource("Resource_f62st"), SubResource("Resource_7kkoh"), SubResource("Resource_w1hcc"), SubResource("Resource_nfihu"), SubResource("Resource_ph4mq"), SubResource("Resource_nfihu")])
 number = 3
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
-
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=2002412309]
+[node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=2002412309]
 offset_left = -121.0
 offset_top = -55.0
 offset_right = 359.0
 offset_bottom = 105.0
+mouse_filter = 2
 texture = ExtResource("4_f62st")
 
-[node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=414186318]
+[node name="ColorRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="1" unique_id=414186318]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
 offset_top = 36.0
 offset_right = 240.0
@@ -216,7 +324,7 @@ mouse_filter = 2
 texture = ExtResource("10_etasl")
 stretch_mode = 1
 
-[node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=2041291568]
+[node name="Edge" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="2" unique_id=2041291568]
 modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
 offset_top = 20.0
 offset_right = 240.0
@@ -225,42 +333,13 @@ mouse_filter = 2
 texture = ExtResource("6_t7v7a")
 stretch_mode = 1
 
-[node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
-position = Vector2(123.00001, 5)
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("11_3d8b1")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=1845243788]
-collision_layer = 129
-collision_mask = 129
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1645517936]
-position = Vector2(120, 18)
-shape = SubResource("RectangleShape2D_1womr")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=1728234073]
-position = Vector2(120, 178)
-shape = SubResource("RectangleShape2D_1womr")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1337467757]
-position = Vector2(-31, 98)
-shape = SubResource("RectangleShape2D_i63tj")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=699327742]
-position = Vector2(271, 98)
-shape = SubResource("RectangleShape2D_i63tj")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="Bumpers" parent="Background" index="5" unique_id=1998952315 instance=ExtResource("8_f62st")]
+[node name="Bumpers" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="5" unique_id=1998952315 instance=ExtResource("8_f62st")]
 offset_left = 154.0
 offset_top = -41.0
 offset_right = 234.0
 offset_bottom = -16.0
 
-[node name="Label" type="Label" parent="Background/Bumpers" index="1" unique_id=2069548239]
+[node name="Label" type="Label" parent="BackgroundElements/Bumpers" index="1" unique_id=2069548239]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
@@ -270,41 +349,41 @@ theme_override_colors/font_color = Color(1, 0.98039216, 0.7882353, 1)
 theme_override_fonts/font = ExtResource("9_w24lh")
 text = "HEADS UP"
 
-[node name="ColorRect" type="ColorRect" parent="Background/Bumpers" index="2" unique_id=2027072914]
+[node name="ColorRect" type="ColorRect" parent="BackgroundElements/Bumpers" index="2" unique_id=2027072914]
 layout_mode = 0
 offset_left = 6.0
 offset_top = -46.0
 offset_right = 9.0
 color = Color(0.84313726, 0.5137255, 0.1882353, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers/ColorRect" index="0" unique_id=696484709]
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements/Bumpers/ColorRect" index="0" unique_id=696484709]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 2.0
 offset_bottom = 46.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers" index="3" unique_id=1503939433]
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements/Bumpers" index="3" unique_id=1503939433]
 layout_mode = 0
 offset_left = 71.0
 offset_top = -46.0
 offset_right = 74.0
 color = Color(0.84313726, 0.5137255, 0.1882353, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers/ColorRect2" index="0" unique_id=1364648391]
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements/Bumpers/ColorRect2" index="0" unique_id=1364648391]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 2.0
 offset_bottom = 46.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="Bumpers2" parent="Background" index="6" unique_id=845212396 instance=ExtResource("8_f62st")]
+[node name="Bumpers2" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="6" unique_id=845212396 instance=ExtResource("8_f62st")]
 offset_left = 154.0
 offset_top = 5.0
 offset_right = 234.0
 offset_bottom = 30.0
 
-[node name="Label" type="Label" parent="Background/Bumpers2" index="1" unique_id=1841778206]
+[node name="Label" type="Label" parent="BackgroundElements/Bumpers2" index="1" unique_id=1841778206]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
@@ -314,35 +393,35 @@ theme_override_colors/font_color = Color(1, 0.98039216, 0.7882353, 1)
 theme_override_fonts/font = ExtResource("9_w24lh")
 text = "SPIN SPIN"
 
-[node name="ColorRect" type="ColorRect" parent="Background/Bumpers2" index="2" unique_id=856548640]
+[node name="ColorRect" type="ColorRect" parent="BackgroundElements/Bumpers2" index="2" unique_id=856548640]
 layout_mode = 0
 offset_left = 6.0
 offset_top = -21.0
 offset_right = 9.0
 color = Color(0.84313726, 0.5137255, 0.1882353, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers2/ColorRect" index="0" unique_id=193313473]
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements/Bumpers2/ColorRect" index="0" unique_id=193313473]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 2.0
 offset_bottom = 21.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers2" index="3" unique_id=602930360]
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements/Bumpers2" index="3" unique_id=602930360]
 layout_mode = 0
 offset_left = 71.0
 offset_top = -21.0
 offset_right = 74.0
 color = Color(0.84313726, 0.5137255, 0.1882353, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Background/Bumpers2/ColorRect2" index="0" unique_id=1737265531]
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements/Bumpers2/ColorRect2" index="0" unique_id=1737265531]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 2.0
 offset_bottom = 21.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=2120049199]
+[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=2120049199]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spawnpoints" index="0" unique_id=566599711]
 libraries/ = SubResource("AnimationLibrary_5sjjt")
@@ -373,7 +452,7 @@ loop = false
 rotation = 3.1415927
 velocity = 100.0
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1627028995]
+[node name="Zones" type="Node2D" parent="." index="2" unique_id=1627028995]
 
 [node name="Red" parent="Zones" index="0" unique_id=1407830815 instance=ExtResource("14_hyuqe")]
 position = Vector2(120.00001, 77)
@@ -421,7 +500,7 @@ offset_bottom = 20.0
 [node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" parent_id_path=PackedInt32Array(1950830002, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
 
-[node name="Carousel" type="Node2D" parent="." index="4" unique_id=584441020]
+[node name="Carousel" type="Node2D" parent="." index="3" unique_id=584441020]
 position = Vector2(120, 109)
 rotation = 6.2831855
 script = SubResource("GDScript_etasl")

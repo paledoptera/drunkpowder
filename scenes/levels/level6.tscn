@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_wrd1n"]
 [ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="4_6x3xw"]
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="4_sdnvp"]
-[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="5_sdnvp"]
 [ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="5_wrd1n"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="6_53v2u"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="7_3mgnq"]
@@ -171,10 +170,16 @@ amount = 4
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
+[sub_resource type="Resource" id="Resource_fp2uk"]
+script = ExtResource("3_wrd1n")
+amount = 3
+bomb_type = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
 [sub_resource type="Resource" id="Resource_ps2vj"]
 resource_name = "Fast"
 script = ExtResource("2_6x3xw")
-data_pool = Array[ExtResource("3_wrd1n")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_wltl1")])
+data_pool = Array[ExtResource("3_wrd1n")]([SubResource("Resource_sbmf2"), SubResource("Resource_1xax6"), SubResource("Resource_wltl1"), SubResource("Resource_fp2uk")])
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -245,16 +250,39 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "Rapid"
 script = ExtResource("2_6x3xw")
 data_pool = Array[ExtResource("3_wrd1n")]([SubResource("Resource_4fww7"), SubResource("Resource_gvm5i"), SubResource("Resource_ofpqk")])
-delay_between_spawns = 0.1
+delay_between_spawns = 0.3
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkeig"]
-size = Vector2(240, 30)
+[sub_resource type="Resource" id="Resource_y661n"]
+script = ExtResource("3_wrd1n")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfihu"]
-size = Vector2(56, 196)
+[sub_resource type="Resource" id="Resource_ie8wy"]
+script = ExtResource("3_wrd1n")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_h4dr5"]
+script = ExtResource("3_wrd1n")
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_7memh"]
+script = ExtResource("2_6x3xw")
+data_pool = Array[ExtResource("3_wrd1n")]([SubResource("Resource_y661n"), SubResource("Resource_ie8wy"), SubResource("Resource_h4dr5")])
+delay_between_spawns = 1.0
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_cmwrw"]
+resource_name = "Break"
+script = ExtResource("2_6x3xw")
+await_board_clear = true
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkkp2"]
 size = Vector2(72, 30)
@@ -273,6 +301,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(147, 57)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Zones/Blue:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(46, 59)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Zones/Red:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(46, 97)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Zones/Green:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(46, 135)]
+}
 
 [sub_resource type="Animation" id="Animation_53v2u"]
 resource_name = "moving"
@@ -290,6 +354,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(147, 41), Vector2(147, 73)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Zones/Blue:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(46, 59), Vector2(56, 59), Vector2(46, 59)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Zones/Red:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(56, 97), Vector2(46, 97), Vector2(56, 97)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Zones/Green:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(46, 135), Vector2(56, 135), Vector2(46, 135)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mgnq"]
 _data = {
@@ -298,19 +398,18 @@ _data = {
 }
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_rkkp2")]
-sections = Array[ExtResource("2_6x3xw")]([SubResource("Resource_2rkt7"), SubResource("Resource_53v2u"), SubResource("Resource_nfihu"), SubResource("Resource_km634"), SubResource("Resource_rx4po"), SubResource("Resource_vjdek"), SubResource("Resource_qw2ud"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu")])
+sections = Array[ExtResource("2_6x3xw")]([SubResource("Resource_2rkt7"), SubResource("Resource_53v2u"), SubResource("Resource_nfihu"), SubResource("Resource_km634"), SubResource("Resource_rx4po"), SubResource("Resource_vjdek"), SubResource("Resource_qw2ud"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu"), SubResource("Resource_7memh"), SubResource("Resource_cmwrw")])
 number = 5
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
-
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1563412399]
+[node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=1563412399]
 offset_top = -54.0
 offset_right = 239.0
 offset_bottom = 63.0
+mouse_filter = 2
 texture = ExtResource("4_sdnvp")
 expand_mode = 2
 
-[node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=82095950]
+[node name="ColorRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="1" unique_id=82095950]
 modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 36.0
 offset_right = 240.0
@@ -319,7 +418,7 @@ mouse_filter = 2
 texture = ExtResource("4_6x3xw")
 stretch_mode = 1
 
-[node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=1275641623]
+[node name="Edge" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="2" unique_id=1275641623]
 modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 20.0
 offset_right = 240.0
@@ -328,36 +427,7 @@ mouse_filter = 2
 texture = ExtResource("5_wrd1n")
 stretch_mode = 1
 
-[node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
-position = Vector2(123.00001, 5)
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("5_sdnvp")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=1055372152]
-collision_layer = 129
-collision_mask = 129
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1359158925]
-position = Vector2(120, 18)
-shape = SubResource("RectangleShape2D_nkeig")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=606879491]
-position = Vector2(120, 178)
-shape = SubResource("RectangleShape2D_nkeig")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1233917382]
-position = Vector2(-31, 98)
-shape = SubResource("RectangleShape2D_nfihu")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=116691887]
-position = Vector2(271, 98)
-shape = SubResource("RectangleShape2D_nfihu")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("6_53v2u")]
 position = Vector2(238, 61)
@@ -371,7 +441,7 @@ rotation = 1.5707964
 position = Vector2(238, 132)
 rotation = 1.5707964
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="2" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("7_3mgnq")]
 position = Vector2(46, 59)
@@ -418,11 +488,16 @@ offset_bottom = 19.0
 [node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" parent_id_path=PackedInt32Array(1950830002, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 40, -19, 40, 19, -40, 19, -40, 15, 36, 15, 36, -15, -36, -15, -36, 15, -40, 15)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7" unique_id=2027485713]
+root_node = NodePath("../Bumpers")
+libraries/ = SubResource("AnimationLibrary_3mgnq")
+autoplay = &"moving"
+
 [node name="Bumpers" parent="." index="9" unique_id=1998952315 instance=ExtResource("11_2rkt7")]
 offset_left = 147.0
 offset_top = 57.0
 offset_right = 172.0
-offset_bottom = 139.00076
+offset_bottom = 139.01117
 
 [node name="Label" type="Label" parent="Bumpers" index="1" unique_id=4505128]
 layout_mode = 0
@@ -436,10 +511,6 @@ text = "H
 O
 P
 E"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bumpers" index="2" unique_id=2027485713]
-libraries/ = SubResource("AnimationLibrary_3mgnq")
-autoplay = &"moving"
 
 [editable path="Zones/Blue"]
 [editable path="Zones/Red"]

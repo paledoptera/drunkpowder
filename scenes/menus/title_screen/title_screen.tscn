@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3m4f7estkq5" path="res://scenes/menus/_res/Sprite-0007.png" id="5_ptv5j"]
 [ext_resource type="Texture2D" uid="uid://bdsyklmnpsuyn" path="res://scenes/menus/_res/Sprite-0005.png" id="6_ptv5j"]
 [ext_resource type="FontFile" uid="uid://cjwu7p0ffw0jl" path="res://shared/fonts/HP-Boneheaded-Regular.ttf" id="6_ugfu2"]
-[ext_resource type="PackedScene" uid="uid://bb43xse07c34y" path="res://scenes/menus/title_screen/level_buttono.tscn" id="8_00755"]
+[ext_resource type="PackedScene" uid="uid://bb43xse07c34y" path="res://scenes/menus/title_screen/level_button.tscn" id="8_00755"]
 [ext_resource type="FontFile" uid="uid://di848vtof3uuk" path="res://shared/fonts/HPLookinSharpRegular.ttf" id="8_ssxho"]
 
 [sub_resource type="FontVariation" id="FontVariation_yx444"]
@@ -78,7 +78,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_qc2aw"]
 resource_name = "pan_to_levels"
-length = 1.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -351,4 +351,13 @@ text = "15. Rainbow River"
 layout_mode = 2
 text = "16. Drunkpowder"
 
+[node name="Back" type="Button" parent="LevelScreen/ColorRect" unique_id=1090899511]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 10.0
+offset_right = 212.0
+offset_bottom = 41.0
+text = "^ BACK ^"
+
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="LevelScreen/ColorRect/Back" to="." method="_on_back_pressed"]

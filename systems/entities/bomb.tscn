@@ -197,9 +197,4 @@ offset_bottom = 15.0
 libraries/ = SubResource("AnimationLibrary_7ulnv")
 autoplay = &"move"
 
-[node name="PlaceBuffer" type="Timer" parent="." unique_id=1452372884]
-wait_time = 0.1
-one_shot = true
-
 [connection signal="gui_input" from="Control" to="." method="_on_gui_input"]
-[connection signal="timeout" from="PlaceBuffer" to="." method="_on_place_buffer_timeout"]

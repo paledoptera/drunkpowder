@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="4_4u223"]
 [ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="5_vd1yw"]
 [ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="6_wkjcw"]
-[ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_ricaf"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_gycp8"]
 [ext_resource type="Texture2D" uid="uid://bw6uvsdcreoyj" path="res://entities/zones/_res/red.png" id="8_v2r1a"]
 [ext_resource type="Texture2D" uid="uid://oj5t26wut7ra" path="res://entities/zones/_res/green.png" id="9_1gkwy"]
@@ -189,67 +188,30 @@ script = ExtResource("2_l0cwd")
 refresh_board = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkeig"]
-size = Vector2(240, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfihu"]
-size = Vector2(56, 196)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkkp2"]
 size = Vector2(48, 48)
 
-[sub_resource type="Animation" id="Animation_sdnvp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
+[sub_resource type="GDScript" id="GDScript_l0cwd"]
+resource_name = "Spinny"
+script/source = "extends Node2D
 
-[sub_resource type="Animation" id="Animation_53v2u"]
-resource_name = "moving"
-length = 8.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2, 6),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [-0.7853981633974483, 0.7853981633974483]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mgnq"]
-_data = {
-&"RESET": SubResource("Animation_sdnvp"),
-&"moving": SubResource("Animation_53v2u")
-}
+func _process(delta: float) -> void:
+	rotate(1 * delta)
+"
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_emhfo")]
 sections = Array[ExtResource("2_l0cwd")]([SubResource("Resource_gycp8"), SubResource("Resource_08qf2"), SubResource("Resource_l0cwd"), SubResource("Resource_prm31"), SubResource("Resource_ubfq5"), SubResource("Resource_5gm5m"), SubResource("Resource_h4erf"), SubResource("Resource_1buan"), SubResource("Resource_i1o7m"), SubResource("Resource_e008a"), SubResource("Resource_mpg6g")])
 number = 6
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
-
-[node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1563412399]
+[node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=1563412399]
 offset_top = -54.0
 offset_right = 239.0
 offset_bottom = 63.0
+mouse_filter = 2
 texture = ExtResource("4_4u223")
 expand_mode = 2
 
-[node name="ColorRect" type="TextureRect" parent="Background" index="1" unique_id=82095950]
+[node name="ColorRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="1" unique_id=82095950]
 modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 36.0
 offset_right = 240.0
@@ -258,7 +220,7 @@ mouse_filter = 2
 texture = ExtResource("5_vd1yw")
 stretch_mode = 1
 
-[node name="Edge" type="TextureRect" parent="Background" index="2" unique_id=1275641623]
+[node name="Edge" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="2" unique_id=1275641623]
 modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 20.0
 offset_right = 240.0
@@ -267,36 +229,7 @@ mouse_filter = 2
 texture = ExtResource("6_wkjcw")
 stretch_mode = 1
 
-[node name="Bartender" type="Sprite2D" parent="Background" index="3" unique_id=381782793]
-position = Vector2(123.00001, 5)
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("7_ricaf")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="4" unique_id=1055372152]
-collision_layer = 129
-collision_mask = 129
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="0" unique_id=1359158925]
-position = Vector2(120, 18)
-shape = SubResource("RectangleShape2D_nkeig")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D" index="1" unique_id=606879491]
-position = Vector2(120, 178)
-shape = SubResource("RectangleShape2D_nkeig")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" index="2" unique_id=1233917382]
-position = Vector2(-31, 98)
-shape = SubResource("RectangleShape2D_nfihu")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" index="3" unique_id=116691887]
-position = Vector2(271, 98)
-shape = SubResource("RectangleShape2D_nfihu")
-debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
-
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=204912068]
 
 [node name="Spawnpoint2" parent="Spawnpoints" index="0" unique_id=884482947 instance=ExtResource("8_gycp8")]
 position = Vector2(238, 95)
@@ -306,10 +239,11 @@ rotation = 1.5707964
 position = Vector2(2, 95)
 rotation = -1.5707964
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="2" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("9_prm31")]
 position = Vector2(37, 48)
+input_pickable = true
 
 [node name="CollisionShape2D" parent="Zones/Blue" index="0" unique_id=1550895748]
 position = Vector2(-12, 9)
@@ -326,6 +260,7 @@ polygon = PackedVector2Array(-40, -19, 16, -19, 16, 37, -40, 37, -36, 33, 12, 33
 
 [node name="Red" parent="Zones" index="1" unique_id=500804987 instance=ExtResource("9_prm31")]
 position = Vector2(227, 48)
+input_pickable = true
 color = 1
 
 [node name="CollisionShape2D" parent="Zones/Red" index="0" unique_id=1550895748]
@@ -344,6 +279,7 @@ polygon = PackedVector2Array(-40, -19, 16, -19, 16, 37, -40, 37, -36, 33, 12, 33
 
 [node name="Green" parent="Zones" index="2" unique_id=1110720511 instance=ExtResource("9_prm31")]
 position = Vector2(37, 126)
+input_pickable = true
 color = 2
 
 [node name="CollisionShape2D" parent="Zones/Green" index="0" unique_id=1550895748]
@@ -362,6 +298,7 @@ polygon = PackedVector2Array(-40, -19, 16, -19, 16, 37, -40, 37, -36, 33, 12, 33
 
 [node name="Purple" parent="Zones" index="3" unique_id=1275813342 instance=ExtResource("9_prm31")]
 position = Vector2(226, 126)
+input_pickable = true
 color = 3
 
 [node name="CollisionShape2D" parent="Zones/Purple" index="0" unique_id=1550895748]
@@ -378,14 +315,19 @@ texture = ExtResource("10_rge87")
 [node name="CollisionPolygon2D" parent="Zones/Purple/StaticBody2D" parent_id_path=PackedInt32Array(1275813342, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 16, -19, 16, 37, -40, 37, -36, 33, 12, 33, 12, -15, -36, -15, -36, 33, -40, 37)
 
-[node name="Bumpers" parent="." index="9" unique_id=1998952315 instance=ExtResource("12_ubfq5")]
-offset_left = 108.0
-offset_top = 64.0
-offset_right = 133.0
-offset_bottom = 128.0
+[node name="Node2D" type="Node2D" parent="." index="8" unique_id=134092048]
+position = Vector2(120, 95)
+script = SubResource("GDScript_l0cwd")
+
+[node name="Bumpers" parent="Node2D" index="0" unique_id=1998952315 instance=ExtResource("12_ubfq5")]
+offset_left = -11.999996
+offset_top = -31.0
+offset_right = 13.000004
+offset_bottom = 33.0
+rotation = -0.7853982
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Label" type="Label" parent="Bumpers" index="1" unique_id=4505128]
+[node name="Label" type="Label" parent="Node2D/Bumpers" index="1" unique_id=4505128]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 6.0
@@ -396,10 +338,6 @@ theme_override_fonts/font = ExtResource("13_08qf2")
 text = "L
 O
 L"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bumpers" index="2" unique_id=2027485713]
-libraries/ = SubResource("AnimationLibrary_3mgnq")
-autoplay = &"moving"
 
 [editable path="Zones/Blue"]
 [editable path="Zones/Red"]

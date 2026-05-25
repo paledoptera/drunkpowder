@@ -23,6 +23,7 @@ var events = [false,false,false,false,false]
 @onready var camera : Camera2D = $CameraPivot/Camera2D
 @onready var cursor : Node = $Cursor
 
+var level_break: bool = false
 var spawnpoints: Array[Spawnpoint]
 var spawnpoint_ind := 0
 var zones: Array[Zone]
@@ -33,6 +34,7 @@ func _ready() -> void:
 	Global.level = self
 	Global.health = Global.health_max
 	Global.score = 0
+	Global.level_num = number
 	
 	if Global.ui_cursor:
 		Global.ui_cursor.hide()
@@ -170,6 +172,7 @@ func _on_timer_timeout() -> void:
 		# Remove current section
 		sections.pop_front()
 		
+
 		# If no more sections left, game has ended
 		if sections.size() == 0:
 			end()

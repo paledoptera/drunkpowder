@@ -6,7 +6,6 @@
 [node name="Bomb" unique_id=966582241 instance=ExtResource("1_cil4v")]
 
 [node name="Shadow" parent="." index="1" unique_id=1947372494]
-position = Vector2(0, 1)
 scale = Vector2(1.25, 1)
 
 [node name="BombSprite" parent="." index="2" unique_id=1452204312]

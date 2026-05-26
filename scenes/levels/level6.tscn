@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_6x3xw"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_wrd1n"]
 [ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="4_6x3xw"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_53v2u"]
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="4_sdnvp"]
+[ext_resource type="AudioStream" uid="uid://dgv1lod1kydo2" path="res://shared/music/bar_groovy.ogg" id="5_3mgnq"]
 [ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="5_wrd1n"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="6_53v2u"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="7_3mgnq"]
@@ -401,6 +403,11 @@ _data = {
 sections = Array[ExtResource("2_6x3xw")]([SubResource("Resource_2rkt7"), SubResource("Resource_53v2u"), SubResource("Resource_nfihu"), SubResource("Resource_km634"), SubResource("Resource_rx4po"), SubResource("Resource_vjdek"), SubResource("Resource_qw2ud"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu"), SubResource("Resource_7memh"), SubResource("Resource_cmwrw")])
 number = 5
 
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=1594979501]
+script = ExtResource("4_53v2u")
+music = ExtResource("5_3mgnq")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
 [node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=1563412399]
 offset_top = -54.0
 offset_right = 239.0
@@ -427,7 +434,7 @@ mouse_filter = 2
 texture = ExtResource("5_wrd1n")
 stretch_mode = 1
 
-[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("6_53v2u")]
 position = Vector2(238, 61)
@@ -441,7 +448,7 @@ rotation = 1.5707964
 position = Vector2(238, 132)
 rotation = 1.5707964
 
-[node name="Zones" type="Node2D" parent="." index="2" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("7_3mgnq")]
 position = Vector2(46, 59)
@@ -488,12 +495,12 @@ offset_bottom = 19.0
 [node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" parent_id_path=PackedInt32Array(1950830002, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 40, -19, 40, 19, -40, 19, -40, 15, 36, 15, 36, -15, -36, -15, -36, 15, -40, 15)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7" unique_id=2027485713]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=2027485713]
 root_node = NodePath("../Bumpers")
 libraries/ = SubResource("AnimationLibrary_3mgnq")
 autoplay = &"moving"
 
-[node name="Bumpers" parent="." index="9" unique_id=1998952315 instance=ExtResource("11_2rkt7")]
+[node name="Bumpers" parent="." index="10" unique_id=1998952315 instance=ExtResource("11_2rkt7")]
 offset_left = 147.0
 offset_top = 57.0
 offset_right = 172.0

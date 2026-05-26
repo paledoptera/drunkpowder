@@ -9,6 +9,7 @@
 [node name="Faulty" unique_id=966582241 instance=ExtResource("1_n6h6g")]
 script = ExtResource("2_ngo26")
 color = 5
+fuse = 17.5
 
 [node name="BombSprite" parent="." index="2" unique_id=1452204312]
 texture = ExtResource("3_ngo26")

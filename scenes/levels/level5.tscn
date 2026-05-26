@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_v0vb7"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_lsgss"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_sd6f7"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_sd6f7"]
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="4_vnf24"]
 [ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="5_lsgss"]
+[ext_resource type="AudioStream" uid="uid://qseeth4s4qde" path="res://shared/music/bar_funky.ogg" id="5_vnf24"]
 [ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="6_sd6f7"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="7_kykwg"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="8_iyn63"]
@@ -169,6 +171,11 @@ metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 sections = Array[ExtResource("2_lsgss")]([SubResource("Resource_pm1y0"), SubResource("Resource_lsgss"), SubResource("Resource_nfihu"), SubResource("Resource_lgguw"), SubResource("Resource_kykwg"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_nfihu"), SubResource("Resource_jrfo0"), SubResource("Resource_1ix84"), SubResource("Resource_nfihu"), SubResource("Resource_arkx4"), SubResource("Resource_c2nc4"), SubResource("Resource_nfihu")])
 number = 4
 
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=1839769899]
+script = ExtResource("4_sd6f7")
+music = ExtResource("5_vnf24")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
 [node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=635809843]
 offset_top = -54.0
 offset_right = 239.0
@@ -195,12 +202,12 @@ mouse_filter = 2
 texture = ExtResource("6_sd6f7")
 stretch_mode = 1
 
-[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("7_kykwg")]
 position = Vector2(120, 36)
 
-[node name="Zones" type="Node2D" parent="." index="2" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
 [node name="Red" parent="Zones" index="0" unique_id=1407830815 instance=ExtResource("9_1ix84")]
 position = Vector2(48, 107)

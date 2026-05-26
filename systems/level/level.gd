@@ -28,6 +28,8 @@ var spawnpoints: Array[Spawnpoint]
 var spawnpoint_ind := 0
 var zones: Array[Zone]
 var ended: bool = false
+@export var await_visible_on_screen: bool = false
+
 
 
 func _ready() -> void:
@@ -81,6 +83,7 @@ func spawn_bomb_from_pool(spawnpoint: Spawnpoint, section: LevelSection) -> void
 	
 	var bomb_id = section.pool.pop_front()
 	spawn_bomb(bomb_id,spawnpoint.global_position,spawnpoint.direction,spawnpoint.velocity)
+
 
 func spawn_bomb(type: Global.BOMB_TYPE, bomb_position: Vector2, direction:= Vector2.DOWN, speed: float = 70.0):
 	
@@ -143,17 +146,17 @@ func _on_timer_timeout() -> void:
 		match section.spawn_mode:
 			LevelSection.Mode.RANDOM:
 				var spawnpoint = spawnpoints.pick_random()
-				spawn_bomb_from_pool(spawnpoint, section)
+				await spawn_bomb_from_pool(spawnpoint, section)
 				
 			LevelSection.Mode.CYCLIC:
 				spawnpoint_ind += 1
 				spawnpoint_ind = wrapi(spawnpoint_ind,0,spawnpoints.size())
 				var spawnpoint = spawnpoints[spawnpoint_ind]
-				spawn_bomb_from_pool(spawnpoint, section)
+				await spawn_bomb_from_pool(spawnpoint, section)
 			
 			LevelSection.Mode.ALL:
 				for spawnpoint in spawnpoints:
-					spawn_bomb_from_pool(spawnpoint, section)
+					await spawn_bomb_from_pool(spawnpoint, section)
 		
 		
 		
@@ -216,3 +219,13 @@ func create_particle(particle_scene: PackedScene, particle_position: Vector2, pa
 	particle.emitting = true
 	particle.finished.connect(particle.queue_free)
 	return particle
+
+
+func bring_bomb_back_to_board(bomb: Bomb) -> void:
+	## Call this when a bomb is out of bounds
+	var spawnpoint = spawnpoints.pick_random()
+	parent_bombs.add_child(bomb)
+	bomb.direction = spawnpoint.direction
+	bomb.speed = spawnpoint.velocity
+	bomb.global_position = spawnpoint.global_position
+	

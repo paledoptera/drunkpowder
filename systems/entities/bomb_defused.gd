@@ -2,8 +2,8 @@ extends Sprite2D
 class_name BombDefused
 
 var color : Global.BOMB_TYPE
-var fuse : float = 10.0
-var fuse_progress : float = 10.0
+var fuse : float = 12.5
+var fuse_progress : float = 12.5
 
 var zone : Zone
 
@@ -11,9 +11,13 @@ func _ready() -> void:
 	hide()
 	await get_tree().process_frame
 	if fuse_progress/fuse > 0.2:
+		print("FUSE = ", fuse_progress/fuse)
 		$Label.text = "+"+str(ceili(fuse_progress)*10)
 		$Label.self_modulate = Color.YELLOW
-		if ceili(fuse_progress) == fuse:
+
+		print(fuse_progress, "/",round(fuse)-2)
+		if fuse_progress >= round(fuse)-1.75:
+			
 			$Label.text += "\nPERFECT!"
 			Audio.play_sfx(load("res://sfx/sWalkMetal3.wav"))
 			#Global.level.camera_shake(2)

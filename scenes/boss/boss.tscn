@@ -1,0 +1,830 @@
+[gd_scene format=3 uid="uid://b07fh4gvu72ms"]
+
+[ext_resource type="Script" uid="uid://cfppatqml5sef" path="res://scenes/boss/level_boss.gd" id="1_uonfg"]
+[ext_resource type="Script" uid="uid://ysxuwrb57ywn" path="res://scenes/boss/stages/boss_stage.gd" id="2_1q0wb"]
+[ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_whqtw"]
+[ext_resource type="Script" uid="uid://ckipcrdyht2kx" path="res://scenes/boss/stages/boss_stage_sort.gd" id="3_1cw1b"]
+[ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_1q0wb"]
+[ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_1cw1b"]
+[ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="5_s1g6i"]
+[ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_fvfvp"]
+[ext_resource type="Script" uid="uid://dsrn13vqn1c65" path="res://scenes/boss/stages/boss_stage_attack.gd" id="6_s1g6i"]
+[ext_resource type="Texture2D" uid="uid://bbuccjvwt3vkh" path="res://entities/hazards/_res/fireball.png" id="7_rdt2t"]
+[ext_resource type="Texture2D" uid="uid://ke3uc1v085q1" path="res://scenes/levels/_res/machinist_heart.png" id="8_3yssg"]
+[ext_resource type="Texture2D" uid="uid://bkluw7pnu4gt" path="res://scenes/levels/_res/bartender_boss.png" id="9_27n7m"]
+[ext_resource type="Texture2D" uid="uid://dxtxxeipxy6cu" path="res://scenes/levels/_res/bartender_boss_head.png" id="10_4jo18"]
+[ext_resource type="PackedScene" uid="uid://bc4y5y4xrnxod" path="res://entities/hazards/cannon.tscn" id="11_mg536"]
+[ext_resource type="PackedScene" uid="uid://bmt5iamide7d3" path="res://entities/spawnpoints/hazard_spawnpoint.tscn" id="12_ropnh"]
+[ext_resource type="Texture2D" uid="uid://u5lugpsygei3" path="res://scenes/levels/_res/boss_guide.png" id="13_twjql"]
+[ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="14_wu8me"]
+[ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="15_2l1fi"]
+[ext_resource type="PackedScene" uid="uid://bd2epqwvt433b" path="res://entities/zones/red.tscn" id="16_43r1o"]
+[ext_resource type="PackedScene" uid="uid://b6v35v32el481" path="res://scenes/boss/player_cannon.tscn" id="17_1cw1b"]
+[ext_resource type="FontFile" uid="uid://cayc6lxiefo78" path="res://shared/fonts/Early GameBoy.ttf" id="17_7s4nb"]
+[ext_resource type="Texture2D" uid="uid://cifxkbqqtt6po" path="res://scenes/levels/_res/lives_icon.png" id="18_awewf"]
+[ext_resource type="PackedScene" uid="uid://cy02q3vhr0kjs" path="res://scenes/boss/bombwheel.tscn" id="19_fvfvp"]
+[ext_resource type="Script" uid="uid://c2bnm1b3662wp" path="res://scenes/levels/bombs.gd" id="19_u1281"]
+[ext_resource type="PackedScene" uid="uid://cnf8yv3gav21v" path="res://entities/effects/cursor_effect/cursor.tscn" id="20_qbnrf"]
+
+[sub_resource type="Resource" id="Resource_fvfvp"]
+script = ExtResource("3_1q0wb")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_twjql"]
+script = ExtResource("3_1q0wb")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_wu8me"]
+resource_name = "Intro"
+script = ExtResource("2_whqtw")
+data_pool = Array[ExtResource("3_1q0wb")]([SubResource("Resource_fvfvp"), SubResource("Resource_twjql")])
+delay_between_spawns = 0.85
+spawn_mode = 1
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_2l1fi"]
+resource_name = "Sorting1"
+script = ExtResource("3_1cw1b")
+sections = Array[ExtResource("2_whqtw")]([SubResource("Resource_wu8me")])
+attack_pool = Array[int]([0])
+metadata/_custom_type_script = "uid://ckipcrdyht2kx"
+
+[sub_resource type="Resource" id="Resource_rdt2t"]
+resource_name = "Attack1"
+script = ExtResource("6_s1g6i")
+slot1 = Array[int]([1])
+slot2 = Array[int]([1])
+slot3 = Array[int]([1])
+attack_pool = Array[int]([0])
+metadata/_custom_type_script = "uid://dsrn13vqn1c65"
+
+[sub_resource type="Resource" id="Resource_ropnh"]
+resource_name = "Break"
+script = ExtResource("2_whqtw")
+delay_between_spawns = 3.0
+refresh_board = true
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_3yssg"]
+script = ExtResource("3_1q0wb")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_27n7m"]
+script = ExtResource("3_1q0wb")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_4jo18"]
+resource_name = "Intro"
+script = ExtResource("2_whqtw")
+data_pool = Array[ExtResource("3_1q0wb")]([SubResource("Resource_3yssg"), SubResource("Resource_27n7m")])
+delay_between_spawns = 0.85
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_mg536"]
+resource_name = "Sorting1"
+script = ExtResource("3_1cw1b")
+sections = Array[ExtResource("2_whqtw")]([SubResource("Resource_ropnh"), SubResource("Resource_4jo18")])
+attack_pool = Array[int]([0])
+metadata/_custom_type_script = "uid://ckipcrdyht2kx"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_teqx3"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w4tgo"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_teqx3"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.31196576, 62.656116), 202.63103, 202.63103, 0, 0, Vector2(1, 100), 14.229724, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_jsgd3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40170938, 0.621149), -2.2060657, -2.2060657, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_2pcxf"]
+offsets = PackedFloat32Array(0, 0.4851752, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.3328807, 0.33288068, 0.33288068, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2bdh"]
+size = Vector2(1000, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76yk2"]
+size = Vector2(200, 196)
+
+[sub_resource type="Animation" id="Animation_gkyjc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bartender/HeadContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bartender:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(123.00001, 35.000004)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bartender:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.33, 0.33)]
+}
+
+[sub_resource type="Animation" id="Animation_ofvui"]
+resource_name = "breathing"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bartender/HeadContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666668, 1.2333333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-6, -33), Vector2(-6, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bartender:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(123.00001, 35.000004), Vector2(123, 37)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bartender:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.33, 0.33), Vector2(0.35, 0.329)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkyjc"]
+_data = {
+&"RESET": SubResource("Animation_gkyjc"),
+&"breathing": SubResource("Animation_ofvui")
+}
+
+[sub_resource type="Animation" id="Animation_kqcy0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_viu5s"]
+resource_name = "camera_shake"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.20000002, 0.26666668, 0.36666667, 0.4666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 0.25000003, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-3, 0), Vector2(3, 0), Vector2(-2, 0), Vector2(1, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8u3oo"]
+_data = {
+&"RESET": SubResource("Animation_kqcy0"),
+&"camera_shake": SubResource("Animation_viu5s")
+}
+
+[sub_resource type="Animation" id="Animation_nkeig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Zones/Blue:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(48, 107)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Zones/Red:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192, 107)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Spawnpoints:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerAttack/Bombwheel2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(285, 99)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerAttack/Bombwheel1:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-45, 99)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAttack/PlayerCannon:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 215)]
+}
+
+[sub_resource type="Animation" id="Animation_5ntmo"]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2666667),
+"transitions": PackedFloat32Array(1, 0.120742105, -2),
+"update": 0,
+"values": [Vector2(120, 80), Vector2(120, 80), Vector2(120, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_1q0wb"]
+resource_name = "phase0_end"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Zones/Blue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.19999999, 0.7),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(48, 107), Vector2(-52, 107)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Zones/Red:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(192, 107), Vector2(292, 107)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraPivot/Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668, 0.7),
+"transitions": PackedFloat32Array(2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.159, 1.159), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Spawnpoints:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 29)]
+}
+
+[sub_resource type="Animation" id="Animation_fvfvp"]
+resource_name = "phase0_end"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Zones/Blue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666664),
+"transitions": PackedFloat32Array(-2, 2),
+"update": 0,
+"values": [Vector2(-52, 107), Vector2(48, 107)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Zones/Red:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(-2, 2),
+"update": 0,
+"values": [Vector2(292, 107), Vector2(192, 107)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spawnpoints:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 29), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerAttack/PlayerCannon:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(120, 144), Vector2(120, 256.585)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerAttack/Bombwheel1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(20, 99), Vector2(-50, 99)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerAttack/Bombwheel2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(220, 99), Vector2(302.98, 99)]
+}
+
+[sub_resource type="Animation" id="Animation_s1g6i"]
+resource_name = "phase1_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAttack/Bombwheel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(285, 99), Vector2(220, 99)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAttack/Bombwheel1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-45, 99), Vector2(20, 99)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerAttack/PlayerCannon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.53333336, 0.6666667),
+"transitions": PackedFloat32Array(-2, -2, -2, 1),
+"update": 0,
+"values": [Vector2(120, 215), Vector2(120, 140), Vector2(120, 145.985), Vector2(120, 144)]
+}
+
+[sub_resource type="Animation" id="Animation_jprdt"]
+resource_name = "start"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.3666667, 1.7333335),
+"transitions": PackedFloat32Array(1, -2, -2, 1),
+"update": 0,
+"values": [Vector2(120, 42), Vector2(120, 42), Vector2(120, 82), Vector2(120, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraPivot/Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.16666667, 0.36666667, 1.2333333),
+"transitions": PackedFloat32Array(1, -2, -2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.415, 1.415), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xjlc"]
+_data = {
+&"RESET": SubResource("Animation_nkeig"),
+&"end": SubResource("Animation_5ntmo"),
+&"phase0_end": SubResource("Animation_1q0wb"),
+&"phase1_end": SubResource("Animation_fvfvp"),
+&"phase1_start": SubResource("Animation_s1g6i"),
+&"start": SubResource("Animation_jprdt")
+}
+
+[node name="Level" type="Node2D" unique_id=873046396 node_paths=PackedStringArray("boss_timer", "boss_head", "boss_head_guide", "boss_cannon", "player_cannon", "ui_label", "timer", "parent_bombs", "actions")]
+script = ExtResource("1_uonfg")
+boss_timer = NodePath("Boss/BossTimer")
+boss_head = NodePath("Boss/Bartender/HeadContainer/Head")
+boss_head_guide = NodePath("Boss/Bartender/HeadContainer/HeadGuide")
+boss_cannon = NodePath("Boss/Bartender/HeadContainer/Head/Cannon")
+stages = Array[ExtResource("2_1q0wb")]([SubResource("Resource_2l1fi"), SubResource("Resource_rdt2t"), SubResource("Resource_mg536")])
+player_cannon = NodePath("PlayerAttack/PlayerCannon")
+ui_label = NodePath("CameraPivot/Camera2D/Label")
+number = 15
+timer = NodePath("Timer")
+parent_bombs = NodePath("Bombs")
+actions = NodePath("Actions")
+
+[node name="BackgroundElements" type="Node2D" parent="." unique_id=1863968372]
+
+[node name="ColorRect2" type="ColorRect" parent="BackgroundElements" unique_id=527100459]
+offset_left = -13.0
+offset_top = -39.0
+offset_right = 244.0
+offset_bottom = 86.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundElements" unique_id=616598615]
+modulate = Color(1, 1, 1, 0.18900001)
+material = SubResource("CanvasItemMaterial_teqx3")
+offset_left = -2.0
+offset_top = -54.0
+offset_right = 478.0
+offset_bottom = 106.0
+mouse_filter = 2
+texture = ExtResource("4_1cw1b")
+
+[node name="ColorRect" type="TextureRect" parent="BackgroundElements" unique_id=2023837217]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+offset_top = 60.0
+offset_right = 240.0
+offset_bottom = 160.0
+mouse_filter = 2
+texture = ExtResource("5_s1g6i")
+stretch_mode = 1
+
+[node name="Edge" type="TextureRect" parent="BackgroundElements" unique_id=1450653542]
+modulate = Color(0.5330367, 0.5330367, 0.5330367, 1)
+offset_top = 44.0
+offset_right = 240.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("6_fvfvp")
+stretch_mode = 1
+
+[node name="FireParticle" type="CPUParticles2D" parent="BackgroundElements" unique_id=1131551455]
+modulate = Color(1, 1, 1, 0.061000004)
+show_behind_parent = true
+z_index = 1
+material = SubResource("CanvasItemMaterial_w4tgo")
+position = Vector2(121, 181)
+amount = 1000
+texture = ExtResource("7_rdt2t")
+lifetime = 3.0
+preprocess = 10.0
+speed_scale = 0.3
+randomness = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(160, 1)
+direction = Vector2(0, -20)
+spread = 70.0
+gravity = Vector2(0, -400)
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+linear_accel_min = 10.0
+linear_accel_max = 500.0
+damping_curve = SubResource("Curve_teqx3")
+scale_amount_min = 0.1
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_jsgd3")
+color_ramp = SubResource("Gradient_2pcxf")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="LevelBounds" type="StaticBody2D" parent="BackgroundElements" unique_id=181002708]
+position = Vector2(-1, 1)
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1565448384]
+position = Vector2(120, -66)
+shape = SubResource("RectangleShape2D_l2bdh")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1130705387]
+position = Vector2(120, 259)
+shape = SubResource("RectangleShape2D_l2bdh")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1956227953]
+position = Vector2(-99, 98)
+shape = SubResource("RectangleShape2D_76yk2")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BackgroundElements/LevelBounds" unique_id=1935552773]
+position = Vector2(341, 98)
+shape = SubResource("RectangleShape2D_76yk2")
+debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
+
+[node name="Boss" type="Node2D" parent="." unique_id=236620569]
+
+[node name="Bartender" type="Sprite2D" parent="Boss" unique_id=699056708]
+position = Vector2(123.00001, 35.000004)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("9_27n7m")
+
+[node name="HeadContainer" type="Node2D" parent="Boss/Bartender" unique_id=72717083]
+position = Vector2(-6, -33)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Head" type="Sprite2D" parent="Boss/Bartender/HeadContainer" unique_id=1736226928]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("10_4jo18")
+offset = Vector2(10, -23)
+
+[node name="Cannon" parent="Boss/Bartender/HeadContainer/Head" unique_id=2091977036 instance=ExtResource("11_mg536")]
+visible = false
+z_index = 1
+scale = Vector2(3.0303028, 3.0303028)
+firing_delay = -1.0
+
+[node name="HazardSpawnpoint" parent="Boss/Bartender/HeadContainer/Head/Cannon" unique_id=172747774 instance=ExtResource("12_ropnh")]
+
+[node name="HeadGuide" type="Sprite2D" parent="Boss/Bartender/HeadContainer" unique_id=1361561893]
+visible = false
+modulate = Color(1, 1, 1, 0.42600003)
+position = Vector2(-6.0606384, -33.333344)
+scale = Vector2(3.5200002, 10.565001)
+texture = ExtResource("13_twjql")
+offset = Vector2(30, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss" unique_id=461885733]
+libraries/ = SubResource("AnimationLibrary_gkyjc")
+autoplay = &"breathing"
+
+[node name="BossTimer" type="Timer" parent="Boss" unique_id=424773965]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Spawnpoints" type="Node2D" parent="." unique_id=204912068]
+
+[node name="Spawnpoint" parent="Spawnpoints" unique_id=2108362867 instance=ExtResource("14_wu8me")]
+position = Vector2(105.999985, 156)
+rotation = -4.101524
+velocity = 30.0
+
+[node name="Spawnpoint2" parent="Spawnpoints" unique_id=1182410688 instance=ExtResource("14_wu8me")]
+position = Vector2(135, 156)
+rotation = -2.1816616
+velocity = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Spawnpoints" unique_id=765468799]
+position = Vector2(120, 147)
+texture = ExtResource("8_3yssg")
+
+[node name="PlayerAttack" type="Node2D" parent="." unique_id=2018669139]
+
+[node name="PlayerCannon" parent="PlayerAttack" unique_id=1026891586 instance=ExtResource("17_1cw1b")]
+position = Vector2(120, 215)
+
+[node name="Bombwheel1" parent="PlayerAttack" unique_id=1660156866 instance=ExtResource("19_fvfvp")]
+position = Vector2(-45, 99)
+
+[node name="Bombwheel2" parent="PlayerAttack" unique_id=192746608 instance=ExtResource("19_fvfvp")]
+position = Vector2(285, 99)
+spd = -3.0
+
+[node name="Zones" type="Node2D" parent="." unique_id=1463119416]
+
+[node name="Blue" parent="Zones" unique_id=241756046 instance=ExtResource("15_2l1fi")]
+position = Vector2(48, 107)
+collision_mask = 2
+
+[node name="Red" parent="Zones" unique_id=1407830815 instance=ExtResource("16_43r1o")]
+position = Vector2(192, 107)
+collision_mask = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1536030849]
+one_shot = true
+
+[node name="CameraPivot" type="Node2D" parent="." unique_id=429022513]
+position = Vector2(120, 80)
+
+[node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=809897051]
+rotation = -3.1415925
+
+[node name="Label" type="RichTextLabel" parent="CameraPivot/Camera2D" unique_id=1029735772]
+offset_left = 110.000015
+offset_top = 69.999985
+offset_right = 216.33315
+offset_bottom = 118.999985
+scale = Vector2(-1, -1)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("17_7s4nb")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "Score"
+
+[node name="Shadow" type="RichTextLabel" parent="CameraPivot/Camera2D/Label" unique_id=828640891]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 1.0000076
+offset_top = 0.9999995
+offset_right = 107.33313
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("17_7s4nb")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "Score"
+
+[node name="Lives" type="RichTextLabel" parent="CameraPivot/Camera2D" unique_id=1354669357]
+clip_contents = false
+offset_left = -92.99999
+offset_top = 70.00001
+offset_right = 13.33313
+offset_bottom = 119.00001
+scale = Vector2(-1, -1)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("17_7s4nb")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "x1"
+
+[node name="Lives2" type="RichTextLabel" parent="CameraPivot/Camera2D/Lives" unique_id=151123319]
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+clip_contents = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 107.33313
+offset_bottom = 50.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("17_7s4nb")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "x1"
+
+[node name="Sprite2D" type="Sprite2D" parent="CameraPivot/Camera2D/Lives" unique_id=1043481366]
+position = Vector2(-16, 4.9999986)
+texture = ExtResource("18_awewf")
+
+[node name="Bombs" type="Node2D" parent="." unique_id=1464511498]
+z_index = 8
+y_sort_enabled = true
+script = ExtResource("19_u1281")
+
+[node name="Actions" type="AnimationPlayer" parent="." unique_id=291484428]
+libraries/ = SubResource("AnimationLibrary_8u3oo")
+
+[node name="Animations" type="AnimationPlayer" parent="." unique_id=1796224555]
+libraries/ = SubResource("AnimationLibrary_8xjlc")
+autoplay = &"start"
+
+[node name="Cursor" parent="." unique_id=1688053411 instance=ExtResource("20_qbnrf")]
+
+[connection signal="timeout" from="Boss/BossTimer" to="." method="switch_boss_state"]

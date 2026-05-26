@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://llc3ruxvh2jq" path="res://systems/entities/bomb.gd" id="1_i4dkq"]
 [ext_resource type="Texture2D" uid="uid://ddlgtlybjmu82" path="res://entities/effects/shadow/shadow.png" id="2_7ulnv"]
 [ext_resource type="PackedScene" uid="uid://b3f5o0mvp1y7p" path="res://entities/effects/smoke_particle/smoke_particle.tscn" id="2_j3d1m"]
+[ext_resource type="Texture2D" uid="uid://dhhi1vj0dtuir" path="res://shared/target1.png" id="4_rasgh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ulnv"]
-radius = 5.0
-height = 14.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_rasgh"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_db7m7"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_rasgh"]
 length = 0.001
@@ -45,18 +48,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Shadow:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_7ulnv"]
@@ -113,7 +104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.16666667),
 "transitions": PackedFloat32Array(0.5, -2, 0.34151012),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, -8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -127,42 +118,49 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -0.2984513020910305, 0.24434609527920617, 0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Shadow:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.16666667),
-"transitions": PackedFloat32Array(0.5, -2, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 8), Vector2(0, 6)]
-}
 
 [sub_resource type="Animation" id="Animation_j3d1m"]
 resource_name = "spawn"
+
+[sub_resource type="Animation" id="Animation_4qxh0"]
+resource_name = "stasis"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BombSprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, -2), Vector2(0, 1), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ulnv"]
 _data = {
 &"RESET": SubResource("Animation_rasgh"),
 &"move": SubResource("Animation_7ulnv"),
 &"pick_up": SubResource("Animation_db7m7"),
-&"spawn": SubResource("Animation_j3d1m")
+&"spawn": SubResource("Animation_j3d1m"),
+&"stasis": SubResource("Animation_4qxh0")
 }
 
 [node name="Bomb" type="CharacterBody2D" unique_id=966582241 node_paths=PackedStringArray("area", "sprite", "progress")]
 collision_mask = 129
+motion_mode = 1
+platform_on_leave = 2
+safe_margin = 3.0
 script = ExtResource("1_i4dkq")
 area = NodePath("Area2D")
 sprite = NodePath("BombSprite")
 progress = NodePath("BombSprite/ProgressSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501459446]
-shape = SubResource("CapsuleShape2D_7ulnv")
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_rasgh")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1947372494]
-modulate = Color(1, 1, 1, 0.358)
 show_behind_parent = true
 texture = ExtResource("2_7ulnv")
 
@@ -183,18 +181,29 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=20141317]
-shape = SubResource("CapsuleShape2D_7ulnv")
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_db7m7")
 
 [node name="Control" type="Control" parent="." unique_id=1487166693]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+offset_left = -21.0
+offset_right = 9.0
+offset_bottom = 30.0
+rotation = -0.7853982
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=429030492]
 libraries/ = SubResource("AnimationLibrary_7ulnv")
 autoplay = &"move"
 
+[node name="Target" type="Sprite2D" parent="." unique_id=477066450]
+z_index = 4096
+texture = ExtResource("4_rasgh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1464249127]
+rect = Rect2(-1, -1, 2, 2)
+
 [connection signal="gui_input" from="Control" to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_mouse_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

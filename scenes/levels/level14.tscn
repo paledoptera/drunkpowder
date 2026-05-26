@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_kcw16"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_74lmc"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_712qu"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_74fte"]
 [ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_wm8qe"]
+[ext_resource type="AudioStream" uid="uid://dvi4c7it1rmvv" path="res://shared/music/bar_weird.ogg" id="5_32lk3"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="5_86qe7"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_srya6"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_lw81o"]
@@ -268,7 +270,12 @@ func _physics_process(delta: float) -> void:
 sections = Array[ExtResource("2_74lmc")]([SubResource("Resource_srya6"), SubResource("Resource_nfihu"), SubResource("Resource_wh1q3"), SubResource("Resource_nfihu"), SubResource("Resource_bwosw"), SubResource("Resource_mcelk"), SubResource("Resource_nfihu")])
 number = 13
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=1410040108]
+script = ExtResource("4_74fte")
+music = ExtResource("5_32lk3")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
+[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=2002412309]
 offset_left = -121.0
@@ -412,7 +419,7 @@ offset_right = 2.0
 offset_bottom = 21.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=2120049199]
+[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=2120049199]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spawnpoints" index="0" unique_id=566599711]
 libraries/ = SubResource("AnimationLibrary_5sjjt")
@@ -443,7 +450,7 @@ loop = false
 rotation = 3.1415927
 velocity = 100.0
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1627028995]
+[node name="Zones" type="Node2D" parent="." index="4" unique_id=1627028995]
 
 [node name="Red" parent="Zones" index="0" unique_id=1407830815 instance=ExtResource("11_wh1q3")]
 position = Vector2(120.00001, 53)
@@ -457,10 +464,7 @@ offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
 
-[node name="StaticBody2D" parent="Zones/Red" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" parent_id_path=PackedInt32Array(1407830815, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Blue" parent="Zones" index="1" unique_id=241756046 instance=ExtResource("12_absfi")]
@@ -476,10 +480,7 @@ offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
 
-[node name="StaticBody2D" parent="Zones/Blue" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Green" parent="Zones" index="2" unique_id=1950830002 instance=ExtResource("13_43628")]
@@ -494,10 +495,7 @@ offset_top = -14.000008
 offset_right = 14.287186
 offset_bottom = 13.999992
 
-[node name="StaticBody2D" parent="Zones/Green" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" parent_id_path=PackedInt32Array(1950830002, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Purple" parent="Zones" index="3" unique_id=1013614165 instance=ExtResource("14_74lmc")]
@@ -512,10 +510,7 @@ offset_top = -13.5269165
 offset_right = 14.473099
 offset_bottom = 14.4730835
 
-[node name="StaticBody2D" parent="Zones/Purple" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Purple/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Purple/StaticBody2D" parent_id_path=PackedInt32Array(1013614165, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Red2" parent="Zones" index="4" unique_id=449397980 instance=ExtResource("11_wh1q3")]
@@ -530,10 +525,7 @@ offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
 
-[node name="StaticBody2D" parent="Zones/Red2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Red2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Red2/StaticBody2D" parent_id_path=PackedInt32Array(449397980, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Blue2" parent="Zones" index="5" unique_id=2139749790 instance=ExtResource("12_absfi")]
@@ -549,10 +541,7 @@ offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
 
-[node name="StaticBody2D" parent="Zones/Blue2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Blue2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Blue2/StaticBody2D" parent_id_path=PackedInt32Array(2139749790, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Green2" parent="Zones" index="6" unique_id=1143908744 instance=ExtResource("13_43628")]
@@ -567,10 +556,7 @@ offset_top = -14.000008
 offset_right = 14.287186
 offset_bottom = 13.999992
 
-[node name="StaticBody2D" parent="Zones/Green2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Green2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Green2/StaticBody2D" parent_id_path=PackedInt32Array(1143908744, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
 [node name="Purple2" parent="Zones" index="7" unique_id=1816198105 instance=ExtResource("14_74lmc")]
@@ -585,13 +571,10 @@ offset_top = -13.5269165
 offset_right = 14.473099
 offset_bottom = 14.4730835
 
-[node name="StaticBody2D" parent="Zones/Purple2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Purple2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Purple2/StaticBody2D" parent_id_path=PackedInt32Array(1816198105, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
-[node name="Carousel" type="Node2D" parent="." index="4" unique_id=584441020]
+[node name="Carousel" type="Node2D" parent="." index="5" unique_id=584441020]
 position = Vector2(120, 99)
 rotation = 6.2831855
 script = SubResource("GDScript_etasl")

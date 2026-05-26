@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_l0cwd"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_vnwci"]
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="4_4u223"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_vnwci"]
+[ext_resource type="AudioStream" uid="uid://btrhhxuty0wrn" path="res://shared/music/bar_intense.ogg" id="5_4u223"]
 [ext_resource type="Texture2D" uid="uid://bqw1r3yd4mh1g" path="res://scenes/levels/_res/checker.png" id="5_vd1yw"]
 [ext_resource type="Texture2D" uid="uid://c0nbcgpiodfqh" path="res://scenes/levels/_res/alt_edge.png" id="6_wkjcw"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_gycp8"]
@@ -203,6 +205,11 @@ func _process(delta: float) -> void:
 sections = Array[ExtResource("2_l0cwd")]([SubResource("Resource_gycp8"), SubResource("Resource_08qf2"), SubResource("Resource_l0cwd"), SubResource("Resource_prm31"), SubResource("Resource_ubfq5"), SubResource("Resource_5gm5m"), SubResource("Resource_h4erf"), SubResource("Resource_1buan"), SubResource("Resource_i1o7m"), SubResource("Resource_e008a"), SubResource("Resource_mpg6g")])
 number = 6
 
+[node name="StartMusic2" type="Node" parent="." index="0" unique_id=1111934901]
+script = ExtResource("4_vnwci")
+music = ExtResource("5_4u223")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
 [node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=1563412399]
 offset_top = -54.0
 offset_right = 239.0
@@ -229,7 +236,7 @@ mouse_filter = 2
 texture = ExtResource("6_wkjcw")
 stretch_mode = 1
 
-[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
 
 [node name="Spawnpoint2" parent="Spawnpoints" index="0" unique_id=884482947 instance=ExtResource("8_gycp8")]
 position = Vector2(238, 95)
@@ -239,7 +246,7 @@ rotation = 1.5707964
 position = Vector2(2, 95)
 rotation = -1.5707964
 
-[node name="Zones" type="Node2D" parent="." index="2" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("9_prm31")]
 position = Vector2(37, 48)
@@ -315,7 +322,7 @@ texture = ExtResource("10_rge87")
 [node name="CollisionPolygon2D" parent="Zones/Purple/StaticBody2D" parent_id_path=PackedInt32Array(1275813342, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 16, -19, 16, 37, -40, 37, -36, 33, 12, 33, 12, -15, -36, -15, -36, 33, -40, 37)
 
-[node name="Node2D" type="Node2D" parent="." index="8" unique_id=134092048]
+[node name="Node2D" type="Node2D" parent="." index="9" unique_id=134092048]
 position = Vector2(120, 95)
 script = SubResource("GDScript_l0cwd")
 

@@ -3,11 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dkmrpfkw3354n" path="res://scenes/menus/_res/Sprite-0002.png" id="1_n17qi"]
 [ext_resource type="Script" uid="uid://c2a2da7y25l0" path="res://scenes/menus/title_screen/title_screen.gd" id="1_qc2aw"]
 [ext_resource type="Texture2D" uid="uid://wdrl2gywg5u2" path="res://scenes/menus/_res/Sprite-0003.png" id="2_eqhve"]
+[ext_resource type="AudioStream" uid="uid://b42pxc0uju6em" path="res://shared/music/title_screen.ogg" id="3_00755"]
 [ext_resource type="Texture2D" uid="uid://dn3m4f7estkq5" path="res://scenes/menus/_res/Sprite-0007.png" id="5_ptv5j"]
 [ext_resource type="Texture2D" uid="uid://bdsyklmnpsuyn" path="res://scenes/menus/_res/Sprite-0005.png" id="6_ptv5j"]
 [ext_resource type="FontFile" uid="uid://cjwu7p0ffw0jl" path="res://shared/fonts/HP-Boneheaded-Regular.ttf" id="6_ugfu2"]
 [ext_resource type="PackedScene" uid="uid://bb43xse07c34y" path="res://scenes/menus/title_screen/level_button.tscn" id="8_00755"]
 [ext_resource type="FontFile" uid="uid://di848vtof3uuk" path="res://shared/fonts/HPLookinSharpRegular.ttf" id="8_ssxho"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="9_1wpcv"]
 
 [sub_resource type="FontVariation" id="FontVariation_yx444"]
 base_font = ExtResource("8_ssxho")
@@ -150,6 +152,10 @@ _data = {
 script = ExtResource("1_qc2aw")
 anim = NodePath("AnimationPlayer")
 level_buttons_parent = NodePath("LevelScreen/ColorRect/LevelButtonContainer1")
+
+[node name="StartMusic" type="Node" parent="." unique_id=2091648707]
+script = ExtResource("9_1wpcv")
+music = ExtResource("3_00755")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=445688015]
 position = Vector2(120, 80)
@@ -354,7 +360,6 @@ text = "15. Rainbow River"
 
 [node name="16" parent="LevelScreen/ColorRect/LevelButtonContainer1" unique_id=1257922178 instance=ExtResource("8_00755")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.20392157, 0.2, 0.2, 1)
 text = "16. Drunkpowder"
 
 [node name="Back" type="Button" parent="LevelScreen/ColorRect" unique_id=1090899511]

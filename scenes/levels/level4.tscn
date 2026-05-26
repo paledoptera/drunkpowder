@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_go002"]
 [ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_f62st"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_u0bhu"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_w24lh"]
+[ext_resource type="AudioStream" uid="uid://cgogi30b8fq6q" path="res://shared/music/special_casino.ogg" id="5_5sfmg"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_t7v7a"]
 [ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="8_f62st"]
 [ext_resource type="FontFile" uid="uid://dxtc1q812b14x" path="res://shared/fonts/alagard.ttf" id="9_w24lh"]
@@ -307,6 +309,11 @@ func _physics_process(delta: float) -> void:
 sections = Array[ExtResource("3_go002")]([SubResource("Resource_4vryo"), SubResource("Resource_f62st"), SubResource("Resource_g1ckg"), SubResource("Resource_nfihu"), SubResource("Resource_w24lh"), SubResource("Resource_nfihu"), SubResource("Resource_qtppw"), SubResource("Resource_f62st"), SubResource("Resource_7kkoh"), SubResource("Resource_w1hcc"), SubResource("Resource_nfihu"), SubResource("Resource_ph4mq"), SubResource("Resource_nfihu")])
 number = 3
 
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=603854739]
+script = ExtResource("4_w24lh")
+music = ExtResource("5_5sfmg")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
 [node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=2002412309]
 offset_left = -121.0
 offset_top = -55.0
@@ -421,7 +428,7 @@ offset_right = 2.0
 offset_bottom = 21.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=2120049199]
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=2120049199]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Spawnpoints" index="0" unique_id=566599711]
 libraries/ = SubResource("AnimationLibrary_5sjjt")
@@ -452,7 +459,7 @@ loop = false
 rotation = 3.1415927
 velocity = 100.0
 
-[node name="Zones" type="Node2D" parent="." index="2" unique_id=1627028995]
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1627028995]
 
 [node name="Red" parent="Zones" index="0" unique_id=1407830815 instance=ExtResource("14_hyuqe")]
 position = Vector2(120.00001, 77)
@@ -500,7 +507,7 @@ offset_bottom = 20.0
 [node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" parent_id_path=PackedInt32Array(1950830002, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
 
-[node name="Carousel" type="Node2D" parent="." index="3" unique_id=584441020]
+[node name="Carousel" type="Node2D" parent="." index="4" unique_id=584441020]
 position = Vector2(120, 109)
 rotation = 6.2831855
 script = SubResource("GDScript_etasl")

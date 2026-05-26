@@ -16,9 +16,10 @@ func _ready() -> void:
 		if spawnpoint.is_in_group("hazard_spawnpoint"):
 			spawnpoints.append(spawnpoint)
 	
-	$Timer.start(firing_delay)
+	if firing_delay != -1.0:
+		$Timer.start(firing_delay)
 
-func _on_timer_timeout() -> void:
+func fire() -> void:
 	if Global.level.ended:
 		return
 	match firing_mode:

@@ -7,6 +7,8 @@ var ignited: bool = false:
 		ignited = value
 		$TextureRect/IgnitedOverlay.visible = value
 
+var visible_on_screen: bool = true
+signal entered_screen
 
 func ignite() -> void:
 	ignited = true
@@ -36,3 +38,12 @@ func _on_ignition_timer_timeout() -> void:
 		Global.damage(1)
 	
 	
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	visible_on_screen = true
+	entered_screen.emit()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	visible_on_screen = false

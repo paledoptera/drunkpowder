@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_c6thi"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_16q2q"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_bf1ur"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_bf1ur"]
 [ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_g7hm7"]
+[ext_resource type="AudioStream" uid="uid://dgv1lod1kydo2" path="res://shared/music/bar_groovy.ogg" id="5_g7hm7"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="5_xuust"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_kq0s3"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_vloh2"]
@@ -202,7 +204,12 @@ size = Vector2(56, 196)
 sections = Array[ExtResource("2_16q2q")]([SubResource("Resource_e2yq7"), SubResource("Resource_nfihu"), SubResource("Resource_tkgv8"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu")])
 number = 12
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=1148036600]
+script = ExtResource("4_bf1ur")
+music = ExtResource("5_g7hm7")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
+[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=854042606]
 offset_left = -238.0
@@ -303,7 +310,7 @@ offset_right = 2.0
 offset_bottom = 46.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("10_cq2g3")]
 position = Vector2(120, 160)
@@ -317,7 +324,7 @@ rotation = 3.4906585
 position = Vector2(111, 160)
 rotation = 2.6179938
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("11_13w8r")]
 position = Vector2(48, 66)

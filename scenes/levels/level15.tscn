@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://ck2g0cppjpon4" path="res://entities/zones/_res/purple.png" id="11_wm8qe"]
 [ext_resource type="Texture2D" uid="uid://bw6uvsdcreoyj" path="res://entities/zones/_res/red.png" id="12_86qe7"]
 [ext_resource type="PackedScene" uid="uid://bck58lo320iqk" path="res://entities/zones/blue.tscn" id="12_absfi"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="13_74lmc"]
+[ext_resource type="AudioStream" uid="uid://nktlay3coimk" path="res://shared/music/bar_racecar.ogg" id="14_712qu"]
 
 [sub_resource type="Resource" id="Resource_5x7nc"]
 script = ExtResource("3_712qu")
@@ -276,7 +278,12 @@ _data = {
 sections = Array[ExtResource("2_74lmc")]([SubResource("Resource_hw1kd"), SubResource("Resource_lnxpb"), SubResource("Resource_wgfvi"), SubResource("Resource_xr5re"), SubResource("Resource_75nnh"), SubResource("Resource_b8bg4"), SubResource("Resource_w8oq5")])
 number = 14
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=307339607]
+script = ExtResource("13_74lmc")
+music = ExtResource("14_712qu")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
+[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1563412399]
 offset_top = -54.0
@@ -333,13 +340,13 @@ position = Vector2(271, 183)
 shape = SubResource("RectangleShape2D_nfihu")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
 
 [node name="Spawnpoint2" parent="Spawnpoints" index="0" unique_id=884482947 instance=ExtResource("10_0pgk8")]
 position = Vector2(120, 159)
 rotation = -3.1415927
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="Green2" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("12_absfi")]
 position = Vector2(-150, 48)
@@ -482,7 +489,7 @@ texture = ExtResource("11_wm8qe")
 [node name="CollisionPolygon2D" parent="Zones/Purple/StaticBody2D" parent_id_path=PackedInt32Array(1275813342, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-40, -19, 0, -19, 0, 37, -40, 37, -36, 33, -4, 33, -4, -15, -36, -15, -36, 33, -40, 37)
 
-[node name="Edge2" type="TextureRect" parent="." index="4" unique_id=282547714]
+[node name="Edge2" type="TextureRect" parent="." index="5" unique_id=282547714]
 modulate = Color(0.40244666, 0.3286, 0.53, 1)
 offset_top = 88.0
 offset_right = 240.0
@@ -497,7 +504,7 @@ stretch_mode = 1
 position = Vector2(121, 8)
 shape = SubResource("RectangleShape2D_5x7nc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9" unique_id=152256862]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=152256862]
 root_node = NodePath("../Zones")
 libraries/ = SubResource("AnimationLibrary_hw1kd")
 autoplay = &"position"

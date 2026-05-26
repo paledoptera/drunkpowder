@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cy02q3vhr0kjs"]
+
+[ext_resource type="Script" uid="uid://cq0dmpim7rg5h" path="res://bombwheel.gd" id="1_8cvln"]
+[ext_resource type="Texture2D" uid="uid://7wucxsvk7nc6" path="res://scenes/boss/_res/bomb_wheel.png" id="3_1v3mk"]
+[ext_resource type="PackedScene" uid="uid://bei8oteimrwd1" path="res://scenes/boss/stasis_point.tscn" id="4_ypjks"]
+[ext_resource type="PackedScene" uid="uid://bjsdyso2d4w8s" path="res://entities/bombs/red.tscn" id="5_ypjks"]
+
+[node name="Bombwheel" type="Node2D" unique_id=1660156866]
+script = ExtResource("1_8cvln")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=532275610]
+texture = ExtResource("3_1v3mk")
+
+[node name="Arm1" type="Node2D" parent="." unique_id=649182628]
+
+[node name="StasisPoint" parent="Arm1" unique_id=842460257 instance=ExtResource("4_ypjks")]
+position = Vector2(0, -32)
+
+[node name="Bomb" parent="Arm1/StasisPoint" unique_id=966582241 instance=ExtResource("5_ypjks")]
+
+[node name="Arm2" type="Node2D" parent="." unique_id=714687423]
+rotation = 1.5707964
+
+[node name="StasisPoint" parent="Arm2" unique_id=481625803 instance=ExtResource("4_ypjks")]
+position = Vector2(0, -32)
+
+[node name="Bomb" parent="Arm2/StasisPoint" unique_id=1276379456 instance=ExtResource("5_ypjks")]
+
+[node name="Arm3" type="Node2D" parent="." unique_id=191830001]
+rotation = 3.1415927
+
+[node name="StasisPoint" parent="Arm3" unique_id=725350339 instance=ExtResource("4_ypjks")]
+position = Vector2(0, -32)
+
+[node name="Bomb" parent="Arm3/StasisPoint" unique_id=1707080806 instance=ExtResource("5_ypjks")]
+
+[node name="Arm4" type="Node2D" parent="." unique_id=974169177]
+rotation = 4.712389
+
+[node name="StasisPoint" parent="Arm4" unique_id=1648388189 instance=ExtResource("4_ypjks")]
+position = Vector2(0, -32)
+
+[node name="Bomb" parent="Arm4/StasisPoint" unique_id=536320866 instance=ExtResource("5_ypjks")]

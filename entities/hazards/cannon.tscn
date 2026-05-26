@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bc4y5y4xrnxod"]
 
-[ext_resource type="Script" path="res://entities/hazards/cannon.gd" id="1_jw5x3"]
+[ext_resource type="Script" uid="uid://cb8wh84utj7uf" path="res://entities/hazards/cannon.gd" id="1_jw5x3"]
 
 [node name="Cannon" type="Node2D" unique_id=2091977036]
 script = ExtResource("1_jw5x3")
@@ -8,4 +8,4 @@ script = ExtResource("1_jw5x3")
 [node name="Timer" type="Timer" parent="." unique_id=1644706320]
 wait_time = 5.0
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="fire"]

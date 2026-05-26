@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://b6v35v32el481"]
+
+[ext_resource type="Texture2D" uid="uid://bfk5o4wdhqjir" path="res://scenes/boss/_res/player_cannon_slot.png" id="1_trd1r"]
+[ext_resource type="Script" uid="uid://dygggoui82crd" path="res://scenes/boss/player_cannon.gd" id="1_yjhmv"]
+[ext_resource type="Texture2D" uid="uid://bbuccjvwt3vkh" path="res://entities/hazards/_res/fireball.png" id="2_6eexq"]
+[ext_resource type="PackedScene" uid="uid://b3f5o0mvp1y7p" path="res://entities/effects/smoke_particle/smoke_particle.tscn" id="3_i7u65"]
+[ext_resource type="PackedScene" uid="uid://bei8oteimrwd1" path="res://scenes/boss/stasis_point.tscn" id="4_1l7ho"]
+[ext_resource type="PackedScene" uid="uid://ypu58akmjecd" path="res://entities/effects/explosion_particle/explosion_particle.tscn" id="4_yy6fo"]
+[ext_resource type="PackedScene" uid="uid://bgwfebdgtnu3v" path="res://entities/effects/smoke_particle/smoke_particle_puff.tscn" id="5_5mlkh"]
+[ext_resource type="Texture2D" uid="uid://brb2suo7fdg2s" path="res://scenes/boss/_res/player_cannon.png" id="6_ceuuh"]
+
+[sub_resource type="Curve" id="Curve_7ulnv"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.31196576, 62.656116), 202.63103, 202.63103, 0, 0, Vector2(1, 100), 14.229724, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_rasgh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40170938, 0.621149), -2.2060657, -2.2060657, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_6bate"]
+offsets = PackedFloat32Array(0, 0.4851752, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.3328807, 0.33288068, 0.33288068, 0)
+
+[sub_resource type="Gradient" id="Gradient_wt072"]
+
+[sub_resource type="Animation" id="Animation_6eexq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FireParticle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.3841858e-07, -29.000011)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmokeParticle2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplosionParticle2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yy6fo"]
+resource_name = "blast"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FireParticle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.2, 0.23333333),
+"transitions": PackedFloat32Array(1, 0, 1),
+"update": 0,
+"values": [Vector2(2.3841858e-07, -29.000011), Vector2(0, -100), Vector2(2.3841858e-07, -29.000011)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmokeParticle2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplosionParticle2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.20000002),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"damage_boss"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mlkh"]
+_data = {
+&"RESET": SubResource("Animation_6eexq"),
+&"blast": SubResource("Animation_yy6fo")
+}
+
+[node name="PlayerCannon" type="Node2D" unique_id=571957785]
+script = ExtResource("1_yjhmv")
+
+[node name="FireParticle" type="CPUParticles2D" parent="." unique_id=296974646]
+process_mode = 3
+show_behind_parent = true
+position = Vector2(2.3841858e-07, -29.000011)
+scale = Vector2(1.32, 1.32)
+amount = 70
+texture = ExtResource("2_6eexq")
+lifetime = 0.2
+speed_scale = 0.3
+randomness = 0.4
+local_coords = true
+direction = Vector2(0, -20)
+spread = 70.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+linear_accel_min = 10.0
+linear_accel_max = 500.0
+damping_curve = SubResource("Curve_7ulnv")
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_rasgh")
+color_ramp = SubResource("Gradient_6bate")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="SmokeParticle2" parent="FireParticle" unique_id=1789729948 instance=ExtResource("3_i7u65")]
+position = Vector2(0, -6)
+amount = 400
+lifetime = 1.0
+speed_scale = 0.7
+explosiveness = 0.0
+gravity = Vector2(0, -150)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+linear_accel_min = -300.0
+linear_accel_max = -100.0
+scale_amount_min = 0.2
+scale_amount_max = 1.5
+color = Color(1, 0.49010885, 0.4988736, 1)
+color_initial_ramp = SubResource("Gradient_wt072")
+
+[node name="FireParticle" type="CPUParticles2D" parent="FireParticle" unique_id=364082540]
+show_behind_parent = true
+amount = 30
+texture = ExtResource("2_6eexq")
+lifetime = 0.2
+speed_scale = 0.3
+randomness = 0.4
+direction = Vector2(0, -20)
+spread = 70.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 70.0
+linear_accel_min = 10.0
+linear_accel_max = 500.0
+damping_curve = SubResource("Curve_7ulnv")
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_rasgh")
+color_ramp = SubResource("Gradient_6bate")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1159153671]
+position = Vector2(0, 20)
+scale = Vector2(2, 2)
+texture = ExtResource("6_ceuuh")
+offset = Vector2(0, -16)
+
+[node name="Slot1" parent="." unique_id=842460257 instance=ExtResource("4_1l7ho")]
+position = Vector2(-24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot1" unique_id=1590762889]
+texture = ExtResource("1_trd1r")
+
+[node name="Slot2" parent="." unique_id=1348537341 instance=ExtResource("4_1l7ho")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot2" unique_id=2083604965]
+texture = ExtResource("1_trd1r")
+
+[node name="Slot3" parent="." unique_id=2031684831 instance=ExtResource("4_1l7ho")]
+position = Vector2(24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot3" unique_id=239231812]
+texture = ExtResource("1_trd1r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=217963737]
+libraries/ = SubResource("AnimationLibrary_5mlkh")
+
+[node name="SmokeParticle2" parent="." unique_id=1679217451 instance=ExtResource("5_5mlkh")]
+position = Vector2(0, -36.999996)
+speed_scale = 1.2
+fixed_fps = 30
+
+[node name="ExplosionParticle2" parent="." unique_id=504868403 instance=ExtResource("4_yy6fo")]
+position = Vector2(0, -103)
+
+[connection signal="bomb_entered_stasis" from="Slot1" to="." method="_on_bomb_entered_stasis"]
+[connection signal="bomb_entered_stasis" from="Slot2" to="." method="_on_bomb_entered_stasis"]
+[connection signal="bomb_entered_stasis" from="Slot3" to="." method="_on_bomb_entered_stasis"]

@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_kr3vy"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_tivk1"]
 [ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/_res/luigi_poker3.png" id="4_dmode"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_tivk1"]
 [ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="5_dmode"]
+[ext_resource type="AudioStream" uid="uid://ffjafliam8fk" path="res://shared/music/bar_ante_up.ogg" id="5_uqnj2"]
 [ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="6_dmode"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_h1yje"]
 [ext_resource type="PackedScene" uid="uid://bc4y5y4xrnxod" path="res://entities/hazards/cannon.tscn" id="8_dmode"]
@@ -77,10 +79,16 @@ amount = 1
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
+[sub_resource type="Resource" id="Resource_dmode"]
+script = ExtResource("3_tivk1")
+amount = 1
+bomb_type = 5
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
 [sub_resource type="Resource" id="Resource_km634"]
 resource_name = "Medium"
 script = ExtResource("2_kr3vy")
-data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_3mgnq"), SubResource("Resource_uc8rk"), SubResource("Resource_hseji")])
+data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_3mgnq"), SubResource("Resource_uc8rk"), SubResource("Resource_hseji"), SubResource("Resource_dmode")])
 delay_between_spawns = 0.75
 spawn_mode = 1
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -97,27 +105,27 @@ script = ExtResource("2_kr3vy")
 data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_000ip")])
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
-[sub_resource type="Resource" id="Resource_e257y"]
+[sub_resource type="Resource" id="Resource_kr3vy"]
 script = ExtResource("3_tivk1")
-amount = 2
+amount = 5
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
-[sub_resource type="Resource" id="Resource_7xq2f"]
+[sub_resource type="Resource" id="Resource_tivk1"]
 script = ExtResource("3_tivk1")
-amount = 2
+amount = 5
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
-[sub_resource type="Resource" id="Resource_xmmsn"]
+[sub_resource type="Resource" id="Resource_uqnj2"]
 script = ExtResource("3_tivk1")
-amount = 2
+amount = 5
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
-[sub_resource type="Resource" id="Resource_vjdek"]
+[sub_resource type="Resource" id="Resource_ybk5v"]
 resource_name = "Medium"
 script = ExtResource("2_kr3vy")
-data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_e257y"), SubResource("Resource_7xq2f"), SubResource("Resource_xmmsn")])
+data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_kr3vy"), SubResource("Resource_tivk1"), SubResource("Resource_uqnj2")])
 delay_between_spawns = 0.75
 spawn_mode = 1
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -129,20 +137,26 @@ data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_000ip")])
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
+[sub_resource type="Resource" id="Resource_bpv8q"]
+resource_name = "BreakNoRefresh"
+script = ExtResource("2_kr3vy")
+level_break = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
 [sub_resource type="Resource" id="Resource_7eb4w"]
 script = ExtResource("3_tivk1")
-amount = 1
+amount = 4
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_hadiw"]
 script = ExtResource("3_tivk1")
-amount = 1
+amount = 4
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_72x3h"]
 script = ExtResource("3_tivk1")
-amount = 1
+amount = 4
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
@@ -150,6 +164,7 @@ metadata/_custom_type_script = "uid://clavaqhijyeeg"
 resource_name = "Triple"
 script = ExtResource("2_kr3vy")
 data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_7eb4w"), SubResource("Resource_hadiw"), SubResource("Resource_72x3h")])
+delay_between_spawns = 1.5
 spawn_mode = 2
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
@@ -182,7 +197,6 @@ metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 resource_name = "LongerBreak"
 script = ExtResource("2_kr3vy")
 delay_between_spawns = 1.5
-refresh_board = true
 level_break = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -217,36 +231,71 @@ amount = 3
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
+[sub_resource type="Resource" id="Resource_h1yje"]
+script = ExtResource("3_tivk1")
+amount = 1
+bomb_type = 5
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
 [sub_resource type="Resource" id="Resource_wt4k6"]
 resource_name = "Fakeout"
 script = ExtResource("2_kr3vy")
-data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_wo5bm")])
-delay_between_spawns = 1.5
+data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_wo5bm"), SubResource("Resource_h1yje")])
+delay_between_spawns = 1.0
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
 [sub_resource type="Resource" id="Resource_4fww7"]
 script = ExtResource("3_tivk1")
-amount = 3
+amount = 5
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_gvm5i"]
 script = ExtResource("3_tivk1")
-amount = 3
+amount = 5
 bomb_type = 1
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
 [sub_resource type="Resource" id="Resource_ofpqk"]
 script = ExtResource("3_tivk1")
-amount = 3
+amount = 5
 bomb_type = 2
 metadata/_custom_type_script = "uid://clavaqhijyeeg"
 
+[sub_resource type="Resource" id="Resource_32cl3"]
+script = ExtResource("3_tivk1")
+amount = 3
+bomb_type = 4
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
 [sub_resource type="Resource" id="Resource_jrfo0"]
-resource_name = "Rapid"
+resource_name = "LotsOfTriples"
 script = ExtResource("2_kr3vy")
-data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_4fww7"), SubResource("Resource_gvm5i"), SubResource("Resource_ofpqk")])
-delay_between_spawns = 0.1
+data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_4fww7"), SubResource("Resource_gvm5i"), SubResource("Resource_ofpqk"), SubResource("Resource_32cl3")])
+delay_between_spawns = 2.0
 spawn_mode = 2
+await_board_clear = true
+metadata/_custom_type_script = "uid://cxrs7e5mafahr"
+
+[sub_resource type="Resource" id="Resource_uq8av"]
+script = ExtResource("3_tivk1")
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_02r4x"]
+script = ExtResource("3_tivk1")
+bomb_type = 1
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_rohyx"]
+script = ExtResource("3_tivk1")
+bomb_type = 2
+metadata/_custom_type_script = "uid://clavaqhijyeeg"
+
+[sub_resource type="Resource" id="Resource_qutlo"]
+resource_name = "End"
+script = ExtResource("2_kr3vy")
+data_pool = Array[ExtResource("3_tivk1")]([SubResource("Resource_uq8av"), SubResource("Resource_02r4x"), SubResource("Resource_rohyx")])
+delay_between_spawns = 1.1
+spawn_mode = 1
 await_board_clear = true
 metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 
@@ -260,15 +309,18 @@ size = Vector2(56, 196)
 size = Vector2(72, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmode"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr3vy"]
-size = Vector2(32, 32)
+size = Vector2(34, 39)
 
 [node name="Level" unique_id=873046396 instance=ExtResource("1_dmode")]
-sections = Array[ExtResource("2_kr3vy")]([SubResource("Resource_2rkt7"), SubResource("Resource_53v2u"), SubResource("Resource_nfihu"), SubResource("Resource_km634"), SubResource("Resource_rx4po"), SubResource("Resource_vjdek"), SubResource("Resource_qw2ud"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu")])
+sections = Array[ExtResource("2_kr3vy")]([SubResource("Resource_2rkt7"), SubResource("Resource_53v2u"), SubResource("Resource_nfihu"), SubResource("Resource_km634"), SubResource("Resource_rx4po"), SubResource("Resource_ybk5v"), SubResource("Resource_qw2ud"), SubResource("Resource_bpv8q"), SubResource("Resource_wb0vq"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_bpv8q"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu"), SubResource("Resource_qutlo"), SubResource("Resource_nfihu")])
 number = 10
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=572975589]
+script = ExtResource("4_tivk1")
+music = ExtResource("5_uqnj2")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
+[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=1563412399]
 modulate = Color(0.6392157, 0, 0.18039216, 1)
@@ -323,7 +375,7 @@ position = Vector2(271, 98)
 shape = SubResource("RectangleShape2D_nfihu")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="Cannon" parent="." index="2" unique_id=2091977036 instance=ExtResource("8_dmode")]
+[node name="Cannon" parent="." index="3" unique_id=2091977036 instance=ExtResource("8_dmode")]
 firing_delay = 10.0
 
 [node name="HazardSpawnpoint" parent="Cannon" index="1" unique_id=172747774 instance=ExtResource("9_kr3vy")]
@@ -332,7 +384,7 @@ rotation = -1.5707964
 velocity = 30.0
 
 [node name="HazardSpawnpoint2" parent="Cannon" index="2" unique_id=972896005 instance=ExtResource("9_kr3vy")]
-position = Vector2(-20, 84)
+position = Vector2(-20, 97)
 rotation = -1.5707964
 velocity = 30.0
 
@@ -341,7 +393,7 @@ position = Vector2(-20, 144)
 rotation = -1.5707964
 velocity = 30.0
 
-[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="4" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=1683387931 instance=ExtResource("8_qutlo")]
 position = Vector2(238, 61)
@@ -355,7 +407,7 @@ rotation = 1.5707964
 position = Vector2(238, 132)
 rotation = 1.5707964
 
-[node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="5" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("9_32cl3")]
 position = Vector2(122, 144)
@@ -382,18 +434,30 @@ position = Vector2(94, 58)
 shape = SubResource("RectangleShape2D_dmode")
 
 [node name="TextureRect" parent="Zones/Red" index="1" unique_id=105049977]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
+offset_left = -19.0
+offset_top = -22.0
+offset_right = 19.0
+offset_bottom = 20.0
 
-[node name="StaticBody2D" parent="Zones/Red" index="2" unique_id=2033168375]
-visible = true
+[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" parent_id_path=PackedInt32Array(765482569, 2033168375) index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-19, -22, 19, -22, 18.999992, 22, -19.000008, 21.999996, -19.000008, 17.999996, 14.999992, 18, 15, -18, -15, -18, -15.000008, 18, -19.000008, 17.999996)
 
-[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" index="0" unique_id=1283301792]
-polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
+[node name="Red2" parent="Zones" index="2" unique_id=1698102872 instance=ExtResource("10_uq8av")]
+position = Vector2(121, 103)
 
-[node name="Blue2" parent="Zones" index="2" unique_id=1770173030 instance=ExtResource("9_32cl3")]
+[node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
+shape = SubResource("RectangleShape2D_dmode")
+
+[node name="TextureRect" parent="Zones/Red2" index="1" unique_id=105049977]
+offset_left = -19.0
+offset_top = -22.0
+offset_right = 19.0
+offset_bottom = 20.0
+
+[node name="CollisionPolygon2D" parent="Zones/Red2/StaticBody2D" parent_id_path=PackedInt32Array(1698102872, 2033168375) index="0" unique_id=1283301792]
+polygon = PackedVector2Array(-19, -22, 19, -22, 18.999992, 22, -19.000008, 21.999996, -19.000008, 17.999996, 14.999992, 18, 15, -18, -15, -18, -15.000008, 18, -19.000008, 17.999996)
+
+[node name="Blue2" parent="Zones" index="3" unique_id=1770173030 instance=ExtResource("9_32cl3")]
 position = Vector2(149, 58)
 scale = Vector2(0.99999994, 0.99999994)
 
@@ -406,13 +470,10 @@ offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
 
-[node name="StaticBody2D" parent="Zones/Blue2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Blue2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Blue2/StaticBody2D" parent_id_path=PackedInt32Array(1770173030, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
-[node name="Green2" parent="Zones" index="3" unique_id=921818832 instance=ExtResource("11_02r4x")]
+[node name="Green2" parent="Zones" index="4" unique_id=921818832 instance=ExtResource("11_02r4x")]
 position = Vector2(163, 99)
 
 [node name="CollisionShape2D" parent="Zones/Green2" index="0" unique_id=1550895748]
@@ -424,13 +485,10 @@ offset_top = -14.000008
 offset_right = 14.287186
 offset_bottom = 13.999992
 
-[node name="StaticBody2D" parent="Zones/Green2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Green2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Green2/StaticBody2D" parent_id_path=PackedInt32Array(921818832, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
 
-[node name="Green" parent="Zones" index="4" unique_id=113705567 instance=ExtResource("11_02r4x")]
+[node name="Green" parent="Zones" index="5" unique_id=113705567 instance=ExtResource("11_02r4x")]
 position = Vector2(80, 99)
 
 [node name="CollisionShape2D" parent="Zones/Green" index="0" unique_id=1550895748]
@@ -442,30 +500,12 @@ offset_top = -14.000008
 offset_right = 14.287186
 offset_bottom = 13.999992
 
-[node name="StaticBody2D" parent="Zones/Green" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Green/StaticBody2D" parent_id_path=PackedInt32Array(113705567, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-14.000008, -14, 13.999992, -14, 13.999992, 14, -14.000008, 14, -14.000008, 10, 9.999992, 10, 9.999992, -10, -10.000008, -10, -10.000008, 10, -14.000008, 10)
-
-[node name="Red2" parent="Zones" index="5" unique_id=230399050 instance=ExtResource("10_uq8av")]
-position = Vector2(121, 99)
-
-[node name="CollisionShape2D" parent="Zones/Red2" index="0" unique_id=1550895748]
-shape = SubResource("RectangleShape2D_kr3vy")
-
-[node name="TextureRect" parent="Zones/Red2" index="1" unique_id=105049977]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-
-[node name="CollisionPolygon2D" parent="Zones/Red2/StaticBody2D" parent_id_path=PackedInt32Array(230399050, 2033168375) index="0" unique_id=1283301792]
-polygon = PackedVector2Array(-20.000008, -20, 19.999992, -20, 19.999992, 20, -20.000008, 20, -20.000008, 16, 15.999992, 16, 15.999992, -16, -16.000008, -16, -16.000008, 16, -20.000008, 16)
 
 [editable path="Zones/Blue"]
 [editable path="Zones/Red"]
+[editable path="Zones/Red2"]
 [editable path="Zones/Blue2"]
 [editable path="Zones/Green2"]
 [editable path="Zones/Green"]
-[editable path="Zones/Red2"]

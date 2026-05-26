@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_i5ldy"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_qug8b"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_gycjm"]
 [ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_oyk6k"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_y5diu"]
+[ext_resource type="AudioStream" uid="uid://ffjafliam8fk" path="res://shared/music/bar_ante_up.ogg" id="5_gycjm"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="7_oyk6k"]
 [ext_resource type="Texture2D" uid="uid://cegrg3txlnapq" path="res://scenes/levels/_res/table.png" id="10_i5ldy"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="11_2ygw2"]
@@ -407,7 +409,12 @@ size = Vector2(100, 22)
 sections = Array[ExtResource("3_qug8b")]([SubResource("Resource_plydf"), SubResource("Resource_nfihu"), SubResource("Resource_lgguw"), SubResource("Resource_oyk6k"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_gycjm"), SubResource("Resource_ydw67"), SubResource("Resource_sqrei"), SubResource("Resource_f3b2k"), SubResource("Resource_nfihu"), SubResource("Resource_b3p8y"), SubResource("Resource_ydw67"), SubResource("Resource_ida7w"), SubResource("Resource_ydw67"), SubResource("Resource_5qtw0"), SubResource("Resource_ycs18"), SubResource("Resource_nfihu"), SubResource("Resource_hlvfl"), SubResource("Resource_nfihu")])
 number = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0" unique_id=1290773266]
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=980728978]
+script = ExtResource("4_gycjm")
+music = ExtResource("5_gycjm")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1290773266]
 root_node = NodePath("../Spawnpoints")
 libraries/ = SubResource("AnimationLibrary_ko1rt")
 autoplay = &"spawnpoint_movement"
@@ -438,7 +445,7 @@ mouse_filter = 2
 texture = ExtResource("7_oyk6k")
 stretch_mode = 1
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
 
 [node name="LeftPath" type="Path2D" parent="Spawnpoints" index="0" unique_id=1013802512]
 curve = SubResource("Curve2D_i5ldy")
@@ -466,7 +473,7 @@ loop = false
 rotation = 3.1415927
 velocity = 100.0
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("12_g0kjq")]
 position = Vector2(160, 51)
@@ -480,10 +487,7 @@ offset_top = -15.0
 offset_right = 54.0
 offset_bottom = 15.0
 
-[node name="StaticBody2D" parent="Zones/Blue" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Blue/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-54, -15, 54, -15, 54, 15, -54, 15, -54, 11, 50, 11, 50, -11, -50, -11, -50, 11, -54, 11)
 
 [node name="Red" parent="Zones" index="1" unique_id=1407830815 instance=ExtResource("13_h22eu")]
@@ -498,10 +502,7 @@ offset_top = -15.0
 offset_right = 54.0
 offset_bottom = 15.0
 
-[node name="StaticBody2D" parent="Zones/Red" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/Red/StaticBody2D" parent_id_path=PackedInt32Array(1407830815, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-54, -15, 54, -15, 54, 15, -54, 15, -54, 11, 50, 11, 50, -11, -50, -11, -50, 11, -54, 11)
 
 [editable path="Zones/Blue"]

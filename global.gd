@@ -19,6 +19,7 @@ var health_max: int = 5
 var health: int = 5
 var holding_item: Node
 var save:= PlayerSave.new()
+var pause_pos: Vector2 = Vector2.ZERO
 
 var score : int
 
@@ -89,6 +90,7 @@ func _process(_delta: float) -> void:
 func toggle_pause():
 	paused = not paused
 	if paused:
+		pause_pos = get_viewport().get_mouse_position()
 		level.process_mode = Node.PROCESS_MODE_DISABLED
 		level.modulate = Color(0.6, 0.6, 0.6, 1.0)
 		level.cursor.hide()
@@ -99,6 +101,8 @@ func toggle_pause():
 		pause_menu.show()
 		pause_menu.process_mode = Node.PROCESS_MODE_INHERIT
 	else:
+		if pause_pos:
+			get_viewport().warp_mouse(pause_pos)
 		level.process_mode = Node.PROCESS_MODE_INHERIT
 		level.modulate = Color.WHITE
 		level.cursor.show()

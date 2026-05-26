@@ -10,13 +10,16 @@ var DEFUSED_SCENE = preload("uid://cqpms1sg3jqih")
 @export var sprite: Sprite2D
 @export var progress : Sprite2D
 @export var color: Global.BOMB_TYPE
-@export var fuse: float = 10.0
+@export var fuse: float = 12.5
+
 
 var direction : Vector2
 var speed : float = 50.0
 var speed_mult: float = 1.0
 @onready var fuse_progress : float = fuse
+var in_stasis : bool = false
 
+var mouse_hovering: bool = false
 var held: bool = false
 var held_offset := Vector2.ZERO
 var area_inside: Area2D
@@ -28,15 +31,45 @@ var initial_progress_y : int
 var i_count : int
 
 var defused_bomb: Node
+var fuse_lit: bool = false
 
 func _ready() -> void:
 	rotate_sign = [-1,1].pick_random()
 	initial_progress_position = progress.position
 	initial_progress_height = progress.region_rect.size.y
 	initial_progress_y = progress.region_rect.position.y
+	
+	if Global.level:
+		if not Global.level.await_visible_on_screen:
+			## Visible on screen check
+			# If a zone of a matching color isn't visible on screen, then delay the
+			# spawn until it is.
+			# This is so it's always possible to get a perfect sorting score
+			# on levels like level8, where a color might be
+			# slightly offscreen for a few seconds.
+			var correct_zone: Zone
+			for zone in Global.level.zones:
+				if zone.color == color:
+					correct_zone = zone
+					break
+			if correct_zone:
+				if not correct_zone.visible_on_screen:
+					await correct_zone.entered_screen
+	fuse_lit = true
+	
 
 func _physics_process(delta: float) -> void:
-	fuse_progress = move_toward(fuse_progress,0.0,delta)
+	
+	
+	if in_stasis:
+		if mouse_hovering:
+			$Target.show()
+		else:
+			$Target.hide()
+		return
+	
+	if fuse_lit:
+		fuse_progress = move_toward(fuse_progress,0.0,delta)
 	progress.position = initial_progress_position
 	progress.region_rect.size.y = int(fuse_progress/fuse*initial_progress_height)
 	progress.region_rect.position.y = (initial_progress_y + initial_progress_height - progress.region_rect.size.y)
@@ -67,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		drag(delta)
 	
-	global_position = get_global_mouse_position() - held_offset + Vector2(10,10)
+	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
 
 
 func move(delta) -> void:
@@ -80,28 +113,45 @@ func move(delta) -> void:
 	speed_mult = speed/40.0
 	direction = direction.rotated(rotate_sign*0.01*(0.9+(speed_mult/10)))
 	
+	if mouse_hovering:
+		$Target.show()
+	else:
+		$Target.hide()
+	
 	var collision = move_and_collide(direction * speed * delta)
 	if collision: 
 		direction = direction.bounce(collision.get_normal())
 
 
 func drag(delta) -> void:
-	var prev_pos = position
-	global_position = get_global_mouse_position() - held_offset + Vector2(10,10)
+	$Target.hide()
 	
-	held_offset = held_offset.lerp(Vector2(10,11),0.5)
+	var prev_pos = position
+	global_position = get_global_mouse_position() - held_offset + Vector2(15,15)
+	
+	held_offset = held_offset.lerp(Vector2(15,10),10.0*delta)
 	
 	if position - prev_pos != Vector2.ZERO: 
 		direction = (position - prev_pos)
 		speed = lerp(speed,(position-prev_pos).length()/delta,0.1)
 	
+	
 
 
 func pick_up(offset: Vector2) -> void:
+	in_stasis = false
+	if get_parent() is StasisPoint:
+		get_parent().bomb_in_stasis = null
+		get_parent().set_collision_layer_value(2,true)
+		
+		reparent(Global.level.parent_bombs)
+		
+	
 	Audio.play_sfx(preload("uid://by4u06xpmrt2k"),true,randf_range(0.8,1.2))
 	z_index = 400
 	z_as_relative = false
 	y_sort_enabled = false
+	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	held = true
 	held_offset = offset
@@ -114,6 +164,7 @@ func drop() -> void:
 	y_sort_enabled = true
 	held = false
 	set_collision_mask_value(1, true)
+	set_collision_layer_value(1, true)
 	$AnimationPlayer.play_backwards("pick_up")
 	$AnimationPlayer.queue("move")
 	Global.holding_item = null
@@ -125,6 +176,17 @@ func check_sort():
 		return
 	
 	for zone in area.get_overlapping_areas():
+		if zone is StasisPoint:
+			zone.set_collision_layer_value(2,false)
+			in_stasis = true
+			reparent(zone)
+			zone.bomb_in_stasis = self
+			zone.bomb_entered_stasis.emit(self,zone)
+			$AnimationPlayer.play("stasis")
+			set_collision_layer_value(1,false)
+			set_collision_mask_value(1, false)
+		
+		
 		if zone is Zone:
 			if zone.color == color:
 				if zone.ignited:
@@ -173,6 +235,12 @@ func defuse(zone: Zone) -> void:
 	defused_bomb.zone = zone
 	call_deferred("queue_free")
 
+
+func off_screen() -> void:
+	if get_parent() is not Zone and get_parent() is not StasisPoint:
+		queue_free()
+
+
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -189,3 +257,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_place_buffer_timeout() -> void:
 	check_sort()
+
+
+func _on_mouse_entered() -> void:
+	mouse_hovering = true
+
+
+func _on_mouse_exited() -> void:
+	mouse_hovering = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	off_screen()

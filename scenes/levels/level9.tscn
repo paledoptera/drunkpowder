@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="2_1na5m"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="3_xkdka"]
 [ext_resource type="Texture2D" uid="uid://dspjcxbfskosu" path="res://scenes/menus/_res/luigi_poker3.png" id="4_80f0i"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_xkdka"]
 [ext_resource type="Texture2D" uid="uid://bcnlathil3w6e" path="res://scenes/levels/_res/marble.png" id="5_80f0i"]
+[ext_resource type="AudioStream" uid="uid://btmqk6jy4ekcg" path="res://shared/music/bar_challenge.ogg" id="5_fal67"]
 [ext_resource type="Texture2D" uid="uid://nedkas31d31p" path="res://scenes/levels/_res/marble_edge.png" id="6_80f0i"]
 [ext_resource type="Texture2D" uid="uid://d3wb7ngwomv18" path="res://scenes/levels/_res/bartender_temp.png" id="7_xntys"]
 [ext_resource type="PackedScene" uid="uid://cuna42kimdj6k" path="res://entities/spawnpoints/spawnpoint.tscn" id="8_iek1g"]
@@ -285,7 +287,12 @@ event_anim = NodePath("Zones/AnimationPlayer")
 sections = Array[ExtResource("2_1na5m")]([SubResource("Resource_xntys"), SubResource("Resource_1na5m"), SubResource("Resource_xkdka"), SubResource("Resource_lgguw"), SubResource("Resource_ace8g"), SubResource("Resource_nfihu"), SubResource("Resource_ps2vj"), SubResource("Resource_nfihu"), SubResource("Resource_2p0ou"), SubResource("Resource_gblyi"), SubResource("Resource_7g6pv"), SubResource("Resource_nfihu")])
 number = 8
 
-[node name="Background" type="Node2D" parent="." index="1" unique_id=175378979]
+[node name="StartMusic" type="Node" parent="." index="0" unique_id=1521190275]
+script = ExtResource("4_xkdka")
+music = ExtResource("5_fal67")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
+[node name="Background" type="Node2D" parent="." index="2" unique_id=175378979]
 
 [node name="TextureRect" type="TextureRect" parent="Background" index="0" unique_id=616598615]
 modulate = Color(0.64, 0, 0.1813333, 1)
@@ -340,7 +347,7 @@ position = Vector2(271, 98)
 shape = SubResource("RectangleShape2D_lrck8")
 debug_color = Color(0.7333543, 0.4715793, 1.92523e-07, 0.41960785)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="3" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("8_iek1g")]
 position = Vector2(28, 159)
@@ -351,7 +358,7 @@ velocity = 200.0
 position = Vector2(210, 34)
 velocity = 200.0
 
-[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="4" unique_id=1463119416]
 
 [node name="BlueHolder" type="Node2D" parent="Zones" index="0" unique_id=1477305248]
 
@@ -368,10 +375,7 @@ offset_top = -27.0
 offset_right = 20.0
 offset_bottom = 27.0
 
-[node name="StaticBody2D" parent="Zones/BlueHolder/Blue1" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/BlueHolder/Blue1/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/BlueHolder/Blue1/StaticBody2D" parent_id_path=PackedInt32Array(112826103, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20, -27, 20, -27, 20, 27, -20, 27, -20, 23, 16, 23, 16, -23, -16, -23, -16, 23, -20, 23)
 
 [node name="IgnitionTimer" parent="Zones/BlueHolder/Blue1" index="3" unique_id=1570960540]
@@ -390,10 +394,7 @@ offset_top = -27.0
 offset_right = 20.0
 offset_bottom = 27.0
 
-[node name="StaticBody2D" parent="Zones/BlueHolder/Blue2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/BlueHolder/Blue2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/BlueHolder/Blue2/StaticBody2D" parent_id_path=PackedInt32Array(1914168594, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20, -27, 20, -27, 20, 27, -20, 27, -20, 23, 16, 23, 16, -23, -16, -23, -16, 23, -20, 23)
 
 [node name="IgnitionTimer" parent="Zones/BlueHolder/Blue2" index="3" unique_id=1570960540]
@@ -413,10 +414,7 @@ offset_top = -27.0
 offset_right = 20.0
 offset_bottom = 27.0
 
-[node name="StaticBody2D" parent="Zones/RedHolder/Red1" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/RedHolder/Red1/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/RedHolder/Red1/StaticBody2D" parent_id_path=PackedInt32Array(241756046, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20, -27, 20, -27, 20, 27, -20, 27, -20, 23, 16, 23, 16, -23, -16, -23, -16, 23, -20, 23)
 
 [node name="IgnitionTimer" parent="Zones/RedHolder/Red1" index="3" unique_id=1570960540]
@@ -434,10 +432,7 @@ offset_top = -27.0
 offset_right = 20.0
 offset_bottom = 27.0
 
-[node name="StaticBody2D" parent="Zones/RedHolder/Red2" index="2" unique_id=2033168375]
-visible = true
-
-[node name="CollisionPolygon2D" parent="Zones/RedHolder/Red2/StaticBody2D" index="0" unique_id=1283301792]
+[node name="CollisionPolygon2D" parent="Zones/RedHolder/Red2/StaticBody2D" parent_id_path=PackedInt32Array(1265045963, 2033168375) index="0" unique_id=1283301792]
 polygon = PackedVector2Array(-20, -27, 20, -27, 20, 27, -20, 27, -20, 23, 16, 23, 16, -23, -16, -23, -16, 23, -20, 23)
 
 [node name="IgnitionTimer" parent="Zones/RedHolder/Red2" index="3" unique_id=1570960540]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bei8oteimrwd1"]
+
+[ext_resource type="Script" uid="uid://d112ihm2urpxk" path="res://scenes/boss/stasis_point.gd" id="1_65bby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hptbn"]
+
+[node name="StasisPoint" type="Area2D" unique_id=842460257]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_65bby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1455825392]
+shape = SubResource("RectangleShape2D_hptbn")

@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cj45w1r8yi8q7" path="res://systems/level/level.tscn" id="1_ego0p"]
 [ext_resource type="Script" uid="uid://cxrs7e5mafahr" path="res://systems/level/level_section.gd" id="3_mv1ue"]
+[ext_resource type="Script" uid="uid://b8w1opgfih6cl" path="res://entities/components/start_music.gd" id="4_522sc"]
 [ext_resource type="Texture2D" uid="uid://bna58dth2c1kj" path="res://scenes/menus/_res/other_background.png" id="4_ah4rv"]
 [ext_resource type="Script" uid="uid://clavaqhijyeeg" path="res://systems/level/level_bomb_data.gd" id="4_rt21c"]
+[ext_resource type="AudioStream" uid="uid://btrhhxuty0wrn" path="res://shared/music/bar_intense.ogg" id="5_522sc"]
 [ext_resource type="Texture2D" uid="uid://d22vknrmuwt5" path="res://scenes/levels/_res/edge.png" id="6_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://cv0gs621cnjor" path="res://entities/hazards/bumpers.tscn" id="7_wb0vq"]
 [ext_resource type="FontFile" uid="uid://dxtc1q812b14x" path="res://shared/fonts/alagard.ttf" id="8_ah4rv"]
@@ -327,6 +329,11 @@ metadata/_custom_type_script = "uid://cxrs7e5mafahr"
 sections = Array[ExtResource("3_mv1ue")]([SubResource("Resource_ah4rv"), SubResource("Resource_edoqj"), SubResource("Resource_022ip"), SubResource("Resource_e2yq7"), SubResource("Resource_nfihu"), SubResource("Resource_tkgv8"), SubResource("Resource_nfihu"), SubResource("Resource_wb0vq"), SubResource("Resource_022ip"), SubResource("Resource_ps2vj"), SubResource("Resource_g7tkf"), SubResource("Resource_ahaer"), SubResource("Resource_nfihu"), SubResource("Resource_wt4k6"), SubResource("Resource_jrfo0"), SubResource("Resource_nfihu"), SubResource("Resource_6vxnv"), SubResource("Resource_rfqup"), SubResource("Resource_dc8aq"), SubResource("Resource_swbdl"), SubResource("Resource_pj0a0")])
 number = 2
 
+[node name="StartMusic2" type="Node" parent="." index="0" unique_id=2080795481]
+script = ExtResource("4_522sc")
+music = ExtResource("5_522sc")
+metadata/_custom_type_script = "uid://b8w1opgfih6cl"
+
 [node name="TextureRect" type="TextureRect" parent="BackgroundElements" parent_id_path=PackedInt32Array(1863968372) index="0" unique_id=854042606]
 offset_left = -238.0
 offset_top = -54.0
@@ -397,7 +404,7 @@ offset_right = 2.0
 offset_bottom = 46.0
 color = Color(0.89411765, 0.84705883, 0.08235294, 1)
 
-[node name="Spawnpoints" type="Node2D" parent="." index="1" unique_id=204912068]
+[node name="Spawnpoints" type="Node2D" parent="." index="2" unique_id=204912068]
 
 [node name="Spawnpoint" parent="Spawnpoints" index="0" unique_id=172747774 instance=ExtResource("11_4al73")]
 position = Vector2(120, 160)
@@ -411,7 +418,7 @@ rotation = 3.4906585
 position = Vector2(111, 160)
 rotation = 2.6179938
 
-[node name="Zones" type="Node2D" parent="." index="2" unique_id=1463119416]
+[node name="Zones" type="Node2D" parent="." index="3" unique_id=1463119416]
 
 [node name="Blue" parent="Zones" index="0" unique_id=241756046 instance=ExtResource("12_y84es")]
 position = Vector2(48, 72)

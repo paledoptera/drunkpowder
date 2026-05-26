@@ -9,7 +9,7 @@
 script = ExtResource("2_co7xk")
 emblem = NodePath("BombSprite/ColorswapEmblem")
 color = 1
-fuse = 15.0
+fuse = 17.5
 
 [node name="BombSprite" parent="." index="2" unique_id=1452204312]
 texture = ExtResource("3_co7xk")
